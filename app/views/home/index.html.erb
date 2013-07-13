@@ -1,0 +1,67 @@
+<div id="myCarousel" class="carousel slide span12">  
+    <!-- Carousel items -->  
+    <div class="carousel-inner">  
+        <div class="active item">
+          	<div class="container">
+	            <div class="carousel-caption">
+	              <h2>Example headline.</h2>
+	              <p class="lead">Cras justo odio, dapibus </p>
+	              <!--<a class="btn btn-large btn-primary" href="#">Sign up today</a>-->
+	            </div>
+          	</div>
+        	<img  src="/uploads/company/logo/10/banner.png" alt="banner"/>
+        </div>  
+        <div class="item">
+        	<div class="container">
+	            <div class="carousel-caption">
+	              <h2>Example headline.</h2>
+	              <p class="lead">Cras justo odio, dapibus </p>
+	              <!-- <a class="btn btn-large btn-primary" href="#">Sign up today</a>-->
+	            </div>
+          	</div>
+        	<img src="/uploads/company/logo/10/banner.png" alt="banner"/>
+        </div>  
+        <div class="item">
+        	<div class="container">
+	            <div class="carousel-caption">
+	              <h2>Example headline.</h2>
+	              <p class="lead">Cras justo odio, dapibus </p>
+	              <!--<a class="btn btn-large btn-primary" href="#">Sign up today</a>-->
+	            </div>
+          	</div>
+        	<img src="/uploads/company/logo/10/banner.png" alt="banner"/>
+        </div>  
+        <div class="item">
+        	<div class="container">
+	            <div class="carousel-caption">
+	              <h2>Example headline.</h2>
+	              <p class="lead">Cras justo odio, dapibus </p>
+	              <!-- <a class="btn btn-large btn-primary" href="#">Sign up today</a>-->
+	            </div>
+          	</div>
+        	<img src="/uploads/company/logo/10/banner.png" alt="banner"/>
+        </div>  
+  	</div>  
+</div>
+<!--
+<a class="carousel-control left custom-left" href="#myCarousel" data-slide="prev">‹</a>  
+<a class="carousel-control right custom-right" href="#myCarousel" data-slide="next">›</a>  
+-->
+<div class="row">
+		<div class="span6">
+			<div>command compaines</div>
+			<div>
+				<% @all_companies.each do |company| %>
+				<p><%= link_to company.name, company_path(company.id) %>|<%= company.created_at.year %>-<%= company.created_at.month %>-<%= company.created_at.day %></p>
+				<% end %>
+			</div>
+		</div>
+
+		<div class="span6">
+			<span>Recently join company</span>
+			<% @recently_companies.each do |company| %>
+				<p><%= link_to company.name, company_path(company.id) %></p>
+			<% end %>
+		</div>
+</div>
+<script> $(function(){ $('#myCarousel').carousel(); }); </script>

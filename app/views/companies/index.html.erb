@@ -1,0 +1,9 @@
+<p>Companies List</p>
+<ul>
+	<% if current_user.admin? %>
+		<% @companies.each do |company| %>
+			<li> <%= company.id %> <%= link_to company.name, company %></li>
+			<span><%= link_to 'delete', company, method: :delete, data: {confirm: "Your sure"} %></span>
+		<% end %>
+	<% end %>
+</ul>

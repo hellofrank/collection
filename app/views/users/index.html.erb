@@ -1,0 +1,14 @@
+<h1>Usersindex</h1>
+<ul class="users">
+  <% @users.each do |user| %>
+    <li>
+      <%= link_to user.name, user %> signed up <%= user.created_at.to_date %>
+    </li>
+    <li>
+      <% if current_user.admin? || !current_user==user %>
+      <span><%= link_to 'edit', edit_user_path(user.id) %></span>
+      <span><%= link_to 'delete', user, method: :delete, data: { confirm: "You sure"} %></span>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

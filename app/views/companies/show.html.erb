@@ -1,0 +1,96 @@
+<div class="span12">
+	<%= image_tag @company.logo_url if @company.logo?  %>
+<!--<div>image_tag @company.logo_url(:thumb) if @company.logo?</div>-->
+</div>
+<div class="row">
+	<div class="span3 bs-docs-sidebar">
+		<ul class="nav nav-list bs-docs-sidenav affix">
+			<li>
+				<i class="icon-chevron-right"></i>
+				<%= link_to 'About Company', '#' %>
+			</li>
+			<li>
+				<i class="icon-chevron-right"></i>
+				<%= link_to 'Contact Us', '#' %>
+			</li>
+			<li>
+				<i class="icon-chevron-right"></i>
+				<%= link_to 'Address', '#' %>
+			</li>
+			<li>
+				<i class="icon-chevron-right"></i>
+				<%= link_to 'Owner', '#' %>
+			</li>
+			<li>
+				<i class="icon-chevron-right"></i>
+				<%= link_to 'Projects', '#' %>
+			</li>
+		</ul>
+	</div>
+	<div class="span9 detial-content">
+		<section>
+			<%= @company.name %>
+			<p>
+				josjdofjodjfijsdfojsodfjosdjfosdfjosdjfosjdfojsdofjodsjfosjdfojsdfsdfsdfsdfsdfdsfsdfdsfsdfsdfsdfsdfdsfsdfsdfsdfsdfsdfsdfsdfsdfsdfsfddssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+			</p>
+			<p>
+				josjdofjodjfijsdfojsodfjosdjfosdfjosdjfosjdfojsdofjodsjfosjdfojsdf
+			</p>
+			<p>
+				josjdofjodjfijsdfojsodfjosdjfosdfjosdjfosjdfojsdofjodsjfosjdfojsdf
+			</p>
+			<p>
+				josjdofjodjfijsdfojsodfjosdjfosdf
+				josdjfosjdfojsdofjodsjfosjdfojsdf
+			</p>
+			<p>
+				josjdofjodjfijsdfojsodfjosdjfosdf
+				josdjfosjdfojsdofjodsjfosjdfojsdf
+			</p>
+			<p>
+				josjdofjodjfijsdfojsodfjosdjfosdf
+				josdjfosjdfojsdofjodsjfosjdfojsdf
+			</p>
+			<p>
+				josjdofjodjfijsdfojsodfjosdjfosdf
+				josdjfosjdfojsdofjodsjfosjdfojsdf
+			</p>
+			<p>
+				josjdofjodjfijsdfojsodfjosdjfosdf
+				josdjfosjdfojsdofjodsjfosjdfojsdf
+			</p>
+			<p>
+				josjdofjodjfijsdfojsodfjosdjfosdf
+				josdjfosjdfojsdofjodsjfosjdfojsdf
+			</p>
+			<p>
+				josjdofjodjfijsdfojsodfjosdjfosdf
+				josdjfosjdfojsdofjodsjfosjdfojsdf
+			</p>
+			<p>
+				josjdofjodjfijsdfojsodfjosdjfosdf
+				josdjfosjdfojsdofjodsjfosjdfojsdf
+			</p>
+		</section>
+		<section>
+			<%= @company.owner %>
+		</section>
+		<section>
+			<%= @company.about %>
+		</section>
+		<section>
+			<%= @company.contact %>
+		</section> 
+	</div>
+</div>
+
+
+<% if @company.projects.any? %>
+  <h3>Projects (<%= @projects.count %>)</h3>
+  <ol class="projects">
+    <% @projects.each do |project| %>
+      <li><%= project.name %> <%= project.content %></li>
+    <% end %>
+  </ol>
+<% end %>
+<%= link_to "add project", new_company_project_path(@company.id) %>
