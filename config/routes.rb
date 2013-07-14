@@ -1,5 +1,5 @@
 SampleApp::Application.routes.draw do
-  devise_for :admins
+#devise_for :admins
 
 #get "users/index"
 
