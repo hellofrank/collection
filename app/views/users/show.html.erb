@@ -1,12 +1,11 @@
 <h3>Users</h3>
-<p>User: <%= @user.name %></p>
-<p>Email: <%= @user.email if @user.email %></p>
+<p>用户名: <h4><%= @user.name if @user.name %></h4></p>
+<p>邮箱: <h4> <%= @user.email if @user.email %></h4></p>
 
 <div class="row">
 	<div class="span6">
 		<ul class="nav">
-			<li><%= link_to 'Users', users_path %></li>
-			<li><%= link_to 'Companies', companies_path %></li>
+			<li><%= link_to '创建公司', new_user_company_path(@user) %></li>
 		</ul>
 	</div>
 	<div class="span6">
