@@ -1,8 +1,7 @@
 class UsersController < ApplicationController
-  before_filter :authenticate_user!, only: [:view]
-  before_filter :authenticate_admin, only: [:delete,:index]
-  before_filter :current_user, only: [:edit, :update]
   
+  before_filter :signed_in, only: [:show,:update,:edit]
+  before_filter :auth_admin, only: [:index,:delete]
 
   def index
     @users = User.all
@@ -21,10 +20,15 @@ class UsersController < ApplicationController
     @user.destory
   end
   
-  #private 
+  private 
 
-   # def admin_user
-    #  redirect_to(root_path) unless current_user.admin?
-    #end
-    
+   def signed_in
+	   redirect_to(root_path) unless current_user
+   end
+
+   def auth_admin
+	   redirect_to(root_path) unless current_admin
+   end
+
+
 end

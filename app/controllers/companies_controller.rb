@@ -1,8 +1,6 @@
 class CompaniesController < ApplicationController
 
-  before_filter :authenticate_user!,only: [:view]
-  before_filter :authenticate_user, only:[:update]
-  before_filter :authenticate_admin,only:[:create,:index,:destroy]
+  before_filter :sign_in
   def index
     @companies = Company.all
   end
@@ -33,5 +31,9 @@ class CompaniesController < ApplicationController
   #def admin_user
    # redirect_to(root_path) unless current_user.admin?
   #end
+
+  def sign_in
+	  redirect_to(root_path) unless current_user
+  end
 
 end
