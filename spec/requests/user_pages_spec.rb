@@ -57,12 +57,23 @@ end
 
 describe "user show page" do
   subject { page }
+  before { visit new_user_session_path }
   describe "profile page" do
-    let(:user) { FactoryGirl.create(:user) }
-    before { visit user_path(user) }
-    it { should have_selector('h4', text: user.name)}
-    it { should have_selector('h4', text: user.email)}
-    it { should have_link('创建公司', href: new_user_company_path(user))}
+	before(:each) do
+		@user = FactoryGirl.create(:user)
+		@user.confirmed_at = Time.now
+		@user.save
+	end
+	before do
+		fill_in "邮箱", with: @user.email
+		fill_in "密码", with: @user.password
+		click_button "登录"
+	end
+
+    before { visit user_path(@user) }
+    it { should have_selector('h4', text: @user.name)}
+    it { should have_selector('h4', text: @user.email)}
+    it { should have_link('创建公司', href: new_user_company_path(@user))}
   end
 end
 end
