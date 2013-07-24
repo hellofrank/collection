@@ -23,7 +23,8 @@
 #
 
 class Company < ActiveRecord::Base
-  attr_accessible :logo,:about, :address, :contact, :name, :owner
+  attr_accessible :logo,:about, :name, :owner,:province, :city, :district, :email, :phone, :telephone, :qq,
+	  			  :address_other, :contact_other, :category
   belongs_to :user
   belongs_to :admin
   has_many :projects, dependent: :destroy

@@ -49,7 +49,7 @@
 -->
 <div class="row">
 		<div class="span6">
-			<div>command compaines</div>
+			<div>推荐公司</div>
 			<div>
 				<% @all_companies.each do |company| %>
 				<p><%= link_to company.name, company_path(company.id) %>|<%= company.created_at.year %>-<%= company.created_at.month %>-<%= company.created_at.day %></p>
@@ -58,7 +58,7 @@
 		</div>
 
 		<div class="span6">
-			<span>Recently join company</span>
+			<span>最近加入</span>
 			<% @recently_companies.each do |company| %>
 				<p><%= link_to company.name, company_path(company.id) %></p>
 			<% end %>

@@ -25,5 +25,20 @@
 require 'spec_helper'
 
 describe Company do
-  pending "add some examples to (or delete) #{__FILE__}"
+ 	let(:user) { FactoryGirl.create(:company) }
+    it { should respond_to(:owner) }	
+	it { should respond_to(:name) }
+	it { should respond_to(:about) }
+	it { should respond_to(:logo) }
+	it { should respond_to(:province) }
+	it { should respond_to(:city) }
+	it { should respond_to(:district) }
+	it { should respond_to(:email) }
+	it { should respond_to(:phone) }
+	it { should respond_to(:telephone) }
+	it { should respond_to(:qq) }
+	it { should respond_to(:address_other) }
+	it { should respond_to(:contact_other) }
+	it { should respond_to(:category) }
+
 end
