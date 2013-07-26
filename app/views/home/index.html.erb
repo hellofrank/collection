@@ -52,7 +52,7 @@
 			<div>推荐公司</div>
 			<div>
 				<% @all_companies.each do |company| %>
-				<p><%= link_to company.name, company_path(company.id) %>|<%= company.created_at.year %>-<%= company.created_at.month %>-<%= company.created_at.day %></p>
+					<p><%= link_to company.name, company_path(company.id) %>|<%= company.province%><%= company.city %>|<%= company.created_at.year %>-<%= company.created_at.month %>-<%= company.created_at.day %><%= company.category%></p>
 				<% end %>
 			</div>
 		</div>

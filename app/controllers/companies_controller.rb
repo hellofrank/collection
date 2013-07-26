@@ -14,6 +14,10 @@ class CompaniesController < ApplicationController
     @user = current_user
   end
 
+  def edit
+	@company = Company.find(params[:id])
+  end
+
   def destroy
     @company = Company.find(params[:id])
     @company.destroy
@@ -26,6 +30,15 @@ class CompaniesController < ApplicationController
     else
       render new_user_company_path(current_user)
     end
+  end
+
+  def update
+	  @company = Company.find(params[:id])
+	  if @company.update_attributes(params[:company])
+		  redirect_to company_path(@company)
+	  else
+		  render 'edit'
+	  end
   end
 
   #def admin_user

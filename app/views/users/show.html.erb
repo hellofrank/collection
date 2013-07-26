@@ -1,15 +1,23 @@
-<h3>Users</h3>
-<p>用户名: <h4><%= @user.name if @user.name %></h4></p>
-<p>邮箱: <h4> <%= @user.email if @user.email %></h4></p>
+<h4>用户后台管理</h4><div><%= link_to '创建公司', new_user_company_path(@user) %></div>
 
 <div class="row">
 	<div class="span6">
-		<ul class="nav">
-			<li><%= link_to '创建公司', new_user_company_path(@user) %></li>
-		</ul>
-	</div>
-	<div class="span6">
-		content
+		<div>
+			<% @user.companies.each do |company| %>
+				<div>
+					<div>
+						<span><%= link_to '编辑', edit_user_company_path(@user,company) %></span>
+						<span><%= link_to '删除', '#'%></span>
+					</div>
+					<div><span>公司名称</span><%= link_to company.name, company %></div>
+					<div><span>公司法人</span><%= company.owner %></div>
+					<div><span>联系方式</span><%= company.phone %>|<%= company.email %>|<%= company.telephone %>|<%= company.qq %></div>
+					<div><span>公司地址</span><%= company.province %>省<%= company.city%>市<%= company.district %>区<%= company.address_other%></div>
+					<div><span>公司简介</span><%= company.about%></div>
+					<div><span>公司工程</span><%= company.projects%></div>
+				</div>
+			<% end%>
+		</div>
 	</div>
 </div>
 

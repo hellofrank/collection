@@ -2,32 +2,33 @@
 	<%= image_tag @company.logo_url if @company.logo?  %>
 <!--<div>image_tag @company.logo_url(:thumb) if @company.logo?</div>-->
 </div>
+
 <div class="row">
-	<div class="span3 bs-docs-sidebar">
-		<ul class="nav nav-list bs-docs-sidenav affix">
+	<div class="navbar navbar-inverse nav-collapse">
+		<ul class="nav">
 			<li>
-				<i class="icon-chevron-right"></i>
-				<%= link_to 'About Company', '#' %>
+			<!--<i class="icon-chevron-right"></i>-->
+				<%= link_to '关于'+@company.name, '#' %>
 			</li>
 			<li>
-				<i class="icon-chevron-right"></i>
-				<%= link_to 'Contact Us', '#' %>
+			<!--<i class="icon-chevron-right"></i>-->
+				<%= link_to '联系'+@company.name, '#' %>
 			</li>
 			<li>
-				<i class="icon-chevron-right"></i>
-				<%= link_to 'Address', '#' %>
+			<!--<i class="icon-chevron-right"></i>-->
+				<%= link_to @company.name+'地址', '#' %>
 			</li>
 			<li>
-				<i class="icon-chevron-right"></i>
-				<%= link_to 'Owner', '#' %>
+			<!--<i class="icon-chevron-right"></i>-->
+				<%= link_to @company.name+'法人', '#' %>
 			</li>
 			<li>
-				<i class="icon-chevron-right"></i>
-				<%= link_to 'Projects', '#' %>
+			<!--<i class="icon-chevron-right"></i>-->
+				<%= link_to @company.name+'工程', '#' %>
 			</li>
 		</ul>
 	</div>
-	<div class="span9 detial-content">
+	<div class="span12 detial-content">
 		<section>
 			<%= @company.name %>
 			<p>

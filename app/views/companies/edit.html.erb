@@ -1,0 +1,50 @@
+<% provide(:title, '更新公司信息') %>
+<h2>更新公司信息 </h2>
+  <div class="span6 offset3">
+    <%= form_for(@company,:html => {:multipart => true} ) do |f| %>
+
+      <%= f.label :logo, 'Logo' %>
+      <%= f.file_field :logo %>
+      
+      <%= f.label :name, '公司名称' %>
+      <%= f.text_field :name %>
+      
+      <%= f.label :owner, '法人' %>
+      <%= f.text_field :owner %>
+
+	  <%= f.label :province, '省' %>
+	  <%= f.text_field :province %>
+
+	  <%= f.label :city, '市' %>
+	  <%= f.text_field :city %>
+
+	  <%= f.label :district, '区' %>
+	  <%= f.text_field :district %>
+	
+	  <%= f.label :address_other, '街道' %>
+	  <%= f.text_field :address_other %>
+
+	  <%= f.label :email, '邮箱' %>
+	  <%= f.text_field :email %>
+		
+	  <%= f.label :telephone, '手机' %>
+	  <%= f.text_field :telephone %>
+
+	  <%= f.label :phone, '座机' %>
+	  <%= f.text_field :phone %>
+
+	  <%= f.label :qq, 'QQ' %>
+	  <%= f.text_field :qq %>
+
+	  <%= f.label :contact_other, '其他' %>
+	  <%= f.text_field :contact_other %>
+
+	  <%= f.label :category, '类别'%>
+	  <%= f.text_field :category %>
+	
+      <%= f.label :about, '关于' %>
+      <%= f.text_field :about %>
+
+
+      <%= f.submit "创建", class: "btn btn-large btn-primary" %>
+    <% end %>
