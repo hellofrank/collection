@@ -1,2 +1,17 @@
-<h1>Projects#index</h1>
-<p>Find me in app/views/projects/index.html.erb</p>
+<div class="row">
+	<div id="opertor-title">
+		<h4 id="user-admin-title">用户后台管理</h4>
+		<div><%= link_to '创建公司', '#' %></div>
+	</div>
+	<div class="span2">
+		<div class="tabbable tabs-left">
+			<ul class="nav nav-list">
+				<li><%= link_to '公司管理', '#' %></li>
+				<li><%= link_to '工程管理', '#' %></li>
+			</ul>
+		</div>
+	</div>
+	<span class="span6">
+		<%= render @projects %>
+	</span>
+</div>

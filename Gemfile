@@ -1,5 +1,5 @@
-source 'https://rubygems.org'
-
+#source 'https://rubygems.org'
+source 'http://ruby.taobao.org/'
 gem 'rails', '3.2.12'
 gem 'bootstrap-sass', '2.0.4'
 # Bundle edge Rails instead:
@@ -9,7 +9,8 @@ gem 'mysql2'
 gem "simple_form", ">= 2.1.0"
 gem 'carrierwave', '0.6.2'
 gem 'mini_magick','3.3', :require => false
-
+gem 'rails_kindeditor', '~>0.3.20'
+#gem 'rb-readline'
 group :development, :test do
   gem 'rspec-rails', '2.11.0'
   gem 'annotate',     '2.5.0'

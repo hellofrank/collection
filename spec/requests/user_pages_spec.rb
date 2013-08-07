@@ -71,9 +71,7 @@ describe "user show page" do
 	end
 
     before { visit user_path(@user) }
-    it { should have_selector('h4', text: @user.name)}
-    it { should have_selector('h4', text: @user.email)}
-    it { should have_link('创建公司', href: new_user_company_path(@user))}
+    it { should have_link('添加工程', href: new_company_project_path(@user.company.id))}
   end
 end
 end

@@ -9,7 +9,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-	#@company = @user.companies
+	@company = @user.companies.first
+#	@projcets = @company.projcets 
   end
 
   def edit

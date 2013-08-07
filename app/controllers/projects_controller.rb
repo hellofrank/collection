@@ -14,6 +14,11 @@ class ProjectsController < ApplicationController
 
   end
 
+  def edit
+	@company = Company.find(params[:company_id])
+	@project = @company.projects.find(params[:id])
+  end
+
   def show
     @company = Company.find(params[:company_id])
     @project = @company.projects.find(params[:id])
@@ -21,6 +26,14 @@ class ProjectsController < ApplicationController
 
   def index
     @company = Company.find(params[:company_id])
-    @projects = @company.projects.find_all
+    @projects = @company.projects
   end
+
+  def destroy
+	  @company = Company.find(params[:company_id])
+	  @project = @company.projects.find(params[:id])
+	  @project.destroy
+	  redirect_to user_path current_user
+  end
+
 end

@@ -24,7 +24,7 @@ class CompaniesController < ApplicationController
   end
 
   def create
-    @company = current_user.companies.create(params[:company])
+    @company = current_user.company.create(params[:company])
     if @company
       redirect_to user_company_path(current_user,@company)
     else

@@ -1,15 +1,26 @@
-<% provide(:title, 'Create project') %>
-<h1>Create Project</h1>
+<% provide(:title, '添加工程') %>
 <div class="row">
-  <div class="span6 offset3">
+	<div id="operator-title">
+		<h4 id="user-admin-title">用户后台管理</h4>
+	</div>
+	<div class="span2">
+		<div class="tabbable tbs-left">
+			<ul class="nav nav-list">
+				<li><%= link_to '公司管理', '#'%></li>
+				<li><%= link_to '工程管理', '#'%></li>
+			</ul>
+		</div>
+	</div>
+	<div class="span6">
+	<h4>添加工程</h4>
     <%= form_for ([@company, @company.projects.build]) do |f| %>
 
-      <%= f.label :name %>
+      <%= f.label :name, '工程名' %>
       <%= f.text_field :name %>
 
-      <%= f.label :content %>
-      <%= f.text_field :content %>
-    <%= f.submit "Create my project", class: "btn btn-large btn-primary" %>
+      <%= f.label :content, '工程描述' %>
+      <%= f.kindeditor :content %>
+    <%= f.submit "添加工程", class: "btn btn-large btn-primary" %>
     <% end %>
   </div>
 </div>
