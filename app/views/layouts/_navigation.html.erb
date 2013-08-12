@@ -5,18 +5,15 @@
       <%= link_to current_user.name, user_path(current_user) %>
     </li>
     <li>
+    <%= link_to '编辑', edit_user_registration_path %>
+    </li>
+    <li>
     <%= link_to '退出', destroy_user_session_path, :method=>'delete' %>
     </li>
   <% else %>
     <li>
     <%= link_to '登录', new_user_session_path %>
     </li>
-  <% end %>
-  <% if user_signed_in? %>
-    <li>
-    <%= link_to '编辑', edit_user_registration_path %>
-    </li>
-  <% else %>
     <li>
     <%= link_to '注册', new_user_registration_path %>
     </li>

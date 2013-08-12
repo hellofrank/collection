@@ -1,14 +1,16 @@
 <% provide(:title, '更新工程信息') %>
-<h2>更新工程信息</h2>
-<div class="span6 offset3">
-	<%= form_for([@company,@project]) do |f| %>
-		
-		<%= f.label :name, '名字' %>
-		<%= f.text_field :name %>
+<div class="row">
+	<%= render "side" %>
+	<div class="span6">
+		<%= form_for([@company,@project]) do |f| %>
+			
+			<%= f.label :name, '名字' %>
+			<%= f.text_field :name %>
 
-		<%= f.label :content, '内容' %>
-		<%= f.kindeditor :content %>
-		
-		<%= f.submit "更新", class: "btn btn-large btn-primary" %>
-	<% end %>
+			<%= f.label :content, '内容' %>
+			<%= f.kindeditor :content %>
+			
+			<%= f.submit "更新", class: "btn btn-large btn-primary" %>
+		<% end %>
+	</div>
 </div>

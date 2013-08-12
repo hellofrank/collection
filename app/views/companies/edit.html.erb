@@ -1,6 +1,7 @@
 <% provide(:title, '更新公司信息') %>
-<h2>更新公司信息 </h2>
-  <div class="span6 offset3">
+<div class="row">
+	<%= render "side" %>
+	<div class="span6">
     <%= form_for(@company,:html => {:multipart => true} ) do |f| %>
 
       <%= f.label :logo, 'Logo' %>
@@ -45,6 +46,7 @@
       <%= f.label :about, '关于' %>
       <%= f.text_field :about %>
 
-
       <%= f.submit "创建", class: "btn btn-large btn-primary" %>
     <% end %>
+	</div>
+</div>	

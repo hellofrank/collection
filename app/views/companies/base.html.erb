@@ -1,0 +1,18 @@
+<div class="row">
+	<%= render "side" %>
+	<div class="span6">
+		<div>
+			<div><span>公司Logo:</span><%= image_tag @company.logo %></div>
+			<div>
+				<span>公司名称:</span>
+				<%= link_to @company.name, company_path(@company) %>
+				<span><%= link_to '编辑', edit_company_path(@company) %></span>
+				<span><%= link_to '删除', @company, method: :delete, data: { confirm: "确定?"} %></span>
+			</div>
+			<div><span>公司法人:</span><%= @company.owner %></div>
+			<div><span>联系方式:</span><%= @company.phone %>|<%= @company.email %>|<%= @company.telephone %>|<%= @company.qq %></div>
+			<div><span>公司地址:</span><%= @company.province %>省<%= @company.city%>市<%= @company.district %>区<%= @company.address_other%></div>
+			<div><span>公司简介:</span><%= @company.about%></div>
+		</div>
+	</div>
+</div>

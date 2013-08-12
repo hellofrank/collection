@@ -1,6 +1,6 @@
 class CompaniesController < ApplicationController
 
-  before_filter :sign_in
+  before_filter :sign_in, only: [:edit, :destroy,:create,:update,:base,:projects]
   def index
     @companies = Company.all
   end
@@ -41,6 +41,16 @@ class CompaniesController < ApplicationController
 	  end
   end
 
+  def base
+	  @user = current_user
+	  @company= Company.find(params[:id])
+  end
+
+  def projects
+	  @user = current_user
+	  @company = Company.find(params[:id])
+	  @projects = @company.projects
+  end
   #def admin_user
    # redirect_to(root_path) unless current_user.admin?
   #end

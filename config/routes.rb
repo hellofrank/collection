@@ -22,12 +22,21 @@ SampleApp::Application.routes.draw do
       root :to => 'home#index' 
   end
 
+  authenticated :admin do
+  	root :to => 'admins#index'
+  end
+
   # resources :admins do
   #   resources :companies
   # end
 
   resources :users do
-    resources :companies
+    resources :companies do
+		member do
+			get 'base'
+			get 'projects'
+		end
+	end
   end
 
 #root to: 'static_pages#home'

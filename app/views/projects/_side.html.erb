@@ -1,0 +1,19 @@
+<div id="operator-title">
+	<h4 id="user-admin-title">用户后台管理</h4>
+	<% if !@company %>
+		<div><%= link_to '创建公司', new_user_company_path(@user) %></div>
+	<% end %>
+	<div><%= link_to '添加工程', new_company_project_path(@company.id) %></div>
+</div>
+<div class="span2">
+	<div class="tabbable tabs-left">
+		<ul class="nav nav-list">
+			<li><%= link_to '基本信息', base_user_company_path(@user,@company) %></li>
+			<li><%= link_to '法人信息', '#' %></li>
+			<li><%= link_to '联系方式', '#' %></li>
+			<li><%= link_to '公司地址', '#' %></li>
+			<li><%= link_to '经典案例', '#' %></li>
+			<li><%= link_to '工程管理', projects_user_company_path(@user,@company) %></li>
+		</ul>
+	</div>
+</div>

@@ -1,0 +1,23 @@
+<%= link_to "Collections For Building Companies", root_path, :class => 'brand' %>
+<ul class="nav">
+	<% if admin_signed_in? %>
+		<li>
+		<%= link_to current_admin.email, admin_path(current_admin) %>
+		</li>
+		<li>
+		<%= link_to '退出', destroy_admin_session_path, :method=>'delete' %>
+		</li>
+		<li>
+		<%= link_to '编辑', edit_admin_registration_path %>
+		</li>
+	<% else %>
+		<li>
+			<%= link_to '登录', new_admin_session_path %>
+		</li>
+		<li>
+			<%= link_to '注册', new_user_registration_path %>
+		</li>
+	<% end %>
+	<li><%= link_to '知识', '#' %></li>
+	<li><%= link_to '公司', '#' %></li>
+</ul>
