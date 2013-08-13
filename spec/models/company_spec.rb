@@ -20,6 +20,7 @@
 #  address_other :string(255)
 #  contact_other :string(255)
 #  category      :string(255)
+#  service       :string(255)
 #
 
 require 'spec_helper'

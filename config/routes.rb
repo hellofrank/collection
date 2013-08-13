@@ -1,5 +1,13 @@
 SampleApp::Application.routes.draw do
 
+  get "owners/new"
+
+  get "contacts/new"
+
+  get "demos/new"
+
+  get "addresses/new"
+
 #get "users/index"
 
 #get "users/show"

@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130723065451) do
+ActiveRecord::Schema.define(:version => 20130813065846) do
+
+  create_table "addresses", :force => true do |t|
+    t.string   "province"
+    t.string   "city"
+    t.string   "district"
+    t.string   "street"
+    t.integer  "company_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -49,6 +59,37 @@ ActiveRecord::Schema.define(:version => 20130723065451) do
     t.string   "address_other"
     t.string   "contact_other"
     t.string   "category"
+    t.string   "service"
+  end
+
+  create_table "contacts", :force => true do |t|
+    t.string   "telephone"
+    t.string   "mobile"
+    t.string   "mail"
+    t.string   "qq"
+    t.string   "other"
+    t.integer  "company_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "demos", :force => true do |t|
+    t.string   "title"
+    t.string   "image"
+    t.string   "introduction"
+    t.integer  "company_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "owners", :force => true do |t|
+    t.string   "name"
+    t.string   "photo"
+    t.string   "about"
+    t.string   "license"
+    t.integer  "company_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "projects", :force => true do |t|
@@ -57,6 +98,8 @@ ActiveRecord::Schema.define(:version => 20130723065451) do
     t.integer  "company_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "money"
+    t.string   "kind"
   end
 
   create_table "users", :force => true do |t|
