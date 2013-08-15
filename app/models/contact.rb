@@ -15,4 +15,5 @@
 
 class Contact < ActiveRecord::Base
   attr_accessible :company_id, :mail, :mobile, :other, :qq, :telephone
+  belongs_to :company
 end

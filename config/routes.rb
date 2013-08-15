@@ -43,6 +43,10 @@ SampleApp::Application.routes.draw do
 		member do
 			get 'base'
 			get 'projects'
+			get 'contact'
+			get 'address'
+			get 'demos'
+			get 'owner'
 		end
 	end
   end
@@ -53,7 +57,32 @@ SampleApp::Application.routes.draw do
   match '/contact', to: 'static_pages#contact'
 
   resources :companies do
-     resources :projects
+     resources :projects do
+	 	member do
+			get 'view'
+		end
+	 end
   end
+
+  resources :companies do
+  	resources :addresses
+  end
+
+  resources :companies do
+	  resources :owners
+  end
+
+  resources :companies do
+	  resources :contacts
+  end
+
+  resources :companies do
+	  resources :demos do
+	  	member do
+			get 'view'
+		end
+	  end
+  end
+
 
 end

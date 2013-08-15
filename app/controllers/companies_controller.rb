@@ -51,6 +51,30 @@ class CompaniesController < ApplicationController
 	  @company = Company.find(params[:id])
 	  @projects = @company.projects
   end
+
+  def demos
+	  @user = current_user
+	  @company = Company.find(params[:id])
+	  @demos = @company.demos
+  end
+
+  def contact
+  	@user = current_user
+	@company = Company.find(params[:id])
+	@contact = @company.contacts.first 
+  end
+
+  def address
+	@user = current_user
+	@company = Company.find(params[:id])
+	@address = @company.addresses.first
+  end
+
+  def owner
+    @user = current_user
+	@company = Company.find(params[:id])
+	@owner = @company.owners.first
+  end
   #def admin_user
    # redirect_to(root_path) unless current_user.admin?
   #end

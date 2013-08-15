@@ -20,9 +20,26 @@ class ProjectsController < ApplicationController
 	@project = @company.projects.find(params[:id])
   end
 
+  def update
+	  @user = current_user
+	  @company = Company.find(params[:company_id])
+	  @project = @company.projects.find(params[:id])
+	  if @project.update_attributes(params[:project])
+		  redirect_to projects_user_company_path(@user,@company)
+	  else
+		  render 'edit'
+	  end
+  end
+
   def show
     @company = Company.find(params[:company_id])
     @project = @company.projects.find(params[:id])
+  end
+
+  def view
+	  @user = current_user
+	  @company = Company.find(params[:company_id])
+	  @project = @company.projects.find(params[:id])
   end
 
   def index

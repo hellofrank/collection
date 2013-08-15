@@ -1,0 +1,31 @@
+<div class="row">
+	<%= render "side" %>
+	<div class="span6">
+		<div>
+			<% if @contact %>
+				<div>
+					<span>座机:</span>
+					<%= @contact.telephone %>
+				</div>
+				<div>
+					<span>手机:</span>
+					<%= @contact.mobile %>
+				</div>
+				<div>
+					<span>邮箱:</span>
+					<%= @contact.mail %>
+				</div>
+				<div>
+					<span>QQ:</span>
+					<%= @contact.qq %>
+				</div>
+				<div>
+					<span>其他:</span>
+					<%= @contact.other %>
+				</div>
+			<% else %>
+				<%= link_to '添加', new_company_contact_path(@company) %>
+			<% end %>
+		</div>
+	</div>
+</div>

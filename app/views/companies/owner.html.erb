@@ -1,0 +1,23 @@
+<div class="row">
+	<%= render "side" %>
+	<div class="span6">
+		<div>
+			<% if @owner %>
+				<div>
+					<span>照片:</span>
+					<%= image_tag @owner.photo %>
+				</div>
+				<div>
+					<span>介绍:</span>
+					<%= @owner.about %>
+				</div>
+				<div>
+					<span>营业执照:</span>
+					<%= image_tag @owner.license %>
+				</div>
+			<% else %>
+				<%= link_to '添加', new_company_owner_path(@company) %>
+			<% end %>
+		</div>
+	</div>
+</div>

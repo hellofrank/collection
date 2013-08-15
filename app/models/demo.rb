@@ -13,4 +13,6 @@
 
 class Demo < ActiveRecord::Base
   attr_accessible :company_id, :image, :introduction, :title
+  mount_uploader :image, LogoUploader
+  belongs_to :company
 end

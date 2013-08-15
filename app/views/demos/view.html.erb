@@ -1,0 +1,9 @@
+<% provide(:title, '案例信息') %>
+<div class="row">
+	<%= render "side" %>
+	<div class="span6">
+		<span><%= @demo.title %></span>
+		<span><%= image_tag @demo.image %></span>
+		<span><%= @demo.introduction %></span>
+	</div>
+</div>

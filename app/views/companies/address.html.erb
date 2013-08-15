@@ -1,0 +1,30 @@
+<div class="row">
+	<%= render "side" %>
+	<div class="span6">
+		<div>
+			<% if @address %>
+				<div>
+					<span>省:</span>
+					<%= @address.province %>
+				</div>
+
+				<div>
+					<span>市:</span>
+					<%= @address.city %>
+				</div>
+
+				<div>
+					<span>区:</span>
+					<%= @address.district %>
+				</div>
+
+				<div>
+					<span>街:</span>
+					<%= @address.street %>
+				</div>
+			<% else %>
+				<%= link_to '添加', new_company_address_path(@company) %>
+			<% end %>
+		</div>
+	</div>
+</div>

@@ -6,7 +6,7 @@
 #  name       :string(255)
 #  photo      :string(255)
 #  about      :string(255)
-#  license    :string(255)
+#  license    :string(255)营业执照
 #  company_id :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
@@ -14,4 +14,7 @@
 
 class Owner < ActiveRecord::Base
   attr_accessible :about, :company_id, :license, :name, :photo
+  mount_uploader :photo, LogoUploader
+  mount_uploader :license, LogoUploader
+  belongs_to :company
 end

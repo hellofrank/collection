@@ -1,0 +1,19 @@
+<% provide(:title, '更新案例') %>
+<div class="row">
+	<%= render "side" %>
+	<div class="span6">
+		<%= form_for([@company,@demo]) do |f| %>
+			
+			<%= f.label :title, '名称' %>
+			<%= f.text_field :title %>
+
+			<%= f.label :image, '图片' %>
+			<%= f.file_field :image %>
+
+			<%= f.label :introduction, '介绍' %>
+			<%= f.text_field :introduction %>
+
+			<%= f.submit "更新", class: "btn btn-large btn-primary" %>
+	    <% end %>
+	</div>
+</div>

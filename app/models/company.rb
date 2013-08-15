@@ -25,10 +25,14 @@
 
 class Company < ActiveRecord::Base
   attr_accessible :logo,:about, :name, :owner,:province, :city, :district, :email, :phone, :telephone, :qq,
-	  			  :address_other, :contact_other, :category
+	  			  :address_other, :contact_other, :category, :service
   belongs_to :user
   belongs_to :admin
-  has_many :projects, dependent: :destroy
+  has_many :projects,  dependent: :destroy
+  has_many :contacts,  dependent: :destroy
+  has_many :addresses, dependent: :destroy
+  has_many :owners,    dependent: :destroy
+  has_many :demos, 	   dependent: :destroy
   mount_uploader :logo, LogoUploader
   default_scope order: 'companies.created_at DESC'
 end
