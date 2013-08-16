@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130813065846) do
+ActiveRecord::Schema.define(:version => 20130816065812) do
 
   create_table "addresses", :force => true do |t|
     t.string   "province"
@@ -42,22 +42,12 @@ ActiveRecord::Schema.define(:version => 20130813065846) do
   add_index "admins", ["reset_password_token"], :name => "index_admins_on_reset_password_token", :unique => true
 
   create_table "companies", :force => true do |t|
-    t.string   "owner"
     t.string   "name"
     t.string   "about"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.integer  "user_id"
     t.string   "logo"
-    t.string   "province"
-    t.string   "city"
-    t.string   "district"
-    t.string   "email"
-    t.string   "phone"
-    t.string   "telephone"
-    t.string   "qq"
-    t.string   "address_other"
-    t.string   "contact_other"
     t.string   "category"
     t.string   "service"
   end

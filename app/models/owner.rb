@@ -6,7 +6,7 @@
 #  name       :string(255)
 #  photo      :string(255)
 #  about      :string(255)
-#  license    :string(255)营业执照
+#  license    :string(255)
 #  company_id :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
