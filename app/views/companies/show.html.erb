@@ -1,96 +1,74 @@
 <div class="span12">
-	<%= image_tag @company.logo_url if @company.logo?  %>
+	<h2>公司名称:<%= @company.name %></h2>
 <!--<div>image_tag @company.logo_url(:thumb) if @company.logo?</div>-->
 </div>
 
 <div class="row">
-	<div class="navbar navbar-inverse nav-collapse">
-		<ul class="nav">
-			<li>
-			<!--<i class="icon-chevron-right"></i>-->
-				<%= link_to '关于'+@company.name, '#' %>
-			</li>
-			<li>
-			<!--<i class="icon-chevron-right"></i>-->
-				<%= link_to '联系'+@company.name, '#' %>
-			</li>
-			<li>
-			<!--<i class="icon-chevron-right"></i>-->
-				<%= link_to @company.name+'地址', '#' %>
-			</li>
-			<li>
-			<!--<i class="icon-chevron-right"></i>-->
-				<%= link_to @company.name+'法人', '#' %>
-			</li>
-			<li>
-			<!--<i class="icon-chevron-right"></i>-->
-				<%= link_to @company.name+'工程', '#' %>
-			</li>
-		</ul>
+	<div class="span3">
+		<div class=logo>
+			<div id="logo-header">公司LOGO</div>
+			<div id="logo-image"><%= image_tag @company.logo , :width => 150, :height => 180 %></div>
+			<div id="logo-name"><%= @company.name %></div>
+		</div>
+		<div class="contact">
+			<div id="contact-header">联系方式</div>
+			<div id="contact-content">
+				<div id="contact-telephone">座机:<%= @company.contacts.first.telephone %></div>
+				<div id="contact-mobile">手机:<%= @company.contacts.first.mobile %></div>
+				<div id="contact-qq">QQ:<%= @company.contacts.first.qq %></div>
+				<div id="contact-mail">邮箱:<%= @company.contacts.first.mail%></div>
+			</div>
+			<div id="contact-address">
+				<div><%= @company.addresses.first.city%>市<%= @company.addresses.first.district%>区<%= @company.addresses.first.street %></div>
+			</div>
+		</div>
+		<div class="owner">
+			<div id="owner-header">法人信息</div>
+			<div id="owner-content">
+				<div id="owner-photo"><%= image_tag @company.owners.first.photo , :width => 150, :height => 180 %></div>
+				<div id="owner-name">姓名:<%= @company.owners.first.name %></div>
+				<div id="owner-about">法人介绍:<%= @company.owners.first.about %></div>
+			</div>
+		</div>
 	</div>
-	<div class="span12 detial-content">
-		<section>
-			<%= @company.name %>
-			<p>
-				josjdofjodjfijsdfojsodfjosdjfosdfjosdjfosjdfojsdofjodsjfosjdfojsdfsdfsdfsdfsdfdsfsdfdsfsdfsdfsdfsdfdsfsdfsdfsdfsdfsdfsdfsdfsdfsdfsfddssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
-			</p>
-			<p>
-				josjdofjodjfijsdfojsodfjosdjfosdfjosdjfosjdfojsdofjodsjfosjdfojsdf
-			</p>
-			<p>
-				josjdofjodjfijsdfojsodfjosdjfosdfjosdjfosjdfojsdofjodsjfosjdfojsdf
-			</p>
-			<p>
-				josjdofjodjfijsdfojsodfjosdjfosdf
-				josdjfosjdfojsdofjodsjfosjdfojsdf
-			</p>
-			<p>
-				josjdofjodjfijsdfojsodfjosdjfosdf
-				josdjfosjdfojsdofjodsjfosjdfojsdf
-			</p>
-			<p>
-				josjdofjodjfijsdfojsodfjosdjfosdf
-				josdjfosjdfojsdofjodsjfosjdfojsdf
-			</p>
-			<p>
-				josjdofjodjfijsdfojsodfjosdjfosdf
-				josdjfosjdfojsdofjodsjfosjdfojsdf
-			</p>
-			<p>
-				josjdofjodjfijsdfojsodfjosdjfosdf
-				josdjfosjdfojsdofjodsjfosjdfojsdf
-			</p>
-			<p>
-				josjdofjodjfijsdfojsodfjosdjfosdf
-				josdjfosjdfojsdofjodsjfosjdfojsdf
-			</p>
-			<p>
-				josjdofjodjfijsdfojsodfjosdjfosdf
-				josdjfosjdfojsdofjodsjfosjdfojsdf
-			</p>
-			<p>
-				josjdofjodjfijsdfojsodfjosdjfosdf
-				josdjfosjdfojsdofjodsjfosjdfojsdf
-			</p>
-		</section>
-		<section>
-			<%= @company.owner %>
-		</section>
-		<section>
-			<%= @company.about %>
-		</section>
-		<section>
-			<%= @company.phone %>
-		</section> 
+	<div class="span8">
+		<div class="about">
+			<div class="about-header">公司介绍：</div>
+			<div class="about-content"><%= @company.about %></div>
+		</div>
+		<div class="demo">
+			<div id="demo-header">经典案例</div>
+			<ol>
+				<% @company.demos.each do |demo| %>
+					<li class="demo-content">
+						<span class="demo-title"><%= demo.title %></span>
+						<div class="demo-image"><%= image_tag demo.image, :width => 250, :height => 200 %></div>
+						<span class="demo-introductiong"><%= demo.introduction %></span>
+					</li>
+				<% end %>
+			</ol>
+		</div>
+		<div class="row">
+			<div class="span3">
+				<div class="projects">
+					<div id="project-header">完成工程</div>
+					<ol>
+						<% @company.projects.each do |project| %>
+							<li><%= project.name %>|<%= project.kind %>|<%= project.money %></li>
+						<% end %>
+					</ol>
+				</div>
+			</div>
+			<div class="span3">
+				<div class="service">
+					<div id="service-header">服务范围</div>
+					<div id="service-content">
+						<%= @company.service %>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
 
 
-<% if @company.projects.any? %>
-  <h3>Projects (<%= @projects.count %>)</h3>
-  <ol class="projects">
-    <% @projects.each do |project| %>
-      <li><%= project.name %> <%= project.content %></li>
-    <% end %>
-  </ol>
-<% end %>

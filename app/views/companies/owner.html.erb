@@ -4,8 +4,8 @@
 		<div>
 			<% if @owner %>
 				<div>
-					<span>照片:</span>
-					<%= image_tag @owner.photo %>
+					<span>法人照片:</span>
+					<%= (image_tag @owner.photo, :width => 200, :height => 200) %>
 				</div>
 				<div>
 					<span>介绍:</span>

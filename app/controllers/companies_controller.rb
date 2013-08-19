@@ -15,10 +15,12 @@ class CompaniesController < ApplicationController
   end
 
   def edit
+	@user = current_user
 	@company = Company.find(params[:id])
   end
 
   def destroy
+	@user = current_user
     @company = Company.find(params[:id])
     @company.destroy
   end
@@ -33,6 +35,7 @@ class CompaniesController < ApplicationController
   end
 
   def update
+	  @user = current_user
 	  @company = Company.find(params[:id])
 	  if @company.update_attributes(params[:company])
 		  redirect_to company_path(@company)
