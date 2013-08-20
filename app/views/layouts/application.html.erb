@@ -10,17 +10,17 @@
     <%= yield(:head) %>
   </head>
   <body class="<%= controller_name %> <%= action_name %>">
-    <div class="navbar navbar-fixed-top">
-		<nav class="navbar-inner"> 
-		<div class="container">
-			<% if admin_signed_in? %>
-				<%= render 'layouts/admin' %>
-			<% else %>
-				<%= render 'layouts/navigation' %>
-			<% end %>
+    <header class="navbar navbar-fixed-top">
+  		<nav class="navbar-inner"> 
+    		<div class="container">
+    			<% if admin_signed_in? %>
+    				<%= render 'layouts/admin' %>
+    			<% else %>
+    				<%= render 'layouts/navigation' %>
+    			<% end %>
         </div>
       </nav>
-    </div>
+    </header>
     <div id="main" role="main">
       <div class="container">
         <div class="content">

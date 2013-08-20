@@ -57,3 +57,206 @@ box-shadow: inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1);
 .custom-right{
 	margin-right:270px;
 }
+
+/**
+	company展示页
+**/
+left{
+	border: 1px solid #FCE69A;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+.company-title{
+	border: 1px solid #FCE69A;
+	width: 858px;
+	margin-bottom: 5px;
+}
+
+.logo{
+    border: 1px solid #FCE69A;
+	margin-bottom: 20px;
+}
+#logo-header{
+	line-height: 30px;
+	background-image: image-url("find_f_l_bt.jpg");
+	background-repeat: repeat-x;
+	height: 30px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #FCE69A;
+	font-size: 14px;
+	text-indent: 10px;
+	color: #990000;
+	width: 100%;
+}
+#logo-image{
+	padding: 5px;
+	margin-left: 20px;
+}
+#logo-name{
+	text-align: center;
+	padding: 3px;
+	margin-bottom: 4px;
+}
+.contact{
+	border: 1px solid #FCE69A;
+	margin-bottom: 20px;
+}
+
+#contact-header{
+	line-height: 30px;
+	background-image: image-url("find_f_l_bt.jpg");
+	background-repeat: repeat-x;
+	height: 30px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #FCE69A;
+	font-size: 14px;
+	text-indent: 10px;
+	color: #990000;
+	width: 100%;
+}
+
+#contact-content{
+	padding: 3px;
+	margin-left: 26px;
+	margin-bottom: 3px;
+}
+
+.contact-child{
+	padding:3px;
+}
+#contact-address{
+	margin-left:31px;
+}
+
+.owner{
+	border: 1px solid #FCE69A;
+	margin-bottom: 20px;
+}
+#owner-header{
+	line-height: 30px;
+	background-image: image-url("find_f_l_bt.jpg");
+	background-repeat: repeat-x;
+	height: 30px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #FCE69A;
+	font-size: 14px;
+	text-indent: 10px;
+	color: #990000;
+	width: 100%;
+}
+#owner-content{
+	margin-left: 25px;
+	padding: 3px;
+}
+#owner-photo{
+	padding: 3px;
+	margin-bottom: 3px;
+}
+.owner-child{
+	padding:3px;
+}
+
+.demo-content{
+	/*float: left;*/
+	padding: 3px;
+	margin-left: 10px;
+}
+.about{
+	border: 1px solid #FCE69A;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    height:204px;
+    margin-bottom:30px;
+}
+#about-header{
+	line-height: 30px;
+	background-image: image-url("find_f_l_bt.jpg");
+	background-repeat: repeat-x;
+	height: 30px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #FCE69A;
+	font-size: 14px;
+	text-indent: 10px;
+	color: #990000;
+	width: 100%;
+}
+
+#demo-header{
+	line-height: 30px;
+	background-image: image-url("find_f_l_bt.jpg");
+	background-repeat: repeat-x;
+	height: 30px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #FCE69A;
+	font-size: 14px;
+	text-indent: 10px;
+	color: #990000;
+	width: 100%;
+}
+
+.demo-title{
+	padding: 5px;
+	text-align: center;
+	margin-top: 3px;
+}
+.demo{
+	border: 1px solid #FCE69A;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    height:310px;
+    margin-bottom:30px;
+}
+
+#project-header{
+	line-height: 30px;
+	background-image: image-url("find_f_l_bt.jpg");
+	background-repeat: repeat-x;
+	height: 30px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #FCE69A;
+	font-size: 14px;
+	text-indent: 10px;
+	color: #990000;
+	width: 100%;
+}
+.projects{
+	border: 1px solid #FCE69A;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    height:189px;
+}
+
+#service-header{
+	line-height: 30px;
+	background-image: image-url("find_f_l_bt.jpg");
+	background-repeat: repeat-x;
+	height: 30px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #FCE69A;
+	font-size: 14px;
+	text-indent: 10px;
+	color: #990000;
+	width: 100%;
+}
+.service{
+	border: 1px solid #FCE69A;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    height:189px;
+}
+
+p{
+	padding:3px;
+}
