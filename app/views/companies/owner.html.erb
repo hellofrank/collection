@@ -5,15 +5,15 @@
 			<% if @owner %>
 				<div>
 					<span>法人照片:</span>
-					<%= (image_tag @owner.photo, :width => 200, :height => 200) %>
+					<%= (image_tag @owner.photo, :width => 200, :height => 150) %>
 				</div>
 				<div>
-					<span>介绍:</span>
-					<%= @owner.about %>
+					<span>法人介绍:</span>
+					<p><%= @owner.about %></p>
 				</div>
 				<div>
 					<span>营业执照:</span>
-					<%= image_tag @owner.license %>
+					<%= image_tag @owner.license, :width => "200", :height => 150 %>
 				</div>
 			<% else %>
 				<%= link_to '添加', new_company_owner_path(@company) %>

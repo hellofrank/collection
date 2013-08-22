@@ -21,10 +21,10 @@ SampleApp::Application.routes.draw do
   root :to => "home#index"
 
   devise_for :users
-  resources :users
+  #resources :users
 
   devise_for :admins
-  resources :admins
+  #resources :admins
 
   authenticated :user do
       root :to => 'home#index' 

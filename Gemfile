@@ -5,8 +5,8 @@ gem 'bootstrap-sass', '2.3.2.1'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 gem 'devise'
+gem 'china_regions'
 gem 'mysql2'
-gem "simple_form", ">= 2.1.0"
 gem 'carrierwave', '0.6.2'
 gem 'mini_magick','3.3', :require => false
 gem 'rails_kindeditor', '~>0.3.20'
@@ -15,18 +15,16 @@ group :development, :test do
   gem 'rspec-rails', '2.11.0'
   gem 'annotate',     '2.5.0'
 end
+#gem 'protected_attributes'
+gem 'sass-rails'
+gem 'coffee-rails'
+gem 'simple_form'
+# See https://github.com/sstephenson/execjs#readme for more supported runtimes
+# gem 'therubyracer', :platforms => :ruby
 
+gem 'uglifier', '>= 1.0.3'
 # Gems used only for assets and not required
 # in production environments by default.
-group :assets do
-  gem 'sass-rails',   '~> 3.2.5'
-  gem 'coffee-rails', '~> 3.2.2'
-
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
-
-  gem 'uglifier', '>= 1.0.3'
-end
 
 group :test do
   gem 'capybara', '1.1.2'
