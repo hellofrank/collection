@@ -1,17 +1,21 @@
 <div class="row">
 	<%= render "side" %>
 	<div class="span6">
-		<div>
-			<div><span>公司Logo:</span><%= image_tag @company.logo , :width => 200, :height => 150%></div>
+		<% if @company %>
 			<div>
-				<span>公司名称:</span>
-				<%= link_to @company.name, company_path(@company) %>
-				<span><%= link_to '编辑', edit_user_company_path(@user,@company) %></span>
-				<span><%= link_to '删除', @company, method: :delete, data: { confirm: "确定?"} %></span>
+				<div class="base-info"><%= image_tag @company.logo , :width => 200, :height => 150%></div>
+				<div class="base-info">
+					<span>公司名称:</span>
+					<%= link_to @company.name, company_path(@company) %>
+					<span><%= link_to '编辑', edit_user_company_path(@user,@company) %></span>
+					<span><%= link_to '删除', @company, method: :delete, data: { confirm: "确定?"} %></span>
+				</div>
+				<div class="base-info"><span>公司类别:<%= @company.category %></span></div>
+				<div class="base-info"><span>公司服务:</span><%= @company.service %></div>
+				<div class="base-info"><span>公司简介:</span><%= @company.about%></div>
 			</div>
-			<div><span>公司类别:<%= @company.category %></span></div>
-			<div><span>公司服务:</span><%= @company.service %></div>
-			<div><span>公司简介:</span><%= @company.about%></div>
-		</div>
+		<% else %>
+			<div><%= link_to '创建公司', new_user_company_path(@user) %></div>
+		<% end %>
 	</div>
 </div>

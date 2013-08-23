@@ -4,6 +4,10 @@
 		<div>
 			<% if @contact %>
 				<div>
+					<%= link_to '编辑', edit_company_contact_path(@company,@contact) %>
+					<%= link_to '删除', [@contact.company, @contact], method: :delete, data: { confirm: "确定?" }%>
+				</div>
+				<div>
 					<span>座机:</span>
 					<%= @contact.telephone %>
 				</div>

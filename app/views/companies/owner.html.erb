@@ -4,6 +4,12 @@
 		<div>
 			<% if @owner %>
 				<div>
+					<span>法人姓名:</span>
+					<%= @owner.name %>
+					<span><%= link_to '编辑', edit_company_contact_path(@company,@owner) %></span>
+					<span><%= link_to '删除', [@owner.company, @owner], method: :delete, data: { confirm: "确定?"} %></span>
+				</div>
+				<div>
 					<span>法人照片:</span>
 					<%= (image_tag @owner.photo, :width => 200, :height => 150) %>
 				</div>

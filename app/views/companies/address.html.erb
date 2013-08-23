@@ -4,23 +4,9 @@
 		<div>
 			<% if @address %>
 				<div>
-					<span>省:</span>
-					<%= @address.province %>
-				</div>
-
-				<div>
-					<span>市:</span>
-					<%= @address.city %>
-				</div>
-
-				<div>
-					<span>区:</span>
-					<%= @address.district %>
-				</div>
-
-				<div>
-					<span>街:</span>
-					<%= @address.street %>
+					<%= @province.name %>-<%= @city.name %>-<%= @district.name %>-<%= @address.street %>
+					<%= link_to '编辑', edit_company_address_path(@company,@address) %>
+					<%= link_to '删除', [@address.company, @address], method: :delete, data: { confirm: "确定?" } %>
 				</div>
 			<% else %>
 				<%= link_to '添加', new_company_address_path(@company) %>

@@ -20,7 +20,7 @@
 			</div>
 			<div id="contact-address">
 				<address>
-					<div><%= @company.addresses.first.city%>市<%= @company.addresses.first.district%>区<%= @company.addresses.first.street %></div>
+					<div><%= @province.name %><%= @city.name %><%= @district.name %>区<%= @company.addresses.first.street %></div>
 				</address>
 			</div>
 		</div>

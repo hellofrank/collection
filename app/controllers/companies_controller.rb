@@ -8,6 +8,10 @@ class CompaniesController < ApplicationController
   def show
     @company = Company.find(params[:id])
     @projects = @company.projects
+	@address = @company.addresses.first
+	@province = Province.find(@address.province_id)
+	@city = City.find(@address.city_id)
+	@district = District.find(@address.district_id)
   end
 
   def new
@@ -69,8 +73,11 @@ class CompaniesController < ApplicationController
 
   def address
 	@user = current_user
-	@company = Company.find(params[:id])
+	@company = Company.find(params[:id])	
 	@address = @company.addresses.first
+	@province = Province.find(@address.province_id)
+	@city = City.find(@address.city_id)
+	@district = District.find(@address.district_id)
   end
 
   def owner

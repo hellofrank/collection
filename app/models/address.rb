@@ -15,4 +15,5 @@
 class Address < ActiveRecord::Base
   attr_accessible :city, :company_id, :district, :province, :street,:province_id,:city_id,:district_id
   belongs_to :company
+  has_many :province
 end
