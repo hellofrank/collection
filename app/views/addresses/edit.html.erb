@@ -4,15 +4,12 @@
 	<div class="span6">
 		<%= form_for([@company,@address]) do |f| %>
 			
-			<%= f.label :province, '省' %>
-			<%= f.text_field :province %>
-
-			<%= f.label :city, '市' %>
-			<%= f.text_field :city %>
-
-			<%= f.label :district, '区' %>
-			<%= f.text_field :district %>
-
+			<%= f.region_select :province, :selected => '请选择' %>
+			<%= f.label :province, '省', :class=>'region_select' %>
+			<%= f.region_select :city %>
+			<%= f.label :city, '市', :class=>'region_select' %>
+			<%= f.region_select :district %>
+			<%= f.label :district, '区', :class=>"region_select" %>
 			<%= f.label :street, '街' %>
 			<%= f.text_field :street %>
 

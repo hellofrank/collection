@@ -2,29 +2,31 @@ SampleApp::Application.routes.draw do
 
   get "home/index"
 
-#authenticated :user do
-#   root :to => 'users#show'
-#  end
-
   root :to => "home#index"
 
-  devise_for :users
-  #resources :users
+  devise_for :users, :skip => [:sessions, :registrations], :except => [:index]
+  as :user do
+	  get 'signup' => 'devise/registrations#new', :as => :new_user_registration
+	  post 'signup' => 'devise/registrations#create', :as => :user_registration
+	  get 'login' => 'devise/sessions#new', :as => :new_user_session
+	  post 'login' => 'devise/sessions#create', :as => :user_session
+	  match 'signout' => 'devise/sessions#destroy', :as => :destroy_user_session,
+		  :via => Devise.mappings[:user].sign_out_via
+  end
 
-  devise_for :admins
-  #resources :admins
+  devise_for :admins, :controllers => { :sessions => "admins/sessions", :passwords => "admins/passwords", :registrations => "admins/registrations", :confirmations => "admins/confirmations", :unlocks => "admins/unlocks" }, :except => [:index]
+
+  namespace :admins do
+	match "manager" => "admins#show"
+  end
 
   authenticated :user do
       root :to => 'home#index' 
   end
 
   authenticated :admin do
-  	root :to => 'admins#index'
+  	root :to => 'admins#show'
   end
-
-  # resources :admins do
-  #   resources :companies
-  # end
 
   resources :users do
     resources :companies do
@@ -43,8 +45,10 @@ SampleApp::Application.routes.draw do
   match '/about',   to: 'static_pages#about'
   match '/contact', to: 'static_pages#contact'
 
-  resources :companies do
-  	resources :addresses, :owners, :contacts
+  resources :companies, :except => [:new, :create,:update,:edit,:destroy] do
+  	resources :addresses, :except => [:index, :show]
+	resources :owners, :except => [:index, :show]
+	resources :contacts, :except => [:index, :show]
     resources :demos do
 		member do
 			get 'view'
