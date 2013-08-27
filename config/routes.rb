@@ -8,6 +8,8 @@ Collection::Application.routes.draw do
   as :user do
 	  get 'signup' => 'devise/registrations#new', :as => :new_user_registration
 	  post 'signup' => 'devise/registrations#create', :as => :user_registration
+	  get 'profile' => 'devise/registrations#edit', :as => :edit_user_registration
+	  put 'profile' => 'devise/registrations#update', :as => :edit_user_registration
 	  get 'login' => 'devise/sessions#new', :as => :new_user_session
 	  post 'login' => 'devise/sessions#create', :as => :user_session
 	  match 'signout' => 'devise/sessions#destroy', :as => :destroy_user_session,
