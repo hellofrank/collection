@@ -19,7 +19,7 @@ Collection::Application.routes.draw do
   devise_for :admins, :controllers => { :sessions => "admins/sessions", :passwords => "admins/passwords", :registrations => "admins/registrations", :confirmations => "admins/confirmations", :unlocks => "admins/unlocks" }, :except => [:index]
 
   namespace :admins do
-	match "manager" => "admins#show"
+	match "manager" => "admins#index"
   end
 
   authenticated :user do
