@@ -8,6 +8,7 @@
  		#@admis = Admin.all
  		@users = User.all
  		@companies = Company.all
+		@articles = Article.all
  	end
 
  	def delete_company

@@ -63,5 +63,12 @@
 				<p><%= link_to company.name, company_path(company.id) %></p>
 			<% end %>
 		</div>
+		<div class="span12 index-articles">
+			<div class="inner-articles">
+				<% @recently_articles.each do |article| %>
+					<p class="index-title"><%= link_to article.title, article_path(article) %> | <%= article.created_at.year %>-<%= article.created_at.month %>-<%= article.created_at.day %></p>
+				<% end %>
+			</div>
+		</div>
 </div>
 <script> $(function(){ $('#myCarousel').carousel(); }); </script>

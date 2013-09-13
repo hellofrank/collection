@@ -1,3 +1,18 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.index-articles{
+	border: 1px solid #cccccc;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    margin-top: 28px;	
+}
+.inner-articles{
+	margin-left: 28px;
+	margin-top: 15px;
+}
+.index-title{
+	padding:3px;
+}

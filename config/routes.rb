@@ -18,8 +18,12 @@ Collection::Application.routes.draw do
 
   devise_for :admins, :controllers => { :sessions => "admins/sessions", :passwords => "admins/passwords", :registrations => "admins/registrations", :confirmations => "admins/confirmations", :unlocks => "admins/unlocks" }, :except => [:index]
 
+
+  match "/articles/:id" => "home#show_article"
+ resources :articles
   namespace :admins do
 	match "manager" => "admins#index"
+	resources :articles
   end
 
   authenticated :user do

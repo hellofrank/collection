@@ -1,0 +1,30 @@
+<% provide(:title, '更新文章') %>
+<h2>更新文章</h2>
+<div class="row">
+	<div class="well span2">
+		<ul class="nav nav-list">
+			<li class="nav-header">管理面板</li>
+			<li><a href="#">首页管理</a></li>
+			<li class="active"><a href="#">用户管理</a></li>
+			<li><a href="#">公司管理</a></li>
+			<li><a href="#">文章管理</a></li>
+		</ul>
+	</div>
+	
+	<div class="span9">
+		<%= form_for @article, url: admins_article_path do |f| %>
+			
+			<%= f.label :title, '标题' %>
+			<%= f.text_field :title %>
+	
+			<%= f.label :category, '类别' %>
+			<%=	f.text_field :category %>
+
+			<%= f.label :content, '内容'%>
+			<%= f.kindeditor :content %>
+
+			<%= f.submit "更新", class: "btn btn-large btn-primary" %>
+		<% end %>
+	</div>
+	</div>
+</div>

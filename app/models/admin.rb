@@ -22,6 +22,7 @@ class Admin < ActiveRecord::Base
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
   has_many :companies, dependent: :destroy
+  #has_many :articles, dependent: :destroy
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 

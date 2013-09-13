@@ -2,14 +2,17 @@
 #
 # Table name: addresses
 #
-#  id         :integer          not null, primary key
-#  province   :string(255)
-#  city       :string(255)
-#  district   :string(255)
-#  street     :string(255)
-#  company_id :integer
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id          :integer          not null, primary key
+#  province    :string(255)
+#  city        :string(255)
+#  district    :string(255)
+#  street      :string(255)
+#  company_id  :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  province_id :integer
+#  city_id     :integer
+#  district_id :integer
 #
 
 require 'spec_helper'
