@@ -1,8 +1,7 @@
 <% provide(:title, '添加工程') %>
 <div class="row">
-	<%= render "side" %>
 	<div class="span6">
-    <%= form_for ([@company, @company.projects.build]) do |f| %>
+		<%= form_for(@project, :url => admins_company_projects_path(@company)) do |f| %>
 
       <%= f.label :name, '工程名' %>
       <%= f.text_field :name %>

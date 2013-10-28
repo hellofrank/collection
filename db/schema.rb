@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130830080156) do
+ActiveRecord::Schema.define(:version => 20131024012000) do
 
   create_table "addresses", :force => true do |t|
     t.string   "province"
@@ -70,12 +70,20 @@ ActiveRecord::Schema.define(:version => 20130830080156) do
   add_index "cities", ["province_id"], :name => "index_cities_on_province_id"
   add_index "cities", ["zip_code"], :name => "index_cities_on_zip_code"
 
+  create_table "comments", :force => true do |t|
+    t.string   "content"
+    t.integer  "user_id"
+    t.integer  "article_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "companies", :force => true do |t|
     t.string   "name"
     t.string   "about"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.integer  "user_id"
+    t.integer  "admin_id"
     t.string   "logo"
     t.string   "category"
     t.string   "service"
@@ -114,6 +122,15 @@ ActiveRecord::Schema.define(:version => 20130830080156) do
   add_index "districts", ["name"], :name => "index_districts_on_name"
   add_index "districts", ["name_abbr"], :name => "index_districts_on_name_abbr"
   add_index "districts", ["name_en"], :name => "index_districts_on_name_en"
+
+  create_table "logs", :force => true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.integer  "user_id"
+    t.string   "house_size"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "owners", :force => true do |t|
     t.string   "name"

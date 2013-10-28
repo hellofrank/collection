@@ -1,0 +1,11 @@
+<%= form_for @log, :url => logs_path do |f| %>
+	
+	<%= f.text_field :house_size, placeholder:"户型" , class: "span4"%>
+
+	<%= f.text_field :title, placeholder:"标题", class: "span8" %>
+
+	<%= f.text_area :content, placeholder: "写下点儿东西", class: "log-content" %>
+
+	<%= f.submit "写完了", class: "btn btn-large btn-primary" %>
+
+<% end %>

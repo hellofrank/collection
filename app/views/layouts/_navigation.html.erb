@@ -3,7 +3,10 @@
   <% if user_signed_in? %>
     <li>
       <%= link_to current_user.name, user_path(current_user) %>
-    </li>
+	</li>
+	<li>
+	  <%= link_to '写日记', new_log_path %>
+	</li>
     <li>
     <%= link_to '编辑', edit_user_registration_path %>
     </li>
@@ -17,7 +20,8 @@
     <li>
     <%= link_to '注册', new_user_registration_path %>
     </li>
-  <% end %>
-  <li> <%= link_to '知识', '#' %></li>
+ <% end %>
+ <li><%= link_to '装修笔记', '#' %></li>
+  <li><%= link_to '知识', '#' %></li>
   <li><%= link_to '公司', '#' %></li>
 </ul>

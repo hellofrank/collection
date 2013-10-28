@@ -5,6 +5,8 @@ gem 'bootstrap-sass'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 gem 'devise'
+#gem 'china_city'
+#gem 'district_cn_selector'
 gem 'china_regions'
 gem 'mysql2'
 gem 'carrierwave', '0.6.2'

@@ -1,32 +1,35 @@
 class ContactsController < ApplicationController
   
   def new
-	  @user = current_user
+	  #@user = current_user
+	  @contact = Contact.new
 	  @company = Company.find(params[:company_id])
   end
 
   def create
   	@company = Company.find(params[:company_id])
-	@contact = @company.contacts.create(params[:contact])
-	if @contact
-		redirect_to user_path(current_user)
+	@contact = Contact.create(params[:contact])
+	@company.contact = @contact
+	#@contact = @company.contact.create(params[:contact])
+	if @company.contact
+		redirect_to new_admins_company_owner_path(@company)
 	else
-		render new_company_contact_path(@company)
+		render new_admins_company_contact_path(@company)
 	end
   end
 
   def edit
-	  @user = current_user
+	 #@user = current_user
 	  @company = Company.find(params[:company_id])
-	  @contact = @company.contacts.find(params[:id])
+	  @contact = @company.contact
   end
 
   def update
-  	@user = current_user
+  	#@user = current_user
 	@company = Company.find(params[:company_id])
-	@contact = @company.contacts.find(params[:id])
+	@contact = @company.contact
 	if @contact.update_attributes(params[:contact])
-		redirect_to contact_user_company_path(@user,@company)
+		redirect_to admins_company_path(@company)
 	else
 		render 'edit'
 	end
@@ -34,7 +37,7 @@ class ContactsController < ApplicationController
 
   def destroy
   	@company = Company.find(params[:company_id])
-	@contact = @company.contacts.find(params[:id])
+	@contact = @company.contact
 	@contact.destroy
 	redirect_to user_path current_user
   end

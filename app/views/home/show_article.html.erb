@@ -14,5 +14,38 @@
 			<span>发布时间:</span><span><a href="#">2013-09-12</a></span>
 		</div>
 	</div>
-	<div class="span9 offset2 article-content"><%= @article.content.html_safe %></div>
+	<div>
+		<div class="span9 offset2 article-content">
+			<%= @article.content.html_safe %>
+		</div>
+		<div id="comment-head" class="span9 row offset2">
+			<div id="comments-num" class="span6">共收到<%= @all_comments.count %>条评论</div>
+			<% if user_signed_in? %>
+				<div id="comment-post" class="span2">
+					<button class="btn" type="button">我有话说</button>
+				</div>
+			<% else %>
+				<div id="comment-post" class="span2"><%= link_to '登录', new_user_session_path %>之后发表评论</div>
+			<% end %>
+		</div>
+
+		<% @all_comments.each do |comment| %>
+			<div class="span9 comments">
+				<div>
+					<span><%= comment.user.name %></span><span>在</span><span><%= comment.created_at %></span><span>说</span>
+					<div class="comment-content"><%= comment.content %></div>
+				</div>	
+			</div>
+		<% end %>
+		<% if user_signed_in? %>
+			<div id="comment-edit">
+				<%= form_for [@article, @article.comments.build], :url => comment_create_path(@article) do |f| %>
+					<%= f.text_area :content, placeholder: "说点儿什么" %>
+					<button id="comment-submit" class="btn" type="button">说完了</button>
+				<% end %>
+				<!--<textarea></textarea>
+				<button id="comment-submit" class="btn" type="button">说完了</button> -->
+			</div>
+		<% end %>
+	</div>
 </div>

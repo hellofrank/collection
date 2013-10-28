@@ -1,0 +1,39 @@
+<div>
+	<div class="well span2">
+		<ul class="nav nav-list">
+			<li class="nav-header">管理面板</li>
+			<li><%= link_to '首页管理', admins_manager_path %></li>
+			<li><%= link_to "用户管理", admins_users_path %></li>
+			<li><%= link_to '公司管理', admins_companies_path %></li>
+			<li class="active"><%= link_to '知识管理', admins_articles_path %></li>
+			<li><%= link_to '笔记管理', admins_logs_path %></li>
+			<li><a href="#">申请管理</a></li>
+		</ul>
+	</div>
+	<div class="span9">
+		<div class="add-company"><%= link_to '添加文章', new_admins_article_path %></div>
+		<table class="table table-bordered admin">
+			<thead>
+               <th>标题</th>
+			   <th>发布时间</th>
+			   <th>操作</th>
+			</thead>
+			<tbody>
+				<% if @articles %>
+					<% @articles.each do |article| %>
+						<tr>
+							<td> <%= article.title %></td>
+							<td> <%= article.created_at %></td>
+							<td> 
+								<i class="icon-edit"></i>
+								<span class="option"><%=link_to '编辑', edit_admins_article_path(article) %></span>
+								<i class="icon-trash"></i>
+								<span class="option"><%=link_to '删除', '#' %> </span>
+							</td>
+						</tr>
+					<% end %>
+			    <% end %>
+			</tbody>
+		 </table>
+	</div>
+</div>

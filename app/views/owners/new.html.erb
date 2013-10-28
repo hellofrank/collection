@@ -1,8 +1,7 @@
 <% provide(:title,'添加发人信息') %>
 <div class="row">
-	<%= render "side" %>
 	<div class="span6">
-		<%= form_for([@company, @company.owners.build]) do |f| %>
+		<%= form_for(@owner, :url => admins_company_owner_path(@company)) do |f| %>
 			
 			<%= f.label :name, '姓名' %>
 			<%= f.text_field :name %>

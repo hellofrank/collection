@@ -1,17 +1,17 @@
 # == Schema Information
 #
-# Table name: articles
+# Table name: comments
 #
 #  id         :integer          not null, primary key
-#  title      :string(255)
-#  content    :text
+#  content    :string(255)
+#  user_id    :integer
+#  article_id :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  category   :string(255)
 #
 
 require 'spec_helper'
 
-describe Article do
+describe Comment do
   pending "add some examples to (or delete) #{__FILE__}"
 end

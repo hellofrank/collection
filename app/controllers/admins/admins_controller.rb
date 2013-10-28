@@ -11,6 +11,10 @@
 		@articles = Article.all
  	end
 
+	def users
+		@users = User.all
+	end
+
  	def delete_company
  		@company = Company.find(params[:id])
  		@company.destory 

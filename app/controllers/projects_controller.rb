@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
   def new
-	@user = current_user
+	#@user = current_user
+	@project = Project.new
     @company = Company.find(params[:company_id])
   end
 
@@ -8,24 +9,24 @@ class ProjectsController < ApplicationController
     @company = Company.find(params[:company_id])
     @project = @company.projects.create(params[:project])
     if @project
-      redirect_to company_project_path(@company,@project)
+      redirect_to admins_company_path(@company)
      else
-      render new_company_project_path(@company)
+      render new_admins_company_project_path(@company)
      end
   end
 
   def edit
-	@user = current_user
+	#@user = current_user
 	@company = Company.find(params[:company_id])
 	@project = @company.projects.find(params[:id])
   end
 
   def update
-	  @user = current_user
+	  #@user = current_user
 	  @company = Company.find(params[:company_id])
 	  @project = @company.projects.find(params[:id])
 	  if @project.update_attributes(params[:project])
-		  redirect_to projects_user_company_path(@user,@company)
+		  redirect_to admins_company_path(@company)
 	  else
 		  render 'edit'
 	  end

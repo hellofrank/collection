@@ -1,19 +1,4 @@
 # encoding: utf-8
-# == Schema Information
-#
-# Table name: cities
-#
-#  id          :integer          not null, primary key
-#  name        :string(255)
-#  province_id :integer
-#  level       :integer
-#  zip_code    :string(255)
-#  name_en     :string(255)
-#  name_abbr   :string(255)
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#
-
 
 class City < ActiveRecord::Base
   

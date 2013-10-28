@@ -18,9 +18,9 @@ class Company < ActiveRecord::Base
   belongs_to :user
   belongs_to :admin
   has_many :projects,  dependent: :destroy
-  has_many :contacts,  dependent: :destroy
-  has_many :addresses, dependent: :destroy
-  has_many :owners,    dependent: :destroy
+  has_one :contact,  dependent: :destroy
+  has_one :address, dependent: :destroy
+  has_one :owner,    dependent: :destroy
   has_many :demos, 	   dependent: :destroy
   mount_uploader :logo, LogoUploader
   default_scope order: 'companies.created_at DESC'

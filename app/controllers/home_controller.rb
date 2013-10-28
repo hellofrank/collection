@@ -7,6 +7,9 @@ class HomeController < ApplicationController
   end
 
   def show_article
+	  #@comment = Comment.new
 	  @article = Article.find(params[:id])
+	  #@all_comments = Comment.find(params[:id])
+	  @all_comments = @article.comments
   end
 end
