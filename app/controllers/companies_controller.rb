@@ -2,13 +2,13 @@ class CompaniesController < ApplicationController
 
   before_filter :sign_in, only: [:edit, :destroy,:create,:update,:base,:projects]
   def index
-    @companies = Company.all
+    @companies = Company.where('show' => true)
   end
 
   def show
     @company = Company.find(params[:id])
     @projects = @company.projects
-	@address = @company.addresses.first
+	@address = @company.address
 	@province = Province.find(@address.province_id)
 	@city = City.find(@address.city_id)
 	@district = District.find(@address.district_id)

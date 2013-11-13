@@ -1,18 +1,24 @@
 <%= link_to "花括号科技", root_path, :class => 'brand' %>
-<ul class="nav">
+<ul class="nav", id="function-banner">
+  <li><%= link_to '知识', articles_path %></li>
+  <li><%= link_to '公司', companies_path %></li>
+  <li><%= link_to '装修笔记', logs_path %></li>
   <% if user_signed_in? %>
-    <li>
-      <%= link_to current_user.name, user_path(current_user) %>
+	  <li>
+	  	<%= link_to '写日记', new_log_path %>
+	  </li>
+   <% end %>	
+</ul>
+<ul class="nav", id="user-banner">
+  <% if user_signed_in? %>
+	<li class="dropdown">
+		<a class="dropdown" data-toggle="dropdown" href="#"><%= current_user.name %><b class="caret"></b></a>
+		<ul class="dropdown-menu">
+			<li><%= link_to '我的主页', user_path(current_user) %></li>
+    		<li><%= link_to '编辑', edit_user_registration_path %></li>
+    		<li><%= link_to '退出', destroy_user_session_path, :method=>'delete' %></li>
+		</ul>
 	</li>
-	<li>
-	  <%= link_to '写日记', new_log_path %>
-	</li>
-    <li>
-    <%= link_to '编辑', edit_user_registration_path %>
-    </li>
-    <li>
-    <%= link_to '退出', destroy_user_session_path, :method=>'delete' %>
-    </li>
   <% else %>
     <li>
     <%= link_to '登录', new_user_session_path %>
@@ -21,7 +27,4 @@
     <%= link_to '注册', new_user_registration_path %>
     </li>
  <% end %>
- <li><%= link_to '装修笔记', '#' %></li>
-  <li><%= link_to '知识', '#' %></li>
-  <li><%= link_to '公司', '#' %></li>
 </ul>

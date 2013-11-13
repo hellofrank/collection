@@ -1,6 +1,6 @@
-<p>Companies List</p>
+<p>公司列表</p>
 <ul>
 		<% @companies.each do |company| %>
-			<li> <%= company.id %> <%= link_to company.name, company %></li>
+			<li><%= link_to company.name, company %>｜<%= company.category%></li>
 		<% end %>
 </ul>

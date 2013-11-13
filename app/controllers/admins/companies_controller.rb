@@ -35,6 +35,13 @@ class Admins::CompaniesController < ApplicationController
 		@company = Company.find(params[:id])
 	end
 
+	def updateshow
+		@company = Company.find(params[:id])
+		@company.show = params[:show]
+		@company.save
+		respond_to :js
+	end
+
 	def update
 		@company = Company.find(params[:id])
 		if @company.update_attributes(params[:company])

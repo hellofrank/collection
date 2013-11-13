@@ -20,6 +20,7 @@ Collection::Application.routes.draw do
 
 
   match "/articles/:id" => "home#show_article"
+  match "/projects/:id" => "projects#show", :as => :project, :via => :get
   match '/articles/:id/comment' => 'comments#create', :as => :comment_create, :via => :post
   #match ':controller/:action/:id/:user_id'
   resources :articles
@@ -28,6 +29,7 @@ Collection::Application.routes.draw do
 	match "manager" => "admins#index"
 	match "users" => "admins#users"
 	#match "companies" => "companies#index", :as => :companies, :via => :get
+	match "/company/updateshow", to:'companies#updateshow'
 	resources :companies do
 		resource :address, :except =>[:show]
 		resource :contact,  :except =>[:show]
@@ -70,7 +72,6 @@ Collection::Application.routes.draw do
   match '/help',    to: 'static_pages#help'
   match '/about',   to: 'static_pages#about'
   match '/contact', to: 'static_pages#contact'
-
  # resources :companies, :except => [:new, :create,:update,:edit,:destroy] do
   #	resources :addresses, :except => [:index, :show]
 #	resources :owners, :except => [:index, :show]

@@ -18,6 +18,7 @@
 			   <th id="admin-logo">Logo</th>
                <th>公司名称</th>
 			   <th>类别</th>
+			   <th>是否显示</th>
                <th>操作</th>
 			</thead>
 			<tbody>
@@ -27,6 +28,14 @@
 							<td> <%= image_tag company.logo, :with => 100, :height => 100 %></td>
 							<td> <%= company.name %></td>
 							<td> <%= company.category %></td>
+							<td> 
+								<span id="companyid"><%= company.id%></span>
+								<% if company.show %>
+									<input type="checkbox" checked="true" name="isshow" id="companyshow"/>
+								<% else %>
+									<input type="checkbox" name="isshow" id="companyshow">
+								<% end %>
+							</td>
 							<td>
 								<i class="icon-edit"></i>
 								<span class="option"><%= link_to "编辑", "" %></span>

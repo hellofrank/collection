@@ -11,18 +11,49 @@
 			<span>作者:</span><span><a href="#">网络</a></span>
 		</div>
 		<div class="span2 article-time">
-			<span>发布时间:</span><span><a href="#">2013-09-12</a></span>
+			<span>发布时间:</span><span><a href="#"><%= @article.created_at.year %>-<%= @article.created_at.month %>-<%= @article.created_at.day %></a></span>
 		</div>
 	</div>
 	<div>
 		<div class="span9 offset2 article-content">
 			<%= @article.content.html_safe %>
 		</div>
+		<div class="span9 offset2 button-share">
+			<div>
+				<div class="sina-share">
+					<wb:share-button addition="simple" type="button"></wb:share-button>
+				</div>
+				<div class="qzone-share">
+					<script type="text/javascript">
+						(function(){
+						var p = {
+						url:location.href,
+						showcount:'0',/*是否显示分享总数,显示：'1'，不显示：'0' */
+						desc:'',/*默认分享理由(可选)*/
+						summary:'',/*分享摘要(可选)*/
+						title:'',/*分享标题(可选)*/
+						site:'',/*分享来源 如：腾讯网(可选)*/
+						pics:'', /*分享图片的路径(可选)*/
+						style:'103',
+						width:71,
+						height:22
+						};
+						var s = [];
+						for(var i in p){
+						s.push(i + '=' + encodeURIComponent(p[i]||''));
+						}
+						document.write(['<a version="1.0" class="qzOpenerDiv" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?',s.join('&'),'" target="_blank">分享</a>'].join(''));
+						})();
+					</script>
+					<script src="http://qzonestyle.gtimg.cn/qzone/app/qzlike/qzopensl.js#jsdate=20111201" charset="utf-8"></script>
+				</div>
+			</div>
+		</div>
 		<div id="comment-head" class="span9 row offset2">
 			<div id="comments-num" class="span6">共收到<%= @all_comments.count %>条评论</div>
 			<% if user_signed_in? %>
 				<div id="comment-post" class="span2">
-					<button class="btn" type="button">我有话说</button>
+					<!--<button class="btn" type="button">我有话说</button>-->
 				</div>
 			<% else %>
 				<div id="comment-post" class="span2"><%= link_to '登录', new_user_session_path %>之后发表评论</div>
@@ -32,7 +63,7 @@
 		<% @all_comments.each do |comment| %>
 			<div class="span9 comments">
 				<div>
-					<span><%= comment.user.name %></span><span>在</span><span><%= comment.created_at %></span><span>说</span>
+					<span><%= link_to comment.user.name, user_path(comment.user)%></span><span>在<%= comment.created_at.year %>-<%= comment.created_at.month %>-<%= comment.created_at.day %>说</span>
 					<div class="comment-content"><%= comment.content %></div>
 				</div>	
 			</div>
@@ -41,10 +72,9 @@
 			<div id="comment-edit">
 				<%= form_for [@article, @article.comments.build], :url => comment_create_path(@article) do |f| %>
 					<%= f.text_area :content, placeholder: "说点儿什么" %>
-					<button id="comment-submit" class="btn" type="button">说完了</button>
+					<!--<button id="comment-submit" class="btn" type="button">说完了</button>-->
+					<%= f.submit "说完了", class: "btn btn-large btn-primary" %>
 				<% end %>
-				<!--<textarea></textarea>
-				<button id="comment-submit" class="btn" type="button">说完了</button> -->
 			</div>
 		<% end %>
 	</div>

@@ -1,0 +1,6 @@
+<p>日志列表</p>
+<ul>
+	<% @logs.each do |log| %>
+		<li><%= link_to log.title, log %>|<%= log.created_at.year %>-<%= log.created_at.month %>-<%= log.created_at.day %>|<%= link_to log.user.name, user_path(log.user)%></li>
+	<% end %>
+</ul>

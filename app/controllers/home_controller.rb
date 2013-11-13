@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   def index
-    @all_companies = Company.all
-    @recently_companies = Company.limit(3)
+    @all_companies = Company.where('show' => true)
+    @recently_companies = Company.where('show' => true).limit(3)
 	@recently_articles = Article.limit(7)
 	@all_articles = Article.all
   end

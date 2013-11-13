@@ -13,23 +13,23 @@
 		<div class="contact">
 			<div id="contact-header">联系方式:</div>
 			<div id="contact-content">
-				<div class="contact-child" id="contact-telephone">座机:<%= @company.contacts.first.telephone %></div>
-				<div class="contact-child" id="contact-mobile">手机:<%= @company.contacts.first.mobile %></div>
-				<div class="contact-child" id="contact-qq">QQ:<%= @company.contacts.first.qq %></div>
-				<div class="contact-child" id="contact-mail">邮箱:<%= @company.contacts.first.mail%></div>
+				<div class="contact-child" id="contact-telephone">座机:<%= @company.contact.telephone %></div>
+				<div class="contact-child" id="contact-mobile">手机:<%= @company.contact.mobile %></div>
+				<div class="contact-child" id="contact-qq">QQ:<%= @company.contact.qq %></div>
+				<div class="contact-child" id="contact-mail">邮箱:<%= @company.contact.mail%></div>
 			</div>
 			<div id="contact-address">
 				<address>
-					<div><%= @province.name %><%= @city.name %><%= @district.name %>区<%= @company.addresses.first.street %></div>
+					<div><%= @province.name %><%= @city.name %><%= @district.name %>区<%= @company.address.street %></div>
 				</address>
 			</div>
 		</div>
 		<div class="owner">
 			<div id="owner-header">法人信息</div>
 			<div id="owner-content">
-				<div id="owner-photo"><%= image_tag @company.owners.first.photo , :width => 150, :height => 180 %></div>
-				<div class="owner-child" id="owner-name">法人姓名:<%= @company.owners.first.name %></div>
-				<div class="owner-child" id="owner-about">法人介绍:<%= @company.owners.first.about %></div>
+				<div id="owner-photo"><%= image_tag @company.owner.photo , :width => 150, :height => 180 %></div>
+				<div class="owner-child" id="owner-name">法人姓名:<%= @company.owner.name %></div>
+				<div class="owner-child" id="owner-about">法人介绍:<%= @company.owner.about %></div>
 			</div>
 		</div>
 	</div>
@@ -60,7 +60,7 @@
 					<div id="project-header">完成工程</div>
 					<ol>
 						<% @company.projects.each do |project| %>
-							<li><%= project.name %>|<%= project.kind %>|<%= project.money %></li>
+							<li><%= link_to project.name, project_path(project) %>|<%= project.kind %>|<%= project.money %></li>
 						<% end %>
 					</ol>
 				</div>
