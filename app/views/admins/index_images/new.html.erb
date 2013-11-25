@@ -1,0 +1,30 @@
+<% provide(:title, '添加首页图片') %>
+<div class="row">
+	<div class="well span2">
+		<ul class="nav nav-list">
+			<li class="nav-header">管理面板</li>
+			<li><%= link_to '首页管理', admins_manager_path %></li>
+			<li><%= link_to "用户管理", admins_users_path %></li>
+			<li class="active"><%= link_to '公司管理',admins_companies_path %></li>
+			<li><a href="#">知识管理</a></li>
+			<li><a href="#">笔记管理</a></li>
+			<li><a href="#">申请管理</a></li>
+		</ul>
+	</div>
+	<div class="span6">
+		<%= form_for(@indexImage,:url => admins_index_images_path) do |f| %>
+
+			<%= f.label :image, "图片" %>
+			<%= f.file_field :image %>
+
+			<%= f.label :describe, "描述" %>
+			<%= f.text_field :describe %>
+
+			<%= f.label :url, "URL" %>
+			<%= f.text_field :url %>
+
+			<%= f.submit "添加", class:"btn btn-large btn-primary" %>
+	    <% end %>
+	</div>
+
+</div>

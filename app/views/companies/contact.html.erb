@@ -1,35 +1,49 @@
+<div class="company-titles">
+	<h3>公司名称:<%= @company.name %></h3>
+<!--<div>image_tag @company.logo_url(:thumb) if @company.logo?</div>-->
+</div>
 <div class="row">
-	<%= render "side" %>
-	<div class="span6">
-		<div>
-			<% if @contact %>
-				<div>
-					<%= link_to '编辑', edit_company_contact_path(@company,@contact) %>
-					<%= link_to '删除', [@contact.company, @contact], method: :delete, data: { confirm: "确定?" }%>
-				</div>
-				<div>
-					<span>座机:</span>
-					<%= @contact.telephone %>
-				</div>
-				<div>
-					<span>手机:</span>
-					<%= @contact.mobile %>
-				</div>
-				<div>
-					<span>邮箱:</span>
-					<%= @contact.mail %>
-				</div>
-				<div>
-					<span>QQ:</span>
-					<%= @contact.qq %>
-				</div>
-				<div>
-					<span>其他:</span>
-					<%= @contact.other %>
-				</div>
-			<% else %>
-				<%= link_to '添加', new_company_contact_path(@company) %>
-			<% end %>
+	<div class="span11" id="company-navs">
+		<ul class="nav nav-pills">
+			<li><%= link_to '公司介绍', company_path(@company)%></li>
+			<li><%= link_to '联系方式', company_contact_path(@company)%></li>
+			<li><%= link_to '法人信息', company_owner_path(@company)%></li>
+			<li><%= link_to '服务范围', company_service_path(@company)%></li>
+			<li><a href="#">工程介绍</a></li>
+			<li><a href="#">套餐报价</a></li>
+			<li><a href="#">案例展示</a></li>
+		</ul>
+	</div>
+	<div class="span11">
+		<div id="logo-images">
+			<%= image_tag @company.logo , :class => "img-polaroid", :width => 150, :height => 180 %>
+		</div>
+		<div id="company-intro">
+			<div>
+				<% if @contact %>
+					<div>
+						<span>座机:</span>
+						<%= @contact.telephone %>
+					</div>
+					<div>
+						<span>手机:</span>
+						<%= @contact.mobile %>
+					</div>
+					<div>
+						<span>邮箱:</span>
+						<%= @contact.mail %>
+					</div>
+					<div>
+						<span>QQ:</span>
+						<%= @contact.qq %>
+					</div>
+					<div>
+						<span>其他:</span>
+						<%= @contact.other %>
+					</div>
+				<% end %>
+			</div>
+
 		</div>
 	</div>
 </div>

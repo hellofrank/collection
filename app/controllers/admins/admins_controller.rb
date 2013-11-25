@@ -6,9 +6,10 @@
    	
  	def index
  		#@admis = Admin.all
- 		@users = User.all
- 		@companies = Company.all
-		@articles = Article.all
+ 		#@users = User.all
+ 		#@companies = Company.all
+		#@articles = Article.all
+		@indexImages = IndexImage.all
  	end
 
 	def users

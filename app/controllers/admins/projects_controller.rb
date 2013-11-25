@@ -57,7 +57,8 @@ class Admins::ProjectsController < ApplicationController
 	  @company = Company.find(params[:company_id])
 	  @project = @company.projects.find(params[:id])
 	  @project.destroy
-	  redirect_to user_path current_user
+	  #redirect_to user_path current_user
+	  redirect_to admins_company_path(@company)
   end
 
 end

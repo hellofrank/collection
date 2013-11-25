@@ -136,6 +136,9 @@ input, textarea, select, .uneditable-input{
 .article-category{
 	width:94px;
 }
+.article-content{
+  margin-left:150px !important;
+}
 
 #comment-post{
 	margin-left:151px !important;
@@ -163,4 +166,19 @@ input, textarea, select, .uneditable-input{
 }
 .log-content{
 	width:904px;
+}
+.article-author{
+  width:132px !important;
+}
+.article-wrap{
+  margin-top:30px;
+}
+.min-content{
+  min-height:600px !important;
+}
+.recommend-company{
+  margin-left:51px !important;
+}
+table{
+	background:white;
 }

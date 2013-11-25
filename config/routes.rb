@@ -35,8 +35,10 @@ Collection::Application.routes.draw do
 		resource :contact,  :except =>[:show]
 		resource :owner, :except =>[:show]
 		resources :projects, :except => [:show]
+		resources :demos, :except => [:show]
 	end
 
+	resources :index_images, :except => [:show,:index]
 	resources :articles
 	resources :logs
   end
@@ -52,40 +54,16 @@ Collection::Application.routes.draw do
    resources :users do
 	   resources :logs
    end
-#  resources :users do
- #   resources :companies do
-#		member do
-#			get 'base'
-#			get 'projects'
-#			get 'contact'
-#			get 'address'
-#			get 'demos'
-#			get 'owner'
-#		end
-#	end
- # end
 
   resources :logs
 
-#  mount ChinaCity::Engine => '/china_city'
   resources :companies, :except => [:new, :create, :update, :edit, :destroy]
+  match '/companies/:id/about', to: 'companies#about', :as => :company_about, :via => :get
+  match '/companies/:id/contact', to: 'companies#contact', :as => :company_contact, :via => :get
+  match '/companies/:id/owner', to: 'companies#owner', :as => :company_owner, :via => :get
+  match '/companies/:id/service', to: 'companies#service', :as => :company_service, :via => :get
   match '/help',    to: 'static_pages#help'
   match '/about',   to: 'static_pages#about'
   match '/contact', to: 'static_pages#contact'
- # resources :companies, :except => [:new, :create,:update,:edit,:destroy] do
-  #	resources :addresses, :except => [:index, :show]
-#	resources :owners, :except => [:index, :show]
-#	resources :contacts, :except => [:index, :show]
- #   resources :demos do
-#		member do
-#			get 'view'
-#		end
-#	end
-#	resources :projects do
-#		member do
-#			get 'view'
-#		end
-#	end
- # end
 
 end

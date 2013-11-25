@@ -49,30 +49,26 @@ class CompaniesController < ApplicationController
   end
 
   def base
-	  @user = current_user
 	  @company= Company.find(params[:id])
   end
 
   def projects
-	  @user = current_user
 	  @company = Company.find(params[:id])
 	  @projects = @company.projects
   end
 
   def demos
-	  @user = current_user
 	  @company = Company.find(params[:id])
 	  @demos = @company.demos
   end
 
   def contact
-  	@user = current_user
-	@company = Company.find(params[:id])
-	@contact = @company.contacts.first 
+  	#@user = current_user
+	  @company = Company.find(params[:id])
+	  @contact = @company.contact
   end
 
   def address
-	@user = current_user
 	@company = Company.find(params[:id])	
 	@address = @company.addresses.first
 	@province = Province.find(@address.province_id)
@@ -81,9 +77,8 @@ class CompaniesController < ApplicationController
   end
 
   def owner
-    @user = current_user
 	@company = Company.find(params[:id])
-	@owner = @company.owners.first
+	@owner = @company.owner
   end
   #def admin_user
    # redirect_to(root_path) unless current_user.admin?

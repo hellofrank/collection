@@ -61,16 +61,24 @@ box-shadow: inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1);
 /**
 	company展示页
 **/
-left{
+.left{
 	border: 1px solid #FCE69A;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
 }
+.right{
+	margin-left:18px !important;
+}
 .company-title{
 	border: 1px solid #FCE69A;
-	width: 858px;
+	width: 938px;
 	margin-bottom: 5px;
+}
+
+.company-titles{
+	width: 940px;
+	height: 85px;
 }
 
 .logo{
@@ -267,4 +275,27 @@ left{
 }
 #companyid{
 	display:none;
+}
+
+#company-nav{
+ margin-left:10%;
+}
+#company-navs{
+	background: black;
+    height: 39px;
+    width: 902px;
+}
+#logo-images{
+	float:left;
+	float: left;
+	margin-top: 15px;
+	margin-right: 10px;
+	margin-left: 5px;
+}
+#company-intro{
+	font-size: 18px;
+	margin-top: 15px;
+	padding: 3px;
+	line-height: 2;
+	height:500px;
 }

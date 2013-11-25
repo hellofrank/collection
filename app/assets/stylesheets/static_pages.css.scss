@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+/*
 .index-articles{
 	border: 1px solid #cccccc;
     -webkit-border-radius: 3px;
@@ -9,6 +10,7 @@
     border-radius: 3px;
     margin-top: 28px;	
 }
+*/
 .inner-articles{
 	margin-left: 28px;
 	margin-top: 15px;
@@ -22,7 +24,7 @@
 }
 
 #user-banner{
-	margin-left:20%;
+	margin-left:40%;
 }
 .sina-share{
 	float:left;
@@ -38,5 +40,11 @@ body{
 }
 .container-bg{
 	background:white;
+	/*width: 57%;*/
 }
-
+.knowledge-title{
+	margin-left:31px;
+}
+.split-line{
+	margin-left:51px !important;
+}

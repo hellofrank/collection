@@ -14,6 +14,7 @@ class Admins::CompaniesController < ApplicationController
 	def show
 		@company = Company.find(params[:id])
     	@projects = @company.projects
+		@demos = @company.demos
 		@contact = @company.contact
 		@owner = @company.owner
 		@address = @company.address

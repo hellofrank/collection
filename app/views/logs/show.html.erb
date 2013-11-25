@@ -1,19 +1,19 @@
 <% provide(:title, '装修日记') %>
-<div class="row">
+<div class="row min-content">
 	<div class="article-title">
 		<h4><%= @log.title %></h4>
 	</div>
 	<div class="row article-block">
-		<div class="offset4 article-category">
+		<div class="offset4 article-category span4">
 			<span>户型:</span><span><a href="#"><%= @log.house_size %></a></span>
 		</div>
-		<div class="article-author">
+		<div class="article-author span4">
 			<span>发布者:</span><span><a href="#"><%= @log.user.name %></a></span>
 		</div>
 		<div class="article-time">
 			<span>发布时间:</span><span><a href="#"><%= @log.created_at.year %>-<%= @log.created_at.month %>-<%= @log.created_at.day %></a></span>
 		</div>
-		<div>
+		<div class="article-wrap">
 			<div class="span9 offset2 article-content">
 				<%= @log.content.html_safe %>
 			</div>

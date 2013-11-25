@@ -48,7 +48,7 @@
 <a class="carousel-control right custom-right" href="#myCarousel" data-slide="next">›</a>  
 -->
 <div class="row">
-		<div class="span6">
+		<div class="span6 recommend-company">
 			<div>推荐公司</div>
 			<div>
 				<% @all_companies.each do |company| %>
@@ -57,13 +57,15 @@
 			</div>
 		</div>
 
-		<div class="span6">
+		<div class="span5">
 			<span>最近加入</span>
 			<% @recently_companies.each do |company| %>
 				<p><%= link_to company.name, company_path(company.id) %></p>
 			<% end %>
 		</div>
+		<div class="span12 split-line">-----------------------------------------------------------------------------------------------------------------------------------</div>
 		<div class="span12 index-articles">
+			<span class="knowledge-title">装修知识</span>
 			<div class="inner-articles">
 				<% @recently_articles.each do |article| %>
 					<p class="index-title"><%= link_to article.title, article_path(article) %> | <%= article.created_at.year %>-<%= article.created_at.month %>-<%= article.created_at.day %></p>

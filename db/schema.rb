@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131031091813) do
+ActiveRecord::Schema.define(:version => 20131121085434) do
 
   create_table "addresses", :force => true do |t|
     t.string   "province"
@@ -123,6 +123,14 @@ ActiveRecord::Schema.define(:version => 20131031091813) do
   add_index "districts", ["name"], :name => "index_districts_on_name"
   add_index "districts", ["name_abbr"], :name => "index_districts_on_name_abbr"
   add_index "districts", ["name_en"], :name => "index_districts_on_name_en"
+
+  create_table "index_images", :force => true do |t|
+    t.string   "image"
+    t.string   "describe"
+    t.string   "url"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "logs", :force => true do |t|
     t.string   "title"
