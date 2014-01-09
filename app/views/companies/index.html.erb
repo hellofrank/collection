@@ -1,6 +1,12 @@
 <p>公司列表</p>
 <ul>
 		<% @companies.each do |company| %>
-			<li><%= link_to company.name, company %>｜<%= company.category%></li>
+			<li>
+				<div class="names-li">
+					<%= link_to company.name, company %>｜
+					<%= company.category%>
+				</div>
+				<div class="star"><ul></ul></div>
+			</li>
 		<% end %>
 </ul>

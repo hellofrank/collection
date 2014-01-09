@@ -1,7 +1,7 @@
 // Place all the styles related to the Companies controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
+@import "bootstrap";
 .bs-docs-sidenav {
 width: 190px;
 margin: 30px 0 0;
@@ -99,8 +99,10 @@ box-shadow: inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1);
 	width: 100%;
 }
 #logo-image{
-	padding: 5px;
-	margin-left: 20px;
+	/*padding: 5px;*/
+	/*margin-left: 20px;*/
+	width:202px;
+	margin-bottom: 30px;
 }
 #logo-name{
 	text-align: center;
@@ -287,7 +289,6 @@ box-shadow: inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1);
 }
 #logo-images{
 	float:left;
-	float: left;
 	margin-top: 15px;
 	margin-right: 10px;
 	margin-left: 5px;
@@ -298,4 +299,41 @@ box-shadow: inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1);
 	padding: 3px;
 	line-height: 2;
 	height:500px;
+}
+
+//handle star
+.li-star{
+	width:16px;
+	height:16px;
+	list-style-type:none;
+	float: left;
+}
+
+.off-star{
+	background: url("star-off.png");
+}
+.on-star{
+	background: url("star-on.png");
+}
+
+li{
+	list-style-type:none;
+}
+.names-li{
+	//float:left;
+	width:145px;
+	display:inline-block;
+}
+.star{
+	display:inline-block;
+}
+
+#show-company{
+	margin-top: 70px;
+	/*border: 1px solid red;*/
+	width: 100%;
+	margin-left: 0px ! important;
+}
+.hozz-company-title{
+	margin-bottom:80px ! important;
 }

@@ -1,80 +1,154 @@
-<div class="company-title">
-	<h2>公司名称:<%= @company.name %></h2>
-<!--<div>image_tag @company.logo_url(:thumb) if @company.logo?</div>-->
-</div>
+<div class="row" id="show-company">
 
-<div class="row">
-	<div class="left span3">
-		<div class=logo>
-			<div id="logo-header">公司LOGO</div>
-			<div id="logo-image"><%= image_tag @company.logo , :class => "img-polaroid", :width => 150, :height => 180 %></div>
-			<div id="logo-name"><%= @company.name %></div>
+	<div class="span3" id="hozz-left">
+		<div id="logo-image">
+			<%= image_tag @company.logo , :class => "hozz-img-polaroid" %>
 		</div>
-		<div class="contact">
-			<div id="contact-header">联系方式:</div>
-			<div id="contact-content">
-				<div class="contact-child" id="contact-telephone">座机:<%= @company.contact.telephone %></div>
-				<div class="contact-child" id="contact-mobile">手机:<%= @company.contact.mobile %></div>
-				<div class="contact-child" id="contact-qq">QQ:<%= @company.contact.qq %></div>
-				<div class="contact-child" id="contact-mail">邮箱:<%= @company.contact.mail%></div>
+		<div class="hozz-owner-con">
+			<div class="hozz-owner-header">公司资料</div>
+			<div class="hozz-owner-content">
+				<ul>
+					<li class="hozz-com-item">公司概述</li>
+					<li class="hozz-com-item">施工效果</li>
+					<li class="hozz-com-item">经典案例</li>
+					<!--<li class="hozz-com-item">收费方案</li>-->
+					<li class="hozz-com-item">公司动态</li>
+					<li class="hozz-com-item">公司特色</li>
+					<li class="hozz-com-item">评论/打分</li>
+				</ul>
 			</div>
-			<div id="contact-address">
-				<address>
-					<div><%= @province.name %><%= @city.name %><%= @district.name %>区<%= @company.address.street %></div>
-				</address>
+		</div><!-- end hozz-owner-con -->
+	</div><!-- end span3 -->
+	
+	<div class="span11">
+
+		<div class="row hozz-company-title">
+			<div class="hozz-title">
+				<%= @company.name %>
 			</div>
-		</div>
-		<div class="owner">
-			<div id="owner-header">法人信息</div>
-			<div id="owner-content">
-				<div id="owner-photo"><%= image_tag @company.owner.photo , :width => 150, :height => 180 %></div>
-				<div class="owner-child" id="owner-name">法人姓名:<%= @company.owner.name %></div>
-				<div class="owner-child" id="owner-about">法人介绍:<%= @company.owner.about %></div>
-			</div>
-		</div>
-	</div>
-	<div class="right span9">
-		<div class="about">
-			<div id="about-header">公司介绍：</div>
-			<div class="about-content">
-				<p><%= @company.about %></p>
-			</div>
-		</div>
-		<div class="demo">
-			<div id="demo-header">经典案例</div>
-			<ul class="unstyled thumbnails">
-				<% @company.demos.each do |demo| %>
-					<li class="demo-content">
-						<div class="thumbnail">
-							<%= image_tag demo.image, :width => 260, :height => 180 %>
-							<h3 class="demo-title"><%= demo.title %></h3>
-							<p class="demo-content"><%= demo.introduction%></p>
-						</div>
-					</li>
-				<% end %>
-			</ul>
-		</div>
-		<div class="row">
-			<div class="span4">
-				<div class="project">
-					<div id="project-header">完成工程</div>
-					<ol>
-						<% @company.projects.each do |project| %>
-							<li><%= link_to project.name, project_path(project) %>|<%= project.kind %>|<%= project.money %></li>
-						<% end %>
-					</ol>
+			<div class="row">
+				<div class="span4">
+					<div class="hozz-phone"></div>
+					<div class="hozz-phone-con"><%= @company.contact.telephone %></div>
 				</div>
-			</div>
-			<div class="span4">
-				<div class="service">
-					<div id="service-header">服务范围</div>
-					<div id="service-content">
-						<p><%= @company.service %></p>
+				<div class="span3 hozz-cont">
+					<div>
+						<button type="button" id="hozz-button" class="btn btn-success btn-large">详细信息</button>
 					</div>
 				</div>
+			</div><!-- end row -->
+			<hr style="border-color:#ddd;border-width:1px 0px 0px;margin:10px 0px;">
+			<div class="row">
+				<div class="span5">
+					<div>公司简介</div>
+					<div>
+						<%= @company.about %>
+					</div>
+				</div><!-- end span5-->
+				<div class="span3 hozz-cont">
+					<div>
+						<span>法人:</span>
+						<span><%= @company.owner.name%></span>
+					</div>
+					<div>
+						<span>手机:</span>
+						<span><%= @company.contact.mobile %></span>
+					</div>
+					<div>
+						<span>QQ:</span>
+						<span><%= @company.contact.qq %></span>
+					</div>
+					<div>
+						<span>Email:</span>
+						<span><%= @company.contact.mail%> </span>
+					</div>
+					<div>
+						<span>地址:</span>
+						<span><%= @province.name %><%= @city.name %><%= @district.name %>区<%= @company.address.street %></span>
+					</div>
+				</div><!--end span3-->
+			</div><!-- end row -->
+		</div><!--end row -->
+
+		<div class="row">
+			
+			<div class="hozz-demo-wraper">
+				<div class="hozz-demo-header">
+					<ul class="hozz-ul">
+						<li><a href="#">经典案例</a></li>
+						<li><a class="hozz-active" href="#">施工效果</a></li>
+						<li><a class="li-last" href="#">公司特色</a></li>
+					</ul>
+					<div class="hozze-clear"></div>
+				</div>
+				<div class="hozz-demo-content">
+					<ul class="unstyled thumbnails">
+						<% @company.demos.each do |demo| %>
+							<li class="demo-content">
+								<div class="thumbnail">
+									<%= image_tag demo.image, :width => 171, :height => 180 %>
+									<div class="caption">
+										<p><%= link_to '三居室客厅', help_path%></p>
+									</div>
+								</div>
+							</li>
+						<% end %>
+						<% @company.demos.each do |demo| %>
+							<li class="demo-content">
+								<div class="thumbnail">
+									<%= image_tag demo.image, :width => 171, :height => 180 %>
+									<div class="caption">
+										<p><%= link_to '三居室客厅', help_path%></p>
+									</div>
+								</div>
+							</li>
+						<% end %>
+						<% @company.demos.each do |demo| %>
+							<li class="demo-content">
+								<div class="thumbnail">
+									<%= image_tag demo.image, :width => 171, :height => 180 %>
+									<div class="caption">
+										<p><%= link_to '三居室客厅', help_path%></p>
+									</div>
+								</div>
+							</li>
+						<% end %>
+						<% @company.demos.each do |demo| %>
+							<li class="demo-content">
+								<div class="thumbnail">
+									<%= image_tag demo.image, :width => 171, :height => 180 %>
+									<div class="caption">
+										<p><div><%= link_to '香墅湾别墅区', help_path%>5.6W</div></p>
+										<p>设计+材料+人工</p>
+									</div>
+								</div>
+							</li>
+						<% end %>
+					</ul>
+				</div>
 			</div>
-		</div>
-	</div>
-</div>
+
+			<div class="hozz-demo-wraper">
+				<div class="hozz-demo-header">
+					<div class="hozz-demo-header-text">公司动态</div>
+				</div>
+				<div class="hozz-demo-content">
+					<ul class="unstyled thumbnails">
+						<% @company.demos.each do |demo| %>
+							<li class="demo-content">
+								<div class="thumbnail">
+									<%= image_tag demo.image, :width => 260, :height => 180 %>
+								</div>
+							</li>
+						<% end %>
+					</ul>
+				</div>
+			</div>
+
+		</div><!-- end row -->
+
+	</div><!-- end span8 -->
+
+</div><!-- end row -->
 
 

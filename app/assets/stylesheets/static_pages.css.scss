@@ -1,7 +1,7 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
+@import "bootstrap";
 /*
 .index-articles{
 	border: 1px solid #cccccc;
@@ -36,10 +36,13 @@
 }
 
 body{
-	background:#dce5eb;
+	#background:#dce5eb;
 }
 .container-bg{
 	background:white;
+	margin-left: 12%;
+	margin-right: 12%;
+	width: 76%;
 	/*width: 57%;*/
 }
 .knowledge-title{
@@ -47,4 +50,7 @@ body{
 }
 .split-line{
 	margin-left:51px !important;
+}
+#main-span{
+	width:100%;
 }

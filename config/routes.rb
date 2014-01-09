@@ -57,6 +57,8 @@ Collection::Application.routes.draw do
 
   resources :logs
 
+  resources :staticPages
+
   resources :companies, :except => [:new, :create, :update, :edit, :destroy]
   match '/companies/:id/about', to: 'companies#about', :as => :company_about, :via => :get
   match '/companies/:id/contact', to: 'companies#contact', :as => :company_contact, :via => :get

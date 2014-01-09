@@ -1,0 +1,80 @@
+<div class="company-title">
+	<h2>公司名称:<%= @company.name %></h2>
+<!--<div>image_tag @company.logo_url(:thumb) if @company.logo?</div>-->
+</div>
+
+<div class="row">
+	<div class="left span3">
+		<div class=logo>
+			<div id="logo-header">公司LOGO</div>
+			<div id="logo-image"><%= image_tag @company.logo , :class => "img-polaroid", :width => 150, :height => 180 %></div>
+			<div id="logo-name"><%= @company.name %></div>
+		</div>
+		<div class="contact">
+			<div id="contact-header">联系方式:</div>
+			<div id="contact-content">
+				<div class="contact-child" id="contact-telephone">座机:<%= @company.contact.telephone %></div>
+				<div class="contact-child" id="contact-mobile">手机:<%= @company.contact.mobile %></div>
+				<div class="contact-child" id="contact-qq">QQ:<%= @company.contact.qq %></div>
+				<div class="contact-child" id="contact-mail">邮箱:<%= @company.contact.mail%></div>
+			</div>
+			<div id="contact-address">
+				<address>
+					<div><%= @province.name %><%= @city.name %><%= @district.name %>区<%= @company.address.street %></div>
+				</address>
+			</div>
+		</div>
+		<div class="owner">
+			<div id="owner-header">法人信息</div>
+			<div id="owner-content">
+				<div id="owner-photo"><%= image_tag @company.owner.photo , :width => 150, :height => 180 %></div>
+				<div class="owner-child" id="owner-name">法人姓名:<%= @company.owner.name %></div>
+				<div class="owner-child" id="owner-about">法人介绍:<%= @company.owner.about %></div>
+			</div>
+		</div>
+	</div>
+	<div class="right span9">
+		<div class="about">
+			<div id="about-header">公司介绍：</div>
+			<div class="about-content">
+				<p><%= @company.about %></p>
+			</div>
+		</div>
+		<div class="demo">
+			<div id="demo-header">经典案例</div>
+			<ul class="unstyled thumbnails">
+				<% @company.demos.each do |demo| %>
+					<li class="demo-content">
+						<div class="thumbnail">
+							<%= image_tag demo.image, :width => 260, :height => 180 %>
+							<h3 class="demo-title"><%= demo.title %></h3>
+							<div class="demo-contentssssss"><%= demo.introduction%></div>
+						</div>
+					</li>
+				<% end %>
+			</ul>
+		</div>
+		<div class="row">
+			<div class="span4">
+				<div class="project">
+					<div id="project-header">完成工程</div>
+					<ol>
+						<% @company.projects.each do |project| %>
+							<li><%= link_to project.name, project_path(project) %>|<%= project.kind %>|<%= project.money %></li>
+						<% end %>
+					</ol>
+				</div>
+			</div>
+			<div class="span4">
+				<div class="service">
+					<div id="service-header">服务范围</div>
+					<div id="service-content">
+						<p><%= @company.service %></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
