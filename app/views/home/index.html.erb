@@ -1,46 +1,34 @@
 <div id="myCarousel" class="carousel slide span12">  
     <!-- Carousel items -->  
-    <div class="carousel-inner">  
-        <div class="active item">
-          	<div class="container">
-	            <div class="carousel-caption">
-	              <h2>Example headline.</h2>
-	              <p class="lead">Cras justo odio, dapibus </p>
-	              <!--<a class="btn btn-large btn-primary" href="#">Sign up today</a>-->
-	            </div>
-          	</div>
-        	<img  src="/uploads/company/logo/10/banner.png" alt="banner"/>
-        </div>  
-        <div class="item">
-        	<div class="container">
-	            <div class="carousel-caption">
-	              <h2>Example headline.</h2>
-	              <p class="lead">Cras justo odio, dapibus </p>
-	              <!-- <a class="btn btn-large btn-primary" href="#">Sign up today</a>-->
-	            </div>
-          	</div>
-        	<img src="/uploads/company/logo/10/banner.png" alt="banner"/>
-        </div>  
-        <div class="item">
-        	<div class="container">
-	            <div class="carousel-caption">
-	              <h2>Example headline.</h2>
-	              <p class="lead">Cras justo odio, dapibus </p>
-	              <!--<a class="btn btn-large btn-primary" href="#">Sign up today</a>-->
-	            </div>
-          	</div>
-        	<img src="/uploads/company/logo/10/banner.png" alt="banner"/>
-        </div>  
-        <div class="item">
-        	<div class="container">
-	            <div class="carousel-caption">
-	              <h2>Example headline.</h2>
-	              <p class="lead">Cras justo odio, dapibus </p>
-	              <!-- <a class="btn btn-large btn-primary" href="#">Sign up today</a>-->
-	            </div>
-          	</div>
-        	<img src="/uploads/company/logo/10/banner.png" alt="banner"/>
-        </div>  
+    <div class="carousel-inner">
+    	<% if @indexImages %>
+    		<% @indexImages.each_with_index do |indexImage,index| %>
+    			<% if index == 0 %>
+					<div class="item active">
+			          	<div class="container">
+				            <div class="carousel-caption">
+				              <h2>Example headline.</h2>
+				              <p class="lead"><%= indexImage.describe %> </p>
+				              <!--<a class="btn btn-large btn-primary" href="#">Sign up today</a>-->
+				        	</div>
+		      			</div>
+		      			<%= image_tag indexImage.image,:alt=>"banner", :class=>"index-image" %>
+	        		</div>  
+    			<% else %>
+	    			 <div class="item">
+			          	<div class="container">
+				            <div class="carousel-caption">
+				              <h2>Example headline.</h2>
+				              <p class="lead"><%= indexImage.describe %> </p>
+				              <!--<a class="btn btn-large btn-primary" href="#">Sign up today</a>-->
+				        	</div>
+	          			</div>
+	          			<%= image_tag indexImage.image,:alt=>"banner", :class=>"index-image" %>
+	        		</div>
+	        	<% end %>  
+    		<% end %>
+    	<% end %>
+    	  
   	</div>  
 </div>
 <!--
@@ -52,7 +40,15 @@
 			<div>推荐公司</div>
 			<div>
 				<% @all_companies.each do |company| %>
-					<p><%= link_to company.name, company_path(company.id) %><%= company.created_at.year %>-<%= company.created_at.month %>-<%= company.created_at.day %>|<%= Province.find(company.address.province_id).name %><%= City.find(company.address.city_id).name%>| <%= company.category%></p>
+					<p><%= link_to company.name, company_path(company.id) %><%= company.created_at.year %>-<%= company.created_at.month %>-<%= company.created_at.day %>| <%= company.category%>|
+						<% if company.address != nil %>
+							<%= ChinaCity.get(company.address.province)%>
+							<% if !(company.address.city.eql?"110100") && !(company.address.city.eql?"110200") %>
+								<%=ChinaCity.get(company.address.city)%>
+							<% end %>
+							<%=ChinaCity.get(company.address.district)%>
+						<% end %>
+					</p>
 				<% end %>
 			</div>
 		</div>
@@ -60,7 +56,16 @@
 		<div class="span5">
 			<span>最近加入</span>
 			<% @recently_companies.each do |company| %>
-				<p><%= link_to company.name, company_path(company.id) %></p>
+				<p>
+					<%= link_to company.name, company_path(company.id) %>|
+					<% if company.address != nil %>
+							<%= ChinaCity.get(company.address.province)%>
+							<% if !(company.address.city.eql?"110100") && !(company.address.city.eql?"110200") %>
+								<%=ChinaCity.get(company.address.city)%>
+							<% end %>
+							<%=ChinaCity.get(company.address.district)%>
+					<% end %>
+				</p>
 			<% end %>
 		</div>
 		<div class="span12 split-line">-----------------------------------------------------------------------------------------------------------------------------------</div>
@@ -68,7 +73,8 @@
 			<span class="knowledge-title">装修知识</span>
 			<div class="inner-articles">
 				<% @recently_articles.each do |article| %>
-					<p class="index-title"><%= link_to article.title, article_path(article) %> | <%= article.created_at.year %>-<%= article.created_at.month %>-<%= article.created_at.day %></p>
+					<p class="index-title"><%= link_to article.title, article_path(article) %> | <%= article.created_at.year %>-<%= article.created_at.month %>-<%= article.created_at.day %>
+					</p>
 				<% end %>
 			</div>
 		</div>

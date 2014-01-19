@@ -1,5 +1,5 @@
 <% provide(:title, '更新地址') %>
-<div class="row">
+<div class="row admin-row">
 	<div class="well span2">
 		<ul class="nav nav-list">
 			<li class="nav-header">管理面板</li>
@@ -11,6 +11,11 @@
 			<li><a href="#">申请管理</a></li>
 		</ul>
 	</div>
+	<%-
+        provinces  = ChinaCity.list
+        cities     = ChinaCity.list
+        districtes = ChinaCity.list
+    %>
 	<div class="span9">
 		<ul class="breadcrumb">
 			<li><%= link_to '公司管理', admins_companies_path %><span class="divider">/</span></li>
@@ -19,13 +24,16 @@
 		</ul>
 		<%= form_for(@address, :url => admins_company_address_path(@company)) do |f| %>
 			
-			<%= f.region_select :province, :selected => '请选择' %>
-			<%= f.label :province, '省', :class=>'region_select' %>
-			<%= f.region_select :city %>
-			<%= f.label :city, '市', :class=>'region_select' %>
-			<%= f.region_select :district %>
-			<%= f.label :district, '区', :class=>"region_select" %>
-			<%= f.label :street, '街' %>
+
+			<div class='rails-helper city-group'>
+		      <%= f.select(:province, options_for_select(provinces,ChinaCity.get(@address.province)),
+		       {:prompt=> '--省份--'}, {:class => 'city-select city-province'}) %>
+		      <%= f.select(:city    , options_for_select(cities,   ChinaCity.get(@address.city)),
+		       {:prompt=> '--城市--'}, {:class=> 'city-select city-city'}) %>
+		      <%= f.select(:district, options_for_select(districtes,ChinaCity.get(@address.district)),
+		       {:prompt=> '--地区--'}, {:class=> 'city-select city-district'}) %>
+	    	</div>
+
 			<%= f.text_field :street %>
 
 			<%= f.submit "更新", class: "btn btn-large btn-primary" %>

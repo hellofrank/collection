@@ -1,14 +1,10 @@
 # encoding: utf-8
 
-class LogoUploader < CarrierWave::Uploader::Base
+class IndexImageUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
-  # include CarrierWave::MiniMagick
-  include CarrierWave::MiniMagick
-  # Include the Sprockets helpers for Rails 3.1+ asset pipeline compatibility:
-  # include Sprockets::Helpers::RailsHelper
-  # include Sprockets::Helpers::IsolatedHelper
+   include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
   storage :file
@@ -23,23 +19,22 @@ class LogoUploader < CarrierWave::Uploader::Base
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url
   #   # For Rails 3.1+ asset pipeline compatibility:
-  #   # asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
+  #   # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
   #
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   # end
 
   # Process files as they are uploaded:
-  # process :scale => [200, 300]
+  # process :scale => [940, 381]
   #
    #def scale(width, height)
      # do something
-     #:scale => [100, 100]
    #end
 
-  process :resize_to_fit => [200, 256]
+   process :resize_to_fit => [940, 381]
   # Create different versions of your uploaded files:
    version :thumb do
-     #process :scale => [50, 50]
+     #process :scale => [100, 100]
      process :resize_to_fill => [100, 100]
    end
 

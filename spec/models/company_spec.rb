@@ -7,10 +7,11 @@
 #  about      :string(255)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  user_id    :integer
+#  admin_id   :integer
 #  logo       :string(255)
 #  category   :string(255)
 #  service    :string(255)
+#  show       :boolean          default(FALSE)
 #
 
 require 'spec_helper'

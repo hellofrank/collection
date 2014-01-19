@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131121085434) do
+ActiveRecord::Schema.define(:version => 20140119071212) do
 
   create_table "addresses", :force => true do |t|
     t.string   "province"
@@ -19,11 +19,8 @@ ActiveRecord::Schema.define(:version => 20131121085434) do
     t.string   "district"
     t.string   "street"
     t.integer  "company_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-    t.integer  "province_id"
-    t.integer  "city_id"
-    t.integer  "district_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "admins", :force => true do |t|
@@ -51,24 +48,6 @@ ActiveRecord::Schema.define(:version => 20131121085434) do
     t.datetime "updated_at", :null => false
     t.string   "category"
   end
-
-  create_table "cities", :force => true do |t|
-    t.string   "name"
-    t.integer  "province_id"
-    t.integer  "level"
-    t.string   "zip_code"
-    t.string   "name_en"
-    t.string   "name_abbr"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-  end
-
-  add_index "cities", ["level"], :name => "index_cities_on_level"
-  add_index "cities", ["name"], :name => "index_cities_on_name"
-  add_index "cities", ["name_abbr"], :name => "index_cities_on_name_abbr"
-  add_index "cities", ["name_en"], :name => "index_cities_on_name_en"
-  add_index "cities", ["province_id"], :name => "index_cities_on_province_id"
-  add_index "cities", ["zip_code"], :name => "index_cities_on_zip_code"
 
   create_table "comments", :force => true do |t|
     t.string   "content"
@@ -110,20 +89,6 @@ ActiveRecord::Schema.define(:version => 20131121085434) do
     t.datetime "updated_at",   :null => false
   end
 
-  create_table "districts", :force => true do |t|
-    t.string   "name"
-    t.integer  "city_id"
-    t.string   "name_en"
-    t.string   "name_abbr"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "districts", ["city_id"], :name => "index_districts_on_city_id"
-  add_index "districts", ["name"], :name => "index_districts_on_name"
-  add_index "districts", ["name_abbr"], :name => "index_districts_on_name_abbr"
-  add_index "districts", ["name_en"], :name => "index_districts_on_name_en"
-
   create_table "index_images", :force => true do |t|
     t.string   "image"
     t.string   "describe"
@@ -160,18 +125,6 @@ ActiveRecord::Schema.define(:version => 20131121085434) do
     t.string   "money"
     t.string   "kind"
   end
-
-  create_table "provinces", :force => true do |t|
-    t.string   "name"
-    t.string   "name_en"
-    t.string   "name_abbr"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "provinces", ["name"], :name => "index_provinces_on_name"
-  add_index "provinces", ["name_abbr"], :name => "index_provinces_on_name_abbr"
-  add_index "provinces", ["name_en"], :name => "index_provinces_on_name_en"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

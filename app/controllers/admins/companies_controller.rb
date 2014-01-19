@@ -2,8 +2,9 @@ class Admins::CompaniesController < ApplicationController
 	layout 'admin/application'
 	before_filter :authenticate_admin!
 
+
 	def index
-		@companies = Company.all
+		@companies = Company.paginate(:page => params[:page], :per_page => 5)
 	end
 
 	def new
@@ -18,9 +19,6 @@ class Admins::CompaniesController < ApplicationController
 		@contact = @company.contact
 		@owner = @company.owner
 		@address = @company.address
-		@province = Province.find(@address.province_id)
-		@city = City.find(@address.city_id)
-		@district = District.find(@address.district_id)
 	end
 
 	def create
