@@ -1,0 +1,26 @@
+<% provide(:title, '添加案例') %>
+<div class="row admin-row">
+	<div class="well span2">
+		<ul class="nav nav-list">
+			<li class="nav-header">管理面板</li>
+			<li><%= link_to '首页管理', admins_manager_path %></li>
+			<li><%= link_to "用户管理", admins_users_path %></li>
+			<li class="active"><%= link_to '公司管理',admins_companies_path %></li>
+			<li><a href="#">知识管理</a></li>
+			<li><a href="#">笔记管理</a></li>
+			<li><a href="#">申请管理</a></li>
+		</ul>
+	</div>
+	<div class="span6">
+		<%= form_for(@doing_result,:url => admins_doing_result_set_doing_results_path(@doing_result_set)) do |f| %>
+
+			<%= f.label :image, "图片" %>
+			<%= f.file_field :image %>
+
+			<%= f.label :describe, "介绍" %>
+			<%= f.text_field :describe %>
+
+			<%= f.submit "添加", class:"btn btn-large btn-primary" %>
+	    <% end %>
+	</div>
+</div>

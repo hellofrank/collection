@@ -23,6 +23,7 @@ class Company < ActiveRecord::Base
   has_one :address, dependent: :destroy
   has_one :owner,    dependent: :destroy
   has_many :demos, 	   dependent: :destroy
+  has_many :doing_result_sets, dependent: :destroy
   mount_uploader :logo, LogoUploader
   default_scope order: 'companies.created_at DESC'
 end

@@ -92,46 +92,21 @@
 				</div>
 				<div class="hozz-demo-content">
 					<ul class="unstyled thumbnails">
-						<% @company.demos.each do |demo| %>
-							<li class="demo-content">
-								<div class="thumbnail">
-									<%= image_tag demo.image , :width => 171, :height => 180 %>
-									<div class="caption">
-										<p><%= link_to '三居室客厅', help_path%></p>
-									</div>
-								</div>
-							</li>
-						<% end %>
-						<% @company.demos.each do |demo| %>
-							<li class="demo-content">
-								<div class="thumbnail">
-									<%= image_tag demo.image, :width => 171, :height => 180 %>
-									<div class="caption">
-										<p><%= link_to '三居室客厅', help_path%></p>
-									</div>
-								</div>
-							</li>
-						<% end %>
-						<% @company.demos.each do |demo| %>
-							<li class="demo-content">
-								<div class="thumbnail">
-									<%= image_tag demo.image, :width => 171, :height => 180 %>
-									<div class="caption">
-										<p><%= link_to '三居室客厅', help_path%></p>
-									</div>
-								</div>
-							</li>
-						<% end %>
-						<% @company.demos.each do |demo| %>
-							<li class="demo-content">
-								<div class="thumbnail">
-									<%= image_tag demo.image, :width => 171, :height => 180 %>
-									<div class="caption">
-										<p><div><%= link_to '香墅湾别墅区', help_path%>5.6W</div></p>
-										<p>设计+材料+人工</p>
-									</div>
-								</div>
-							</li>
+						<% if @doing_result_sets != nil %>
+							<% @doing_result_sets.each do |doing_result_set| %>
+								<% doing_result_set.doing_results.each_with_index do |doing_result,index| %>
+									<% if index == 0 %>
+										<li class="demo-content">
+											<div class="thumbnail">
+												<%= image_tag doing_result.image_url(:over) , :width => 171, :height => 128 %>
+												<div class="caption">
+													<p><%= link_to doing_result_set.title, results_path(doing_result_set)%></p>
+												</div>
+											</div>
+										</li>
+									<% end %>
+								<% end %>
+							<% end %>
 						<% end %>
 					</ul>
 				</div>

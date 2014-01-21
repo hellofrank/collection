@@ -9,6 +9,7 @@ class CompaniesController < ApplicationController
     @company = Company.find(params[:id])
     @projects = @company.projects
 	  @address = @company.address
+    @doing_result_sets = @company.doing_result_sets
 	#@province = Province.find(@address.province_id)
 	#@city = City.find(@address.city_id)
 	#@district = District.find(@address.district_id)

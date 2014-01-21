@@ -7,7 +7,7 @@ class Admins::ProjectsController < ApplicationController
   def new
 	#@user = current_user
 	@project = Project.new
-    @company = Company.find(params[:company_id])
+  @company = Company.find(params[:company_id])
   end
 
   def create

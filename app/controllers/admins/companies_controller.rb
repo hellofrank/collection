@@ -19,6 +19,7 @@ class Admins::CompaniesController < ApplicationController
 		@contact = @company.contact
 		@owner = @company.owner
 		@address = @company.address
+		@doing_result_sets = @company.doing_result_sets
 	end
 
 	def create

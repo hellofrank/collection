@@ -23,24 +23,30 @@ Collection::Application.routes.draw do
   match "/projects/:id" => "projects#show", :as => :project, :via => :get
   match '/articles/:id/comment' => 'comments#create', :as => :comment_create, :via => :post
   #match ':controller/:action/:id/:user_id'
+  match '/results/:id' => "results#show", :as => :results, :via => :get
   resources :articles
 
   namespace :admins do
-	match "manager" => "admins#index"
-	match "users" => "admins#users"
-	#match "companies" => "companies#index", :as => :companies, :via => :get
-	match "/company/updateshow", to:'companies#updateshow'
-	resources :companies do
-		resource :address, :except =>[:show]
-		resource :contact,  :except =>[:show]
-		resource :owner, :except =>[:show]
-		resources :projects, :except => [:show]
-		resources :demos, :except => [:show]
-	end
+    	match "manager" => "admins#index"
+    	match "users" => "admins#users"
+    	#match "companies" => "companies#index", :as => :companies, :via => :get
+    	match "/company/updateshow", to:'companies#updateshow'
+    	resources :companies do
+    		resource :address, :except =>[:show]
+    		resource :contact,  :except =>[:show]
+    		resource :owner, :except =>[:show]
+    		resources :projects, :except => [:show]
+    		resources :demos, :except => [:show]
+        resources :doing_result_sets, :except => [:show]
+    	end
 
-	resources :index_images, :except => [:show,:index]
-	resources :articles
-	resources :logs
+      resources :doing_result_sets, :except => [:index,:show,:edit,:new,:destroy,:create,:update]do
+        resources :doing_results, :except => [:show]
+      end
+
+    	resources :index_images, :except => [:show,:index]
+    	resources :articles
+    	resources :logs
   end
 
   authenticated :user do

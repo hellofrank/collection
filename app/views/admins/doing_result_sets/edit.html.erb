@@ -1,0 +1,26 @@
+<% provide(:title, '更新施工效果集') %>
+<div class="row admin-row">
+	<div class="well span2">
+		<ul class="nav nav-list">
+			<li class="nav-header">管理面板</li>
+			<li><%= link_to '首页管理', admins_manager_path %></li>
+			<li><%= link_to "用户管理", admins_users_path %></li>
+			<li class="active"><%= link_to '公司管理', admins_companies_path %></li>
+			<li><%= link_to '知识管理', admins_articles_path %></li>
+			<li><%= link_to '笔记管理', admins_logs_path %></li>
+			<li><a href="#">申请管理</a></li>
+		</ul>
+	</div>
+	<div class="span9">
+		<%= form_for(@doing_result_set, url: admins_company_doing_result_set_path(@company,@doing_result_set)) do |f| %>
+			
+			<%= f.label :title, '效果集标题' %>
+			<%= f.text_field :title %>
+
+			<%= f.label :describe, '描述' %>
+			<%= f.text_field :describe %>
+			
+			<%= f.submit "更新", class: "btn btn-large btn-primary" %>
+		<% end %>
+	</div>
+</div>
