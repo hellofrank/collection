@@ -24,6 +24,9 @@ Collection::Application.routes.draw do
   match '/articles/:id/comment' => 'comments#create', :as => :comment_create, :via => :post
   #match ':controller/:action/:id/:user_id'
   match '/results/:id' => "results#show", :as => :results, :via => :get
+  match '/companies/:id/demos' => "demos#get_demos", :as => :get_demos, :via => :get
+  match '/companies/:id/results' => "doing_result_sets#get_results", :as => :get_results, :via => :get
+  match '/demos/:id/' => "demos#show", :as => :demos, :via => :get
   resources :articles
 
   namespace :admins do

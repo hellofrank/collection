@@ -1,3 +1,4 @@
+require 'fileutils'
 class Admins::ArticlesController < ApplicationController
 
 	layout 'admin/application'
@@ -34,6 +35,21 @@ class Admins::ArticlesController < ApplicationController
 		else
 			render 'edit'
 		end
+	end
+
+	def destroy
+		@article = Article.find(params[:id])
+		@content = @article.content
+		@temp_content = @content.gsub(/\s/,"")
+		@temp_content.scan(/src="(.*?)"alt/i).each do |item|
+			if (item != nil)
+				@image_path = "#{Rails.root}/public"+item.join()
+				#@image_path = item.join()
+				FileUtils.rm(@image_path)			
+			end
+		end
+		@article.destroy
+		redirect_to admins_articles_path
 	end
 
 	#def show

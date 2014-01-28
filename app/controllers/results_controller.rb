@@ -5,4 +5,5 @@ class ResultsController < ApplicationController
 		@company = @results.company
 		@resultImages = @results.doing_results
 	end
+
 end

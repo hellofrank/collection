@@ -24,7 +24,7 @@
 
 		<div class="row hozz-company-title">
 			<div class="hozz-title">
-				<%= @company.name %>
+				<%= link_to @company.name, company_path(@company) %>
 			</div>
 			<div class="row">
 				<div class="span4">
@@ -84,8 +84,8 @@
 			<div class="hozz-demo-wraper">
 				<div class="hozz-demo-header">
 					<ul class="hozz-ul">
-						<li><a href="#">经典案例</a></li>
-						<li><a class="hozz-active" href="#">施工效果</a></li>
+						<li><%= link_to "经典案例", get_demos_path(@company), remote: true, :class=>"show-demos" %></li>
+						<li><%= link_to "施工效果", get_results_path(@company), remote: true, :class=>"hozz-active" %></li>
 						<li><a class="li-last" href="#">公司特色</a></li>
 					</ul>
 					<div class="hozze-clear"></div>
@@ -116,7 +116,7 @@
 				<div class="hozz-demo-header">
 					<div class="hozz-demo-header-text">公司动态</div>
 				</div>
-				<div class="hozz-demo-content">
+				<div class="hozz-demo-content-dynamic">
 					<ul class="unstyled thumbnails">
 						<% @company.demos.each do |demo| %>
 							<li class="demo-content">

@@ -1,7 +1,6 @@
-<h2>管理员登录</h2>
-
-<div class="row">
-	<div class="span6 offset3">
+<div class="row" id="show-company">
+	<div class="span6 offset4">
+		<h4>管理员登录</h4>
 		<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
 		  <div class="form-inputs">
 			<%= f.input :email, label:'邮箱',:required => false, :autofocus => true %>
@@ -13,5 +12,5 @@
 		<% end %>
 
 		<%= render "admins/shared/link" %>
-</div>
+	</div>
 </div>

@@ -20,7 +20,7 @@
 			<%= f.file_field :image %>
 
 			<%= f.label :introduction, "介绍" %>
-			<%= f.text_field :introduction %>
+			<%= f.kindeditor :introduction %>
 
 			<%= f.submit "添加", class:"btn btn-large btn-primary" %>
 	    <% end %>

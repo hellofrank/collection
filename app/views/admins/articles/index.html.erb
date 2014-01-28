@@ -30,7 +30,8 @@
 								<i class="icon-edit"></i>
 								<span class="option"><%=link_to '编辑', edit_admins_article_path(article) %></span>
 								<i class="icon-trash"></i>
-								<span class="option"><%=link_to '删除', '#' %> </span>
+								<span class="option"><%=link_to '删除', admins_article_path(article), method: :delete,
+								data:{confirm:"you sure?"} %> </span>
 							</td>
 						</tr>
 					<% end %>

@@ -21,7 +21,7 @@
 
     <div class="span11">
         <div class="row hozz-company-title-div2">
-            <div class="hozz-title"><%= @company.name %></div>
+            <div class="hozz-title"><%= link_to @company.name, company_path(@company) %></div>
             <div class="row">
                 <div class="span4">
                     <div class="hozz-phone"></div>
