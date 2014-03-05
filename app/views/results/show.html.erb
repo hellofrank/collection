@@ -1,70 +1,65 @@
-<div class="row" id="show-company">
-	
-    <div class="span3" id="hozz-left">
-        <div id="logo-image">
-            <%= image_tag @company.logo, :class => "hozz-img-polaroid"%>
-        </div>
-        <div class="hozz-owner-con">
-            <div class="hozz-owner-header">公司资料</div>
-            <div class="hozz-owner-content">
-                <ul>
-                    <li class="hozz-com-item">公司概述</li>
-                    <li class="hozz-com-item">施工效果</li>
-                    <li class="hozz-com-item">经典案例</li>
-                    <li class="hozz-com-item">公司动态</li>
-                    <li class="hozz-com-item">公司特色</li>
-                    <li class="hozz-com-item">评论/打分</li>
-                </ul>
-            </div>
-        </div><!-- end hozz-owner-con -->
-    </div><!-- end span3 -->
+<div class="col-md-2" id="hozz-left">
+	<div id="logo-image">
+		<%= image_tag @company.logo, :class => "hozz-img-polaroid"%>
+	</div>
+	<div class="hozz-owner-con">
+		<div class="hozz-owner-header">公司资料</div>
+		<div class="hozz-owner-content">
+			<ul>
+				<li class="hozz-com-item">公司概述</li>
+				<li class="hozz-com-item">施工效果</li>
+				<li class="hozz-com-item">经典案例</li>
+				<li class="hozz-com-item">公司动态</li>
+				<li class="hozz-com-item">公司特色</li>
+				<li class="hozz-com-item">评论/打分</li>
+			</ul>
+		</div>
+	</div><!-- end hozz-owner-con -->
+</div><!-- end span3 -->
 
-    <div class="span11">
-        <div class="row hozz-company-title-div2">
-            <div class="hozz-title"><%= link_to @company.name, company_path(@company) %></div>
-            <div class="row">
-                <div class="span4">
-                    <div class="hozz-phone"></div>
-                    <div class="hozz-phone-con"><%= @company.contact.mobile %></div>
-                </div>
-                <div class="span3 hozz-cont">
-                    <div>
-						<div id="hozz-button">施工效果><%=@results.title %></div>
-                    </div>
-                </div>
-            </div><!-- end row -->
-        </div><!--end row -->
-        <div class="hozz-demo-wraper-div2">
-            <div class="div2" style="background-color:white;padding:40px 0 50px 50px;border:1px solid #E3E3E3; width:820px">
-                <div class="floatLeft">
-                    <div id="sliderFrame">
-                        <div id="slider">
-                            <% @resultImages.each_with_index do | resultImage, index| %>
-                                <% if index == 0%>
-                                    <%= image_tag resultImage.image_url, :alt=>"#slideshow-#{index+1}", :title=>"#{@results.describe}" %>
-                                <% else %>
-                                    <b data-src=<%= resultImage.image_url%> data-alt=<%="#slideshow-#{index+1}"%>></b>
-                                <% end %>  
-                            <% end %>
-                        </div>
-                    </div>
-                </div>
-                <div class="floatLeft">    
-                    <div id="mcts1">
-                        <% @resultImages.each_with_index do |resultImage, index| %>
-                            <%= image_tag resultImage.image_url, :width=>"100", :height=>"48" %>
-                        <% end %>
-                    </div>
-                </div>
-                <div style="clear:both;"></div>  
-                <div style="display:none;">
-                    <% @resultImages.each_with_index do |resultImage, index| %>
-                        <div id=<%="slideshow-#{index+1}"%>>
-                            <h3><%= resultImage.describe%></h3>
-                        </div>
-                    <% end %>
-                </div> 
-            </div>
-        </div>
-    </div>
+<div class="col-md-9">
+	<div class="row hozz-company-title-div2">
+		<div class="hozz-title"><%= link_to @company.name, company_path(@company) %></div>
+		<div class="row">
+			<div class="col-md-4">
+				<span class="hozz-phone-img glyphicon glyphicon-phone-alt"></span>
+				<div class="hozz-phone-con"><%= @company.contact.mobile %></div>
+			</div>
+			<div class="col-md-3 hozz-cont">
+				<div id="hozz-button">施工效果><%=@results.title %></div>
+			</div>
+		</div><!-- end row -->
+	</div><!--end row -->
+	<div class="hozz-demo-wraper-div2">
+		<div class="div2" style="background-color:white;padding:40px 0 50px 50px;border:1px solid #E3E3E3; width:820px">
+			<div class="floatLeft">
+				<div id="sliderFrame">
+					<div id="slider">
+						<% @resultImages.each_with_index do | resultImage, index| %>
+							<% if index == 0%>
+								<%= image_tag resultImage.image_url, :alt=>"#slideshow-#{index+1}", :title=>"#{@results.describe}" %>
+							<% else %>
+								<b data-src=<%= resultImage.image_url%> data-alt=<%="#slideshow-#{index+1}"%>></b>
+							<% end %>  
+						<% end %>
+					</div>
+				</div>
+			</div>
+			<div class="floatLeft">    
+				<div id="mcts1">
+					<% @resultImages.each_with_index do |resultImage, index| %>
+						<%= image_tag resultImage.image_url, :width=>"100", :height=>"48" %>
+					<% end %>
+				</div>
+			</div>
+			<div style="clear:both;"></div>  
+			<div style="display:none;">
+				<% @resultImages.each_with_index do |resultImage, index| %>
+					<div id=<%="slideshow-#{index+1}"%>>
+						<h3><%= resultImage.describe%></h3>
+					</div>
+				<% end %>
+			</div> 
+		</div>
+	</div>
 </div>

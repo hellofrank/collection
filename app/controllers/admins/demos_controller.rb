@@ -26,7 +26,7 @@ class Admins::DemosController < ApplicationController
 	def update
 		@company = Company.find(params[:company_id])
 		@demo = @company.demos.find(params[:id])
-		if @demo.update_attributes(paramsp[:demo])
+		if @demo.update_attributes(params[:demo])
 			redirect_to admins_company_path(@company)
 		else
 			render 'edit'

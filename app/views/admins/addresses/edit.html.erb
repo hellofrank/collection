@@ -1,6 +1,6 @@
 <% provide(:title, '更新地址') %>
 <div class="row admin-row">
-	<div class="well span2">
+	<div class="well col-md-2">
 		<ul class="nav nav-list">
 			<li class="nav-header">管理面板</li>
 			<li><%= link_to '首页管理', admins_manager_path %></li>
@@ -16,10 +16,10 @@
         cities     = ChinaCity.list
         districtes = ChinaCity.list
     %>
-	<div class="span9">
+	<div class="col-md-9">
 		<ul class="breadcrumb">
-			<li><%= link_to '公司管理', admins_companies_path %><span class="divider">/</span></li>
-			<li><%= link_to @company.name, admins_company_path(@company)%><span class="divider">/</span></li>
+			<li><%= link_to '公司管理', admins_companies_path %></li>
+			<li><%= link_to @company.name, admins_company_path(@company)%></li>
 			<li class="active">编辑公司地址</li>
 		</ul>
 		<%= form_for(@address, :url => admins_company_address_path(@company)) do |f| %>
@@ -36,7 +36,7 @@
 
 			<%= f.text_field :street %>
 
-			<%= f.submit "更新", class: "btn btn-large btn-primary" %>
+			<%= f.submit "更新", class: "btn btn-lg btn-primary" %>
 		<% end %>
 	</div>
 </div>

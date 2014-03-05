@@ -11,34 +11,35 @@ $(document).ready ->
 				dataType: "json"
 				data : {id:company_id, show: if $('#companyshow').is(':checked') then 1 else 0}
 
-	init = (i) ->
-	  li = "<li num="+i+" class=\" li-star off-star\"></li>"
-	  $(li).appendTo('.star>ul')		
+	
+	#init = (i) ->
+	  #li = "<li num="+i+" class=\" li-star off-star\"></li>"
+	  #$(li).appendTo('.star>ul')		
 	 
-	for i in [1...6]
-	  init(i)
+	#for i in [1...6]
+	  #init(i)
 
-	$(".li-star").hover \ 
-		(->
-			tarnum = $(this).attr('num') 
-			$('.li-star').each ->
-				num = $(this).attr('num')
-				if num <= tarnum
-					$(this).removeClass(".off-star").addClass("on-star")
-				else
-					$(this).removeClass(".on-star").addClass("off-star")
+	#$(".li-star").hover \ 
+		#(->
+			#tarnum = $(this).attr('num') 
+			#$('.li-star').each ->
+				#num = $(this).attr('num')
+				#if num <= tarnum
+					#$(this).removeClass(".off-star").addClass("on-star")
+				#else
+					#$(this).removeClass(".on-star").addClass("off-star")
 
-			$(this).click ->
-				$(".li-star").each ->
-					num = $(this).attr('num')
-					if num <= tarnum
-						$(this).removeClass(".off-star").addClass("on-star")
-					else
-						$(this).removeClass(".on-star").addClass("off-star")
+			#$(this).click ->
+				#$(".li-star").each ->
+					#num = $(this).attr('num')
+					#if num <= tarnum
+						#$(this).removeClass(".off-star").addClass("on-star")
+					#else
+						#$(this).removeClass(".on-star").addClass("off-star")
 
-				$(".li-star").off("mouseleave")	), \
+				#$(".li-star").off("mouseleave")	), \
 			
-		(->$(".li-star").removeClass("on-star").addClass("off-star"))
+		#(->$(".li-star").removeClass("on-star").addClass("off-star"))
 		
 	$(".hozz-ul >li>a").click ->
 		$(".hozz-ul>li>a").removeClass('hozz-active')

@@ -1,7 +1,7 @@
 <% provide(:title, '工程信息') %>
 <div class="row">
 	<%= render "side" %>
-	<div class="span6">
+	<div class="col-md-6">
       <p>公司名称:<%= @company.name %></p>
 	  <p>项目名称:<%= @project.name %></p>
 	  <p>项目简介:<%= @project.content.html_safe %></p>

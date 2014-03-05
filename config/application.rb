@@ -20,6 +20,7 @@ module Collection
     # Custom directories with classes and modules you want to be autoloadable.
     # config.autoload_paths += %W(#{config.root}/extras)
       config.action_mailer.raise_delivery_errors = true
+      config.i18n.enforce_available_locales = true
       config.action_mailer.default_url_options = { :host => "localhost:3000" }
       config.action_mailer.delivery_method = :smtp
       config.action_mailer.smtp_settings = {
@@ -43,7 +44,7 @@ module Collection
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
-     config.i18n.default_locale = "zh-CN"
+    config.i18n.default_locale = "zh-CN"
 
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"

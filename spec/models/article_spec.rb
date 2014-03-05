@@ -8,6 +8,7 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  category   :string(255)
+#  keywords   :string(255)
 #
 
 require 'spec_helper'

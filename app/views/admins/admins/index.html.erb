@@ -1,5 +1,5 @@
 <div class="row admin-row">
-	<div class="well span2">
+	<div class="well col-md-2">
 		<ul class="nav nav-list">
 			<li class="nav-header">管理面板</li>
 			<li class="active"><%= link_to '首页管理', admins_manager_path %></li>
@@ -11,12 +11,13 @@
 
 		</ul>
 	</div>
-	<div class="span9">
+	<div class="col-md-9">
+		<%= @new_index_image_path%>
 		<div class="add-company"><%= link_to '添加图片', new_admins_index_image_path%></div>
 		<table class="table table-bordered admin">
 			<thead>
                <th>图片</th>
-               <th>url</th>
+               <th>描述</th>
                <th>上传日期</th>
                <th>更新日期</th>
                <th>操作</th>
@@ -30,10 +31,11 @@
 							<td> <%= indexImage.created_at%></td>
 							<td> <%= indexImage.updated_at %></td>
 							<td>
-								<i class="icon-edit"></i>
+								<span class="glyphicon glyphicon-pencil"></span>
 								<span class="option"><%= link_to "编辑", edit_admins_index_image_path(indexImage) %></span>
-								<i class="icon-trash"></i>
-								<span class="option"><%= link_to "删除", "#" %></span>
+								<span class="glyphicon glyphicon-trash"></span>
+								<span class="option"><%= link_to "删除", admins_index_image_path(indexImage),
+									method: :delete, data: {confirm: "确定?"} %></span>
 							</td>
 						</tr>
 					<% end %>

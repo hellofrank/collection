@@ -124,6 +124,10 @@ Devise.setup do |config|
   # :secure => true in order to force SSL only cookies.
   # config.rememberable_options = {}
 
+  #Config secret_key
+  #Add by frank 2014-02-14
+  config.secret_key = '046832f04b81a2a0cd787ddc4317e8eebe6d332c360b79c297bd1f8343d1cc61b6ba30aaa9089779105888b2950c134ee74b6a5e7bfc46eef618c2a32fc10f92'
+
   # ==> Configuration for :validatable
   # Range for password length. Default is 8..128.
   config.password_length = 8..128

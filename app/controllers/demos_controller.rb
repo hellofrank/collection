@@ -14,6 +14,7 @@ class DemosController < ApplicationController
 
 	def show
 		@demo = Demo.find(params[:id])
+		@company = @demo.company
 	end
 
 	def get_demos

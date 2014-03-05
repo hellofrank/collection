@@ -1,0 +1,18 @@
+<div class="address-company">
+	<div class="address-company-header">公司地址 <%= link_to '编辑', edit_admins_company_address_path(@company)%></div>
+	<div class="address-first-item">
+		<address>
+			<div>
+				<% if @address != nil %>
+					<%= ChinaCity.get(@address.province)%>
+					<% if !(@address.city.eql?"110100") && !(@address.city.eql?"110200") %>
+						<%=ChinaCity.get(@address.city)%>
+					<% end %>
+					<%=ChinaCity.get(@address.district)%>
+					<%=@address.street %>
+				<% end %>
+			</div>
+		</address>
+	</div>
+</div>
+

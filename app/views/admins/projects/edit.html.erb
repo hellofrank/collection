@@ -1,6 +1,6 @@
 <% provide(:title, '更新工程信息') %>
 <div class="row admin-row">
-	<div class="well span2">
+	<div class="well col-md-2">
 		<ul class="nav nav-list">
 			<li class="nav-header">管理面板</li>
 			<li><%= link_to '首页管理', admins_manager_path %></li>
@@ -11,7 +11,7 @@
 			<li><a href="#">申请管理</a></li>
 		</ul>
 	</div>
-	<div class="span9">
+	<div class="col-md-9">
 		<%= form_for(@project, :url => admins_company_project_path(@company)) do |f| %>
 			
 			<%= f.label :name, '名字' %>

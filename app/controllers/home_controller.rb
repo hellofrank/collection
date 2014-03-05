@@ -10,7 +10,9 @@ class HomeController < ApplicationController
   def show_article
 	  #@comment = Comment.new
 	  @article = Article.find(params[:id])
-	  #@all_comments = Comment.find(params[:id])
+	  @newst_articles = Article.limit(7)
+	  @command_articles = Article.limit(7)
+	  @keywords = @article.keywords
 	  @all_comments = @article.comments
   end
 end

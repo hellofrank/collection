@@ -1,0 +1,12 @@
+<div class="base-company">
+	<div class="base-company-header">公司基本信息 <%= link_to '编辑', edit_admins_company_path(@company) %></div>
+	<div class="base-first-item row">
+		<div class="col-md-3">
+			<span>公司名称:<%= @company.name %></span>
+			<span>公司类别:<%= @company.category%></span>
+			<span>公司简介:<%= @company.about%></span>
+		</div>
+		<div class="col-md-5">公司Logo:<%= image_tag @company.logo, :class => "img-polaroid", :width => 100, :height => 100 %></div>
+	</div>
+</div>
+

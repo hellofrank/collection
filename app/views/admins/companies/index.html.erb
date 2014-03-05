@@ -1,5 +1,5 @@
 <div class="row admin-row">
-	<div class="well span2">
+	<div class="well col-md-2">
 		<ul class="nav nav-list">
 			<li class="nav-header">管理面板</li>
 			<li><%= link_to '首页管理', admins_manager_path %></li>
@@ -11,7 +11,7 @@
 		</ul>
 	</div>
 
-	<div class="span9">
+	<div class="col-md-9">
 		<div class="add-company"><%= link_to '添加公司', new_admins_company_path%></div>
 		<table class="table table-bordered admin">
 			<thead>
@@ -37,11 +37,11 @@
 								<% end %>
 							</td>
 							<td>
-								<i class="icon-edit"></i>
+								<span class="glyphicon glyphicon-pencil"></span>
 								<span class="option"><%= link_to "编辑", "" %></span>
-								<i class="icon-trash"></i>
+								<span class="glyphicon glyphicon-trash"></span>
 								<span class="option"><%= link_to "删除", "" %></span>
-								<i class="icon-eye-open"></i>
+								<span class="glyphicon glyphicon-eye-open"></span>
 								<span class="option"><%= link_to "详细", admins_company_path(company)%></span>
 							</td>
 						</tr>
@@ -49,6 +49,6 @@
 			    <% end %>
 			</tbody>
 		</table>
-		<%= will_paginate @companies %>
+		<%= will_paginate @companies, previous_label:'上一页', next_label:'下一页' %>
 	</div>
 </div>

@@ -1,9 +1,7 @@
-<div class="row" id="show-company">
-
-	<div class="span3" id="hozz-left">
-		<div id="logo-image">
-			<%= image_tag @company.logo,:class => "hozz-img-polaroid" %>
-		</div>
+<%provide(:title, @company.name) %>
+<div class="cus-show-company row">
+	<div class="col-md-2" id="hozz-left">
+		<div id="logo-image"><%= image_tag @company.logo,:class => "hozz-img-polaroid" %></div>
 		<div class="hozz-owner-con">
 			<div class="hozz-owner-header">公司资料</div>
 			<div class="hozz-owner-content">
@@ -11,7 +9,7 @@
 					<li class="hozz-com-item">公司概述</li>
 					<li class="hozz-com-item">施工效果</li>
 					<li class="hozz-com-item">经典案例</li>
-					<!--<li class="hozz-com-item">收费方案</li>-->
+					<li class="hozz-com-item">收费方案</li>
 					<li class="hozz-com-item">公司动态</li>
 					<li class="hozz-com-item">公司特色</li>
 					<li class="hozz-com-item">评论/打分</li>
@@ -19,120 +17,85 @@
 			</div>
 		</div><!-- end hozz-owner-con -->
 	</div><!-- end span3 -->
-	
-	<div class="span11">
+
+	<div class="col-md-9">
 
 		<div class="row hozz-company-title">
-			<div class="hozz-title">
-				<%= link_to @company.name, company_path(@company) %>
-			</div>
+
+			<div class="hozz-title"><%= link_to @company.name, company_path(@company) %></div>
+
 			<div class="row">
-				<div class="span4">
-					<div class="hozz-phone"></div>
+				<div class="col-md-4">
+					<span class="hozz-phone-img glyphicon glyphicon-phone-alt"></span>
 					<div class="hozz-phone-con"><%= @company.contact.telephone if @company.contact %></div>
 				</div>
-				<div class="span3 hozz-cont">
-					<div>
-						<button type="button" id="hozz-button" class="btn btn-success btn-large">详细信息</button>
-					</div>
+				<div class="col-md-3 hozz-cont">
+					<div><button type="button" id="hozz-button" class="btn btn-success btn-large">详细信息</button></div>
 				</div>
 			</div><!-- end row -->
+
 			<hr style="border-color:#ddd;border-width:1px 0px 0px;margin:10px 0px;">
+
 			<div class="row">
-				<div class="span5">
+				<div class="col-md-5">
 					<div>公司简介</div>
-					<div>
-						<%= @company.about if @company %>
-					</div>
+					<div><%= @company.about if @company %></div>
 				</div><!-- end span5-->
-				<div class="span3 hozz-cont">
-					<div>
-						<span>法人:</span>
-						<span><%= @company.owner.name if @company.owner %></span>
-					</div>
-					<div>
-						<span>手机:</span>
-						<span><%= @company.contact.mobile if @company.contact %></span>
-					</div>
-					<div>
-						<span>QQ:</span>
-						<span><%= @company.contact.qq if @company.contact %></span>
-					</div>
-					<div>
-						<span>Email:</span>
-						<span><%= @company.contact.mail if @company.contact %> </span>
-					</div>
+
+				<div class="col-md-3 hozz-cont">
+					<div><span>法人:</span><span><%= @company.owner.name if @company.owner %></span></div>
+					<div><span>手机:</span><span><%= @company.contact.mobile if @company.contact %></span></div>
+					<div><span>QQ:</span><span><%= @company.contact.qq if @company.contact %></span></div>
+					<div><span>Email:</span><span><%= @company.contact.mail if @company.contact %> </span></div>
 					<div>
 						<span>地址:</span>
 						<span>
 							<% if @address != nil %>
-							<%= ChinaCity.get(@address.province) %>
-							<% if !(@address.city.eql?"110100") && !(@address.city.eql?"110200") %>
-								<%=ChinaCity.get(@address.city)%>
+								<%= ChinaCity.get(@address.province) %>
+								<% if !(@address.city.eql?"110100") && !(@address.city.eql?"110200") %>
+									<%=ChinaCity.get(@address.city)%>
+								<% end %>
+								<%=ChinaCity.get(@address.district)%>
+								<%=@address.street %>
 							<% end %>
-							<%=ChinaCity.get(@address.district)%>
-							<%=@address.street %>
-						<% end %>
 						</span>
 					</div>
 				</div><!--end span3-->
 			</div><!-- end row -->
-		</div><!--end row -->
+		</div>
 
 		<div class="row">
-			
+
 			<div class="hozz-demo-wraper">
 				<div class="hozz-demo-header">
 					<ul class="hozz-ul">
-						<li><%= link_to "经典案例", get_demos_path(@company), remote: true, :class=>"show-demos" %></li>
+						<li><%= link_to "样板间", get_demos_path(@company), remote: true, :class=>"show-demos" %></li>
 						<li><%= link_to "施工效果", get_results_path(@company), remote: true, :class=>"hozz-active" %></li>
 						<li><a class="li-last" href="#">公司特色</a></li>
 					</ul>
 					<div class="hozze-clear"></div>
 				</div>
 				<div class="hozz-demo-content">
-					<ul class="unstyled thumbnails">
+					<div class="row to-change">
 						<% if @doing_result_sets != nil %>
 							<% @doing_result_sets.each do |doing_result_set| %>
 								<% doing_result_set.doing_results.each_with_index do |doing_result,index| %>
 									<% if index == 0 %>
-										<li class="demo-content">
+										<div class="col-sm-3 col-md-3 wrap-thumbnail">
 											<div class="thumbnail">
 												<%= image_tag doing_result.image_url(:over) , :width => 171, :height => 128 %>
 												<div class="caption">
 													<p><%= link_to doing_result_set.title, results_path(doing_result_set)%></p>
 												</div>
 											</div>
-										</li>
+										</div>
 									<% end %>
 								<% end %>
 							<% end %>
 						<% end %>
-					</ul>
-				</div>
+					</div><!-- end row -->
+				</div><!-- end hozz-demo-content-->
 			</div>
-
-			<div class="hozz-demo-wraper">
-				<div class="hozz-demo-header">
-					<div class="hozz-demo-header-text">公司动态</div>
-				</div>
-				<div class="hozz-demo-content-dynamic">
-					<ul class="unstyled thumbnails">
-						<% @company.demos.each do |demo| %>
-							<li class="demo-content">
-								<div class="thumbnail">
-									<%= image_tag demo.image, :width => 260, :height => 180 %>
-								</div>
-							</li>
-						<% end %>
-					</ul>
-				</div>
-			</div>
-
 		</div><!-- end row -->
-
 	</div><!-- end span8 -->
-
-</div><!-- end row -->
-
-
+</div>

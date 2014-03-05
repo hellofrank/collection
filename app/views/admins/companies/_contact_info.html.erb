@@ -1,0 +1,28 @@
+<div class="contact-company">
+	<div class="contact-company-header">公司联系方式 <%= link_to '编辑', edit_admins_company_contact_path(@company)%></div>
+	<div class="contact-first-item row">
+		<div class="col-md-3">座机:
+			<% if @contact !=nil && @contact.telephone != nil %>
+				<%= @contact.telephone %>
+			<% end %>
+		</div>
+		<div class="col-md-3">手机:
+			<% if @contact !=nil && @contact.mobile != nil %>
+				<%= @contact.mobile%>
+			<% end %>
+		</div>
+	</div>
+	<div class="contact-second-item row">
+		<div class="col-md-3">QQ:
+			<% if @contact != nil && @contact.qq != nil %>
+				<%= @contact.qq %>
+			<% end %>
+		</div>
+		<div class="col-md-3">邮箱:
+			<% if @contact != nil && @contact.mail != nil %>
+				<%= @contact.mail%>
+			<% end %>
+		</div>
+	</div>
+</div>
+

@@ -5,7 +5,7 @@
 #  id           :integer          not null, primary key
 #  title        :string(255)
 #  image        :string(255)
-#  introduction :string(255)
+#  introduction :text
 #  company_id   :integer
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null

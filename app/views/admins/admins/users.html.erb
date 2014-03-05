@@ -1,5 +1,5 @@
 <div class="row admin-row">
-	<div class="well span2">
+	<div class="well col-md-2">
 		<ul class="nav nav-list">
 			<li class="nav-header">管理面板</li>
 			<li><%= link_to '首页管理', admins_manager_path %></li>
@@ -10,7 +10,7 @@
 			<li><a href="#">申请管理</a></li>
 		</ul>
 	</div>
-	<div class="span9">
+	<div class="col-md-9">
 		<table class="table table-bordered admin">
 			<thead>
                <th>用户名</th>
@@ -28,9 +28,9 @@
 							<td> <%= user.created_at%></td>
 							<td> <%= user.last_sign_in_at %></td>
 							<td>
-								<i class="icon-edit"></i>
+								<span class="glyphicon glyphicon-pencil"></span>
 								<span class="option"><%= link_to "编辑", "#" %></span>
-								<i class="icon-trash"></i>
+								<span class="glyphicon glyphicon-trash"></span>
 								<span class="option"><%= link_to "删除", "#" %></span>
 							</td>
 						</tr>

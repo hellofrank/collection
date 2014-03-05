@@ -1,0 +1,24 @@
+<div class="owner-company">
+	<div class="owner-company-header">法人信息 <%= link_to '编辑', edit_admins_company_owner_path(@company)%></div>
+	<div class="owner-first-item row">
+		<div class="col-md-3">
+			<% if @owner != nil && @owner.photo != nil %>
+				<%= image_tag @owner.photo, :width =>100, :height => 100 %>
+			<% end %>
+			<!-- display default image-->
+		</div>
+		<div class="col-md-3">
+			<div>法人姓名:
+				<% if @owner != nil && @owner.name != nil %>
+					<%= @owner.name %>
+				<% end %>
+			</div>
+			<div>法人介绍:
+				<% if @owner != nil && @owner.about != nil %>
+					<%= @owner.about %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>
+

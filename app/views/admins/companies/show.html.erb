@@ -1,5 +1,5 @@
 <div class="row admin-row">
-	<div class="well span2">
+	<div class="well col-md-2">
 		<ul class="nav nav-list">
 			<li class="nav-header">管理面板</li>
 			<li><%= link_to '首页管理', admins_manager_path %></li>
@@ -10,152 +10,32 @@
 			<li><a href="#">申请管理</a></li>
 		</ul>
 	</div>
-	<div class="span9">
+	<div class="col-md-9">
 		<ul class="breadcrumb">
-			<li><%= link_to '公司管理', admins_companies_path %><span class="divider">/</span></li>
-			<li><%= link_to @company.name, admins_company_path(@company)%><span class="divider">/</span></li>
+			<li><%= link_to '公司管理', admins_companies_path %></li>
+			<li><%= link_to @company.name, admins_company_path(@company)%></li>
 			<li class="active">详细信息</li>
 		</ul>
-		<div class="base-company">
-			<div class="base-company-header">公司基本信息 <%= link_to '编辑', edit_admins_company_path(@company) %></div>
-			<div class="base-first-item row">
-				<div class="span3">
-					<span>公司名称:<%= @company.name %></span>
-					<span>公司类别:<%= @company.category%></span>
-					<span>公司简介:<%= @company.about%></span>
-				</div>
-				<div class="span5">公司Logo:<%= image_tag @company.logo, :class => "img-polaroid", :width => 100, :height => 100 %></div>
-			</div>
+		<div class="adm-company-info-item">
+			<%= render "company_base_info" %>
 		</div>
-		<div class="contact-company">
-			<div class="contact-company-header">公司联系方式 <%= link_to '编辑', edit_admins_company_contact_path(@company)%></div>
-			<div class="contact-first-item row">
-				<div class="span3">座机:
-					<% if @contact !=nil && @contact.telephone != nil %>
-						<%= @contact.telephone %>
-					<% end %>
-				</div>
-				<div class="span3">手机:
-					<% if @contact !=nil && @contact.mobile != nil %>
-						<%= @contact.mobile%>
-					<% end %>
-				</div>
-			</div>
-			<div class="contact-second-item row">
-				<div class="span3">QQ:
-					<% if @contact != nil && @contact.qq != nil %>
-						<%= @contact.qq %>
-					<% end %>
-				</div>
-				<div class="span3">邮箱:
-					<% if @contact != nil && @contact.mail != nil %>
-						<%= @contact.mail%>
-					<% end %>
-				</div>
-			</div>
+		<div class="adm-company-info-item">
+			<%= render "contact_info" %>
 		</div>
-		<div class="address-company">
-			<div class="address-company-header">公司地址 <%= link_to '编辑', edit_admins_company_address_path(@company)%></div>
-			<div class="address-first-item">
-				<address>
-					<div>
-						<% if @address != nil %>
-							<%= ChinaCity.get(@address.province)%>
-							<% if !(@address.city.eql?"110100") && !(@address.city.eql?"110200") %>
-								<%=ChinaCity.get(@address.city)%>
-							<% end %>
-							<%=ChinaCity.get(@address.district)%>
-							<%=@address.street %>
-						<% end %>
-					</div>
-				</address>
-			</div>
+		<div class="adm-company-info-item">
+			<%= render "address_info" %>
 		</div>
-		<div class="owner-company">
-			<div class="owner-company-header">法人信息 <%= link_to '编辑', edit_admins_company_owner_path(@company)%></div>
-			<div class="owner-first-item row">
-				<div class="span3">
-					<% if @owner != nil && @owner.photo != nil %>
-						<%= image_tag @owner.photo, :width =>100, :height => 100 %>
-					<% end %>
-					<!-- display default image-->
-				</div>
-				<div class="span3">
-					<div>法人姓名:
-						<% if @owner != nil && @owner.name != nil %>
-							<%= @owner.name %>
-						<% end %>
-					</div>
-					<div>法人介绍:
-						<% if @owner != nil && @owner.about != nil %>
-							<%= @owner.about %>
-						<% end %>
-					</div>
-				</div>
-			</div>
+		<div class="adm-company-info-item">
+			<%= render "owner_info" %>
 		</div>
-		<div class="projects-company">
-			<div class="projects-company-header">
-				<span>工程列表</span><span><%= link_to '添加', new_admins_company_project_path(@company)%></span>
-			</div>
-			<div>
-				<ol>
-					<% if @projects != nil %>
-						<% @projects.each do |project| %>
-							<li><%= project.name %><%= link_to '编辑', edit_admins_company_project_path(@company,project)%></li>
-						<% end %>
-					<% end %>
-				</ol>
-			</div>
+		<div class="adm-company-info-item">
+			<%= render "projects_info" %>
 		</div>
-		<div class="demos-company">
-			<div class="demos-company-header">
-				<span>经典案例</span><span><%= link_to '添加', new_admins_company_demo_path(@company)%></span>
-			</div>
-			<div>
-				<ol>
-					<% if @demos != nil %>
-						<% @demos.each do |demo| %>
-							<li>
-								<%= image_tag demo.image, :width =>100, :height => 100 %>
-								<span><%= link_to '编辑', edit_admins_company_demo_path(@company)%></span>
-								<span><%= link_to '删除', '#'%></span>
-							</li>
-						<% end %>
-					<% end %>
-				</ol>
-			</div>
+		<div class="adm-company-info-item">
+			<%= render "demos_info" %>
 		</div>
-		<div class="demos-company">
-			<div class="demos-company-header">
-				<span>施工效果</span><span><%= link_to '添加', new_admins_company_doing_result_set_path(@company)%></span>
-			</div>
-			<div>
-				<ol>
-					<% if @doing_result_sets != nil %>
-						<% @doing_result_sets.each do |doing_result_set| %>
-							<li>
-								<span><%= doing_result_set.title %></span>
-								<span>
-									<%= link_to '添加效果图',new_admins_doing_result_set_doing_result_path(doing_result_set)%>
-								</span>
-								<span><%= link_to '编辑', edit_admins_company_doing_result_set_path(@company,doing_result_set)%></span>
-								<span>				
-									<%= link_to '删除', admins_company_doing_result_set_path(@company,doing_result_set), 
-														method: :delete, data: {confirm: "you sure?"}%></span>
-								<p>
-									<%= doing_result_set.describe %>
-								</p>
-								<ol>
-									<% doing_result_set.doing_results.each do |doing_result| %>
-										<%= image_tag doing_result.image_url(:thumb) if doing_result.image %>
-									<% end %>
-								</ol>
-							</li>
-						<% end %>
-					<% end %>
-				</ol>
-			</div>
+		<div>
+			<%= render "result_sets_info" %>
 		</div>
 	</div>
 </div>

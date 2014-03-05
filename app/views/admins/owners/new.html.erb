@@ -1,6 +1,6 @@
 <% provide(:title,'添加发人信息') %>
 <div class="row admin-row">
-	<div class="well span2">
+	<div class="well col-md-2">
 		<ul class="nav nav-list">
 			<li class="nav-header">管理面板</li>
 			<li><%= link_to '首页管理', admins_manager_path %></li>
@@ -11,7 +11,7 @@
 			<li><a href="#">申请管理</a></li>
 		</ul>
 	</div>
-	<div class="span6">
+	<div class="col-md-6">
 		<%= form_for(@owner, :url => admins_company_owner_path(@company)) do |f| %>
 			
 			<%= f.label :name, '姓名' %>

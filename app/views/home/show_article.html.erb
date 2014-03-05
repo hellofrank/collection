@@ -1,69 +1,61 @@
-<% provide(:title, '知识') %>
-<div class="row min-content">
-	<div class="article-title">
+<% provide(:title, @article.title) %>
+<% provide(:keywords, @article.keywords) %>
+<div class="cus-breadcrumb">
+	<ul class="breadcrumb">
+		<li><%= link_to '首页', root_path, :target=>'_blank'%></li>
+		<li><%= link_to @article.category, categorys_path(@article.category), :target=>'_blank'%></li>
+	</ul>
+</div>
+<div class="col-md-8">
+	<div class="show-article article-title">
 		<h4><%= @article.title %></h4>
 	</div>
-	<div class="row article-block">
-		<div class="span2 offset4 article-category">
-			<span>分类:</span><span><a href="#">家庭装修</a></span>
+	<div class="show-article article-block">
+		<div class="article-category">
+			<span>分类:</span><span><%= link_to @article.category,categorys_path(@article.category), :target=>'_blank'%></span>
 		</div>
-		<div class="span1 article-author">
+		<div class="article-author">
 			<span>作者:</span><span><a href="#">网络</a></span>
 		</div>
-		<div class="span2 article-time">
-			<span>发布时间:</span><span><a href="#"><%= @article.created_at.year %>-<%= @article.created_at.month %>-<%= @article.created_at.day %></a></span>
+		<div class="article-time">
+			<span>发布时间:</span>
+			<span><a href="#"><%= @article.created_at.year %>/<%= @article.created_at.month %>/<%= @article.created_at.day %></a></span>
 		</div>
 	</div>
-	<div>
-		<div class="span9 offset1 article-content">
+	<div class="show-article article-keywords">
+		<% if @keywords != nil && !@keywords.strip.empty?%>
+			<% @keywords.split("|").each do |keyword|%>
+				<a href="#"><%= keyword %></a>
+			<% end %>
+		<% end %>
+	</div>
+	<div class="show-article article-all-content">
+		<div class="article-content">
 			<%= @article.content.html_safe %>
 		</div>
-		<div class="span9 offset2 button-share">
-			<div>
-				<div class="sina-share">
-					<wb:share-button addition="simple" type="button"></wb:share-button>
-				</div>
-				<div class="qzone-share">
-					<script type="text/javascript">
-						(function(){
-						var p = {
-						url:location.href,
-						showcount:'0',/*是否显示分享总数,显示：'1'，不显示：'0' */
-						desc:'',/*默认分享理由(可选)*/
-						summary:'',/*分享摘要(可选)*/
-						title:'',/*分享标题(可选)*/
-						site:'',/*分享来源 如：腾讯网(可选)*/
-						pics:'', /*分享图片的路径(可选)*/
-						style:'103',
-						width:71,
-						height:22
-						};
-						var s = [];
-						for(var i in p){
-						s.push(i + '=' + encodeURIComponent(p[i]||''));
-						}
-						document.write(['<a version="1.0" class="qzOpenerDiv" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?',s.join('&'),'" target="_blank">分享</a>'].join(''));
-						})();
-					</script>
-					<script src="http://qzonestyle.gtimg.cn/qzone/app/qzlike/qzopensl.js#jsdate=20111201" charset="utf-8"></script>
-				</div>
+		<div class="button-share">
+			<!-- JiaThis Button BEGIN -->
+			<div class="jiathis_style">
+				<span class="jiathis_txt">分享到：</span>
+				<a class="jiathis_button_tools_1"></a>
+				<a class="jiathis_button_tools_2"></a>
+				<a class="jiathis_button_tools_3"></a>
+				<a class="jiathis_button_tools_4"></a>
+				<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+				<a class="jiathis_counter_style"></a>
 			</div>
+			<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1373774995105573" charset="utf-8"></script>
+			<!-- JiaThis Button END -->
 		</div>
-		<div id="comment-head" class="span9 row offset2">
-			<div id="comments-num" class="span6">共收到<%= @all_comments.count %>条评论</div>
-			<% if user_signed_in? %>
-				<div id="comment-post" class="span2">
-					<!--<button class="btn" type="button">我有话说</button>-->
-				</div>
-			<% else %>
-				<div id="comment-post" class="span2"><%= link_to '登录', new_user_session_path %>之后发表评论</div>
-			<% end %>
+		<div id="comment-head">
+			<div id="comments-num">共收到<%= @all_comments.count %>条评论</div>
 		</div>
 
 		<% @all_comments.each do |comment| %>
-			<div class="span9 comments">
+			<div class="comments">
 				<div>
-					<span><%= link_to comment.user.name, user_path(comment.user)%></span><span>在<%= comment.created_at.year %>-<%= comment.created_at.month %>-<%= comment.created_at.day %>说</span>
+					<span><%= link_to comment.user.name, user_path(comment.user)%></span>
+					<span>在<%= comment.created_at.year %>-<%= comment.created_at.month %>-<%= comment.created_at.day %>说</span>
 					<div class="comment-content"><%= comment.content %></div>
 				</div>	
 			</div>
@@ -71,11 +63,35 @@
 		<% if user_signed_in? %>
 			<div id="comment-edit">
 				<%= form_for [@article, @article.comments.build], :url => comment_create_path(@article) do |f| %>
-					<%= f.text_area :content, placeholder: "说点儿什么" %>
+					<div><%= f.text_area :content,size:"40x5",placeholder: "说点儿什么" %></div>
 					<!--<button id="comment-submit" class="btn" type="button">说完了</button>-->
-					<%= f.submit "说完了", class: "btn btn-large btn-primary" %>
+					<div id="comment-submit"><%= f.submit "说完了", class: "btn btn-large btn-primary" %></div>
 				<% end %>
 			</div>
+		<% else %>
+			<div id="comment-post"><%= link_to '登录', new_user_session_path %>之后发表评论</div>
 		<% end %>
+	</div>
+</div>
+<div class="col-md-3 index-article-slider">
+	<div class="newst-article">
+		<div class="newst-article-header">最新文章</div>
+		<div class="newst-article-content">
+			<ol>
+				<% @newst_articles.each do |newst_article| %>
+					<li><%= link_to newst_article.title , article_path(newst_article)%></li>
+				<% end %>
+			</ol>
+		</div>
+	</div>
+	<div class="command-article">
+		<div class="command-article-header">推荐文章</div>
+		<div class="command-article-content">
+			<ol>
+				<% @command_articles.each do |command_article| %>
+					<li><%= link_to command_article.title , article_path(command_article) %></li>
+				<% end %>
+			</ol>
+		</div>
 	</div>
 </div>

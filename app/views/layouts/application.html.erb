@@ -1,35 +1,35 @@
 <!DOCTYPE html>
-<html xmlns:wb="http://open.weibo.com/wb">
+<html>
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "花括号科技" %></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title><%= content_for?(:title) ? yield(:title)+" | 花括号科技" : "花括号科技" %></title>
+    <meta name="keywords" content="<%= content_for(:keywords) ? yield(:keywords) : "花括号科技" %>">
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "花括号科技" %>">
     <%= stylesheet_link_tag "application", :media => "all" %>
-	<%= javascript_include_tag "application" %>
-	<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
-	<%= csrf_meta_tags %>
+	  <%= javascript_include_tag "application" %>
+	  <%= csrf_meta_tags %>
     <%= yield(:head) %>
   </head>
   <body class="<%= controller_name %> <%= action_name %>">
-    <header class="navbar navbar-fixed-top">
-  		<nav class="navbar-inner"> 
-    		<div class="container">
-    			<%= render 'layouts/navigation' %>
-            </div>
-      </nav>
-    </header>
-    <div id="main" role="main" class="main">
-      <div class="container container-bg">
-        <div class="content">
-           <div class="row min-content">
-            <div class="span12" id="main-span">
-              <%= render 'layouts/messages' %>
-              <%= yield %>
-            </div>
-          </div>
-		  <%= render 'layouts/footer'%>
-        </div>
-      </div> <!--! end of .container -->
-    </div> <!--! end of #main -->
+	  <header class="navbar navbar-fixed-top" role="banner">
+	  <div class="container">
+		  <nav class="navbar navbar-default navbar-fixed-top" role="navigation"> 
+		  <div class="navbar-header braces-navbar-header">
+			  <%= render 'layouts/navigation' %>
+		  </div>
+		  </nav>
+	  </div>
+	  </header>
+	<div class="container container-bg">
+		<div class="content">
+			<div class="row min-content" id="margin-row">
+					<%= render 'layouts/messages' %>
+					<%= yield %>
+			</div>
+			<%= render 'layouts/footer'%>
+		</div>
+	</div> <!--! end of .container -->
   </body>
 </html>

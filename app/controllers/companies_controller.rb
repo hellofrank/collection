@@ -17,12 +17,12 @@ class CompaniesController < ApplicationController
   end
 
   def edit
-	@user = current_user
-	@company = Company.find(params[:id])
+    @user = current_user
+    @company = Company.find(params[:id])
   end
 
   def destroy
-	@user = current_user
+    @user = current_user
     @company = Company.find(params[:id])
     @company.destroy
   end

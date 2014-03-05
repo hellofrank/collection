@@ -27,6 +27,7 @@ Collection::Application.routes.draw do
   match '/companies/:id/demos' => "demos#get_demos", :as => :get_demos, :via => :get
   match '/companies/:id/results' => "doing_result_sets#get_results", :as => :get_results, :via => :get
   match '/demos/:id/' => "demos#show", :as => :demos, :via => :get
+  match '/categorys/:category' => "articles#get_categorys", :as => :categorys, :via => :get
   resources :articles
 
   namespace :admins do

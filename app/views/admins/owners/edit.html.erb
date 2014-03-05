@@ -1,6 +1,6 @@
 <% provide(:title, '更新法人信息') %>
 <div class="row admin-row">
-	<div class="well span2">
+	<div class="well col-md-2">
 		<ul class="nav nav-list">
 			<li class="nav-header">管理面板</li>
 			<li><%= link_to '首页管理', admins_manager_path %></li>
@@ -11,7 +11,7 @@
 			<li><a href="#">申请管理</a></li>
 		</ul>
 	</div>
-	<div class="span9">
+	<div class="col-md-6">
 		<ul class="breadcrumb">
 			<li><%= link_to '公司管理', admins_companies_path %><span class="divider">/</span></li>
 			<li><%= link_to @company.name, admins_company_path(@company)%><span class="divider">/</span></li>

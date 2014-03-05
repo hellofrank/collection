@@ -1,7 +1,7 @@
 <% provide(:title, '添加施工效果集') %>
 <h2>添加文章</h2>
 <div class="row admin-row">
-	<div class="well span2">
+	<div class="well col-md-2">
 		<ul class="nav nav-list">
 			<li class="nav-header">管理面板</li>
 			<li><%= link_to '首页管理', admins_manager_path %></li>
@@ -12,7 +12,7 @@
 			<li><a href="#">申请管理</a></li>
 		</ul>
 	</div>
-	<div class="span9">
+	<div class="col-md-9">
 		<%= form_for @doing_result_set, url: admins_company_doing_result_sets_path(@company) do |f| %>
 			
 			<%= f.label :title, '效果集标题' %>

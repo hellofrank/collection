@@ -1,6 +1,6 @@
 <% provide(:title, '更新联系方式') %>
 <div class="row admin-row">
-	<div class="well span2">
+	<div class="well col-md-2">
 		<ul class="nav nav-list">
 			<li class="nav-header">管理面板</li>
 			<li><%= link_to '首页管理', admins_manager_path %></li>
@@ -11,10 +11,10 @@
 			<li><a href="#">申请管理</a></li>
 		</ul>
 	</div>
-	<div class="span9">
+	<div class="col-md-6">
 		<ul class="breadcrumb">
-			<li><%= link_to '公司管理', admins_companies_path %><span class="divider">/</span></li>
-			<li><%= link_to @company.name, admins_company_path(@company)%><span class="divider">/</span></li>
+			<li><%= link_to '公司管理', admins_companies_path %></li>
+			<li><%= link_to @company.name, admins_company_path(@company)%></li>
 			<li class="active">编辑联系方式</li>
 		</ul>
 		<%= form_for(@contact, :url=>admins_company_contact_path(@company)) do |f| %>

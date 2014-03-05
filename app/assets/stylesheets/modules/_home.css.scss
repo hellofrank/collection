@@ -1,0 +1,98 @@
+//All style
+//这部分样式应该拿到单独的文件中
+html {
+  overflow-y:scroll;
+}
+body{
+  padding-top:60px;
+}
+
+section{
+  overflow:auto;
+}
+
+textarea{
+  resize: vertical;
+}
+
+.center{
+  text-align: center;
+}
+
+.center h1{
+  text-align: center;
+}
+
+h1,h2,h3,h4,h5,h6{
+  line-height: 1;
+}
+
+h1{
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h2{
+  font-size: 1.7em;
+  letter-spacing: -1px;
+  margin-bottom:30px;
+  text-align: center;
+  font-weight: normal;
+  color: #999;
+}
+
+p{
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
+
+//header 样式
+.braces-navbar-header{
+	margin-left:10%;
+}
+//content 样式
+#carousel-braces-generic{
+	width:1173px;
+}
+//footter 样式
+footer{
+  margin-top:45px;
+  padding-top:5px;
+  border-top: 1px solid #eaeaea;
+  color: #999;
+}
+
+footer a{
+  color: #555;
+}
+
+footer a:hover{
+  color: #222;
+}
+footer small{
+  float: left;
+}
+
+footer ul{
+  float:right;
+  list-style:none;
+}
+
+footer ul li{
+  float:left;
+  margin-left: 10px;
+}
+input, textarea, select, .uneditable-input{
+  border: 1px solid #bbb;
+  width: 100%;
+  padding: 10px;
+  height: auto !important;
+  margin-bottom: 15px;
+}
+
+.cus-home{
+	padding:0 15px;
+}
+

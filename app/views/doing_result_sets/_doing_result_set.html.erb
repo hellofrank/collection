@@ -1,12 +1,12 @@
 <% doing_result_set.doing_results.each_with_index do |doing_result,index| %>
 	<% if index == 0 %>
-		<li class="demo-content">
+		<div class="col-sm-6 col-md-4 demo-content">
 			<div class="thumbnail">
 				<%= image_tag doing_result.image_url(:over) , :width => 171, :height => 128 %>
 				<div class="caption">
 					<p><%= link_to doing_result_set.title, results_path(doing_result_set)%></p>
 				</div>
 			</div>
-		</li>
+		</div>
 	<% end %>
 <% end %>

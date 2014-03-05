@@ -1,6 +1,6 @@
 <% provide(:title, '创建公司') %>
 <div class="row admin-row">
-	<div class="well span2">
+	<div class="well col-md-2">
 		<ul class="nav nav-list">
 			<li class="nav-header">管理面板</li>
 			<li><%= link_to '首页管理', admins_manager_path %></li>
@@ -11,28 +11,26 @@
 			<li><a href="#">申请管理</a></li>
 		</ul>
 	</div>
-	<div class="span9">
-<div class="span6">
-	  <h3>创建公司</h3>
-	  <%= form_for(@company, :url => admins_companies_path,:html => {:multipart => true} ) do |f| %>
+	<div class="col-md-6">
+		<h3>创建公司</h3>
+		<%= form_for(@company, :url => admins_companies_path,:html => {:multipart => true} ) do |f| %>
 
-      <%= f.label :logo, 'Logo' %>
-      <%= f.file_field :logo %>
-      
-      <%= f.label :name, '公司名称' %>
-      <%= f.text_field :name %>
-      
-	  <%= f.label :category, '公司类别'%>
-	  <%= f.text_field :category %>
-	
-      <%= f.label :about, '公司简介' %>
-      <%= f.text_field :about %>
+			<%= f.label :logo, 'Logo' %>
+			<%= f.file_field :logo %>
 
-	  <%= f.label :service, '公司范围' %>
-	  <%= f.text_field :service %>
+			<%= f.label :name, '公司名称' %>
+			<%= f.text_field :name %>
 
-      <%= f.submit "创建", class: "btn btn-large btn-primary" %>
-    <% end %>
-</div>
-</div>
+			<%= f.label :category, '公司类别'%>
+			<%= f.text_field :category %>
+
+			<%= f.label :about, '公司简介' %>
+			<%= f.text_field :about %>
+
+			<%= f.label :service, '公司范围' %>
+			<%= f.text_field :service %>
+
+			<%= f.submit "创建", class: "btn btn-large btn-primary" %>
+		<% end %>
+	</div>
 </div>

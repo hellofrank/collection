@@ -8,17 +8,13 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require_self
- *= require_tree .
+ * require_self
+ * require_tree .
  */
- @import "bootstrap";
-.well{
-	padding: 2px !important;
-}
-.option{
-	padding: 3px;
-}
-
-#admin-logo{
-width:100px;
-}
+@import "bootstrap";
+@import "modules/home";
+@import "modules/article";
+@import "modules/company";
+@import "modules/result";
+@import "modules/admins/company";
+@import "modules/common";
