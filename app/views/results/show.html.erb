@@ -30,36 +30,34 @@
 			</div>
 		</div><!-- end row -->
 	</div><!--end row -->
+	<div id="request-ajax"><%= request.original_url %></div>
+	<div id="page-num"><%= @realPageNums %></div>
 	<div class="hozz-demo-wraper-div2">
-		<div class="div2" style="background-color:white;padding:40px 0 50px 50px;border:1px solid #E3E3E3; width:820px">
-			<div class="floatLeft">
-				<div id="sliderFrame">
-					<div id="slider">
-						<% @resultImages.each_with_index do | resultImage, index| %>
-							<% if index == 0%>
-								<%= image_tag resultImage.image_url, :alt=>"#slideshow-#{index+1}", :title=>"#{@results.describe}" %>
-							<% else %>
-								<b data-src=<%= resultImage.image_url%> data-alt=<%="#slideshow-#{index+1}"%>></b>
-							<% end %>  
+		<div id="gallary-wrap">
+			<div id="display-area">
+				<div>
+					<div class="caurse" id="left-caurse"><span id="left-control" class="glyphicon glyphicon-chevron-left control"></span></div>
+					<div class="caurse" id="right-caurse"><span id="right-control" class="glyphicon glyphicon-chevron-right control"></span></div>
+					<div class="current">
+						<%= image_tag @resultImages[0].image_url, :title=>"#{@results.describe}", :width=>"737", :height=>"320" %>
+					</div>
+				</div>
+			</div>
+			<div id="sm-gallary">
+				<ul id="sm-gallary-ul">
+					<% @resultImages.each_with_index do | resultImage, index| %>
+						<% if index == 0%>
+							<li class="sm-gallary-li<%=index%> sm-current" index="<%=index%>">
+							<%= image_tag resultImage.image_url, :width=>"119", :height=>"119" %>
+							</li>
+						<% else %>
+							<li class="sm-gallary-li<%=index%>" index="<%=index%>">
+								<%= image_tag resultImage.image_url, :width=>"119", :height=>"119"%>
+							</li>
 						<% end %>
-					</div>
-				</div>
-			</div>
-			<div class="floatLeft">    
-				<div id="mcts1">
-					<% @resultImages.each_with_index do |resultImage, index| %>
-						<%= image_tag resultImage.image_url, :width=>"100", :height=>"48" %>
 					<% end %>
-				</div>
+				</ul>
 			</div>
-			<div style="clear:both;"></div>  
-			<div style="display:none;">
-				<% @resultImages.each_with_index do |resultImage, index| %>
-					<div id=<%="slideshow-#{index+1}"%>>
-						<h3><%= resultImage.describe%></h3>
-					</div>
-				<% end %>
-			</div> 
 		</div>
 	</div>
 </div>

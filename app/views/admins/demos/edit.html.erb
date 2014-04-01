@@ -1,16 +1,6 @@
 <% provide(:title, '更新案例') %>
 <div class="row admin-row">
-	<div class="well col-md-2">
-		<ul class="nav nav-list">
-			<li class="nav-header">管理面板</li>
-			<li><%= link_to '首页管理', admins_manager_path %></li>
-			<li><%= link_to "用户管理", admins_users_path %></li>
-			<li class="active"><%= link_to '公司管理',admins_companies_path %></li>
-			<li><a href="#">知识管理</a></li>
-			<li><a href="#">笔记管理</a></li>
-			<li><a href="#">申请管理</a></li>
-		</ul>
-	</div>
+	<%= render "admins/admin_slider" %>
 	<div class="col-md-6">
 		<%= form_for(@demo,:url => admins_company_demo_path(@company)) do |f| %>
 			<%= f.label :title, "名称" %>
@@ -21,8 +11,9 @@
 
 			<%= f.label :introduction, "介绍" %>
 			<%= f.kindeditor :introduction %>
-
-			<%= f.submit "更新", class:"btn btn-large btn-primary" %>
-	    <% end %>
+			<div class="col-submit">
+				<%= f.submit "更新", class:"btn btn-large btn-primary" %>
+			</div>
+		<% end %>
 	</div>
 </div>

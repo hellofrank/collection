@@ -1,0 +1,11 @@
+<div class="command-article">
+	<div class="command-article-header">推荐文章</div>
+	<div class="command-article-content">
+		<ul>
+			<% @command_artilces.each do |command_article| %>
+				<li><%= link_to command_article.title , article_path(command_article) %></li>
+			<% end %>
+		</ul>
+	</div>
+</div>
+

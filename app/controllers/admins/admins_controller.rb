@@ -5,10 +5,6 @@
 	before_filter :authenticate_admin!
    	
  	def index
- 		#@admis = Admin.all
- 		#@users = User.all
- 		#@companies = Company.all
-		#@articles = Article.all
 		@indexImages = IndexImage.all
  	end
 

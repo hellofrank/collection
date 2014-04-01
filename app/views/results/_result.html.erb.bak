@@ -1,0 +1,10 @@
+<% if index == 0%>
+	<li class="sm-gallary-li<%=index%> sm-current" index="<%=index%>">
+	<%= image_tag resultImage.image_url, :width=>"119", :height=>"119" %>
+	</li>
+<% else %>
+	<li class="sm-gallary-li<%=index%>" index="<%=index%>">
+	<%= image_tag resultImage.image_url, :width=>"119", :height=>"119"%>
+	</li>
+<% end %>
+

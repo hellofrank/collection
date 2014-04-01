@@ -1,0 +1,6 @@
+<% if @category.errors.empty? %>
+	//alert("success");
+	window.location.reload();
+<% else %>
+	alert('@category.errors.full_messages.join(',')');
+<% end %>

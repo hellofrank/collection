@@ -1,0 +1,11 @@
+<div class="newst-article">
+	<div class="newst-article-header">最新文章</div>
+	<div class="newst-article-content">
+		<ul>
+			<% @newst_articles.each do |newst_article| %>
+				<li><%= link_to newst_article.title , article_path(newst_article)%></li>
+			<% end %>
+		</ul>
+	</div>
+</div>
+

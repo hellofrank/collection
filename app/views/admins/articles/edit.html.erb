@@ -1,17 +1,8 @@
 <% provide(:title, '更新文章') %>
 <h2>更新文章</h2>
 <div class="row admin-row">
-	<div class="well span2">
-		<ul class="nav nav-list">
-			<li class="nav-header">管理面板</li>
-			<li><a href="#">首页管理</a></li>
-			<li class="active"><a href="#">用户管理</a></li>
-			<li><a href="#">公司管理</a></li>
-			<li><a href="#">文章管理</a></li>
-		</ul>
-	</div>
-	
-	<div class="span9">
+	<%= render "admins/admin_slider" %>
+	<div class="col-md-6">
 		<%= form_for @article, url: admins_article_path, :html => {:multipart => true} do |f| %>
 			
 			<%= f.label :title, '标题' %>
@@ -21,7 +12,7 @@
 			<%= f.file_field :coverimage %>
 
 			<%= f.label :category, '类别' %>
-			<%=	f.text_field :category %>
+			<%=	collection_select :article, :category_id, @categories, :id, :category %>
 
 			<%= f.label :keywords, '关键字' %>
 			<%= f.text_field :keywords %>
@@ -29,7 +20,9 @@
 			<%= f.label :content, '内容'%>
 			<%= f.kindeditor :content %>
 
-			<%= f.submit "更新", class: "btn btn-large btn-primary" %>
+			<div class="col-submit">
+				<%= f.submit "更新", class: "btn btn-large btn-primary" %>
+			</div>
 		<% end %>
 	</div>
 	</div>

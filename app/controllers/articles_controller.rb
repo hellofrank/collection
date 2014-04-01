@@ -3,10 +3,19 @@ class ArticlesController < ApplicationController
 		@articles = Article.paginate(:page => params[:page], :per_page => 5)
 		@newst_articles = Article.limit(5)
 		@command_artilces = Article.limit(5)
+		@categories = Category.all
 	end
 
-	def get_categorys
-		@category_articles = Article.where("category=?", params[:category]).paginate(:page => params[:page], :per_page => 5)
+	def show
+		@article = Article.find(params[:id])
+		@newst_articles = Article.limit(7)
+		@command_articles = Article.limit(7)
+		@keywords = @article.keywords
+		@categories = Category.all
+		@command_artilces = Article.limit(5)
+		@newst_articles = Article.limit(5)
+		@category = @article.category
+		@all_comments = @article.comments
 	end
 
 end

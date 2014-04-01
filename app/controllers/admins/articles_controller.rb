@@ -12,6 +12,8 @@ class Admins::ArticlesController < ApplicationController
 	def new
 		#@admin = current_admin
 		@article = Article.new
+		@category = Category.new
+		@categories = Category.all
 	end
 
 	def create
@@ -26,6 +28,7 @@ class Admins::ArticlesController < ApplicationController
 	
 	def edit
 		@article = Article.find(params[:id])
+		@categories = Category.all
 	end
 
 	def update

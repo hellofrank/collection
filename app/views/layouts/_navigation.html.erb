@@ -15,7 +15,7 @@
   </div><!-- /.col-lg-6 -->
   <ul class="nav navbar-nav">
 	  <% if user_signed_in? %>
-			<li><%= link_to '写日记', new_log_path %></li>
+		  <li> <% link_to '写日记', new_user_log_path(current_user)%></li>
 			<li class="dropdown">
 			<a class="dropdown-toggle" data-toggle="dropdown" href="#"><%= current_user.name %>
 				<span class="caret"></span>

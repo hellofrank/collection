@@ -1,20 +1,10 @@
 <% provide(:title, '添加文章') %>
 <h2>添加文章</h2>
 <div class="row admin-row">
-	<div class="well col-md-2">
-		<ul class="nav nav-list">
-			<li class="nav-header">管理面板</li>
-			<li><%= link_to '首页管理', admins_manager_path %></li>
-			<li><%= link_to "用户管理", admins_users_path %></li>
-			<li><%= link_to '公司管理', admins_companies_path %></li>
-			<li class="active"><%= link_to '知识管理', admins_articles_path %></li>
-			<li><%= link_to '笔记管理', admins_logs_path %></li>
-			<li><a href="#">申请管理</a></li>
-		</ul>
-	</div>
+	<%= render "admins/admin_slider" %>
 	<div class="col-md-6">
 		<%= form_for @article, url: admins_articles_path,:html => {:multipart => true} do |f| %>
-			
+
 			<%= f.label :title, '标题' %>
 			<%= f.text_field :title %>
 
@@ -22,15 +12,52 @@
 			<%= f.file_field :coverimage %>
 
 			<%= f.label :category, '类别' %>
-			<%= f.text_field :category %>
+			<%= collection_select :article, :category_id, @categories, :id, :category %>
 
 			<%= f.label :keywords, '关键字' %>
 			<%= f.text_field :keywords %>
 
 			<%= f.label :content, '内容' %>
 			<%= f.kindeditor :content %>
-
-			<%= f.submit "添加", class: "btn btn-large btn-primary" %>
+			<div class="col-submit">
+				<%= f.submit "添加", class: "btn btn-large btn-primary" %>
+			</div>
 		<% end%>
+	</div>
+	<div class="col-md-3">
+		<div class="category-header">文章全部分类</div>
+		<%= form_for @category, url:admins_categories_path,remote:true, :class=>"article-category" do |f| %>
+			<%= f.label :category, '类别' %>
+			<%= f.text_field :category %>
+			<div class="col-submit">
+				<%= f.submit "添加", class: "btn btn-primary btn-small"%>
+			</div>
+		<% end %>
+		<!--
+		<div><input id="category-input" type="text"/></div>
+		<div id="category-add" class="btn btn-primary btn-small">添加</div>
+		-->
+		<table class="table table-bordered">
+			<thead>
+				<th>分类名称</th>
+				<th>操作</th>
+			</thead>
+			<% if @categories != nil %>
+				<% @categories.each do |category| %>
+					<tr>
+						<td><%= category.category %></td>
+						<td>
+							<span class="glyphicon glyphicon-trash"></span>
+							<span class="option"><%= link_to "删除", admins_category_path(category),
+								method: :delete, data: {confirm: "确定?"} %></span>
+						</td>
+					</tr>
+				<% end %>
+			<% else %>
+				<tr>
+					<td>还没有文章分类</td>
+				</tr>
+			<% end %>
+		</table>
 	</div>
 </div>

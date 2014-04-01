@@ -81,7 +81,7 @@
 							<% @doing_result_sets.each do |doing_result_set| %>
 								<% doing_result_set.doing_results.each_with_index do |doing_result,index| %>
 									<% if index == 0 %>
-										<div class="col-sm-3 col-md-3 wrap-thumbnail">
+										<div class="col-xs-6 col-md-3">
 											<div class="thumbnail">
 												<%= image_tag doing_result.image_url(:over) , :width => 171, :height => 128 %>
 												<div class="caption">

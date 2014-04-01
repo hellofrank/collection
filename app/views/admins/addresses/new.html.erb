@@ -1,16 +1,6 @@
 <% provide(:title, '添加地址') %>
 <div class="row admin-row">
-	<div class="well span2">
-		<ul class="nav nav-list">
-			<li class="nav-header">管理面板</li>
-			<li><%= link_to '首页管理', admins_manager_path %></li>
-			<li><%= link_to "用户管理", admins_users_path %></li>
-			<li class="active"><%= link_to '公司管理', admins_companies_path %></li>
-			<li><%= link_to '知识管理', admins_articles_path %></li>
-			<li><%= link_to '笔记管理', admins_logs_path %></li>
-			<li><a href="#">申请管理</a></li>
-		</ul>
-	</div>
+	<%= render "admins/admin_slider" %>
 	<%-
         provinces  = ChinaCity.list
         cities     = ChinaCity.list
@@ -25,7 +15,9 @@
 			    <%= f.select(:district,options_for_select(ChinaCity.list),{:prompt =>'--地区--'}, {:class => 'city-select city-district'} ) %>
 			</div>
 			<%= f.text_field :street %>
-			<%= f.submit "添加", class: "btn btn-large btn-primary" %>
+			<div class="col-submit">
+				<%= f.submit "添加", class: "btn btn-large btn-primary" %>
+			</div>
 	    <% end %>
 	</div>
 </div>

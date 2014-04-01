@@ -1,17 +1,5 @@
 class DemosController < ApplicationController
 
-	def new
-	end
-
-	def create
-	end
-
-	def edit
-	end
-
-	def update
-	end
-
 	def show
 		@demo = Demo.find(params[:id])
 		@company = @demo.company
@@ -25,6 +13,4 @@ class DemosController < ApplicationController
 		end
 	end
 
-	def destroy
-	end
 end

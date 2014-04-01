@@ -1,0 +1,2 @@
+<% #renders results/_result.html.erb %>
+$('#gallary-wrap').empty().prepend('<%=j render @resultImages %>');

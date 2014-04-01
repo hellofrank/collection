@@ -12,8 +12,10 @@
 #
 
 class Article < ActiveRecord::Base
-  attr_accessible :admin_id,:category_id, :content, :title, :category, :keywords, :coverimage
+  attr_accessible :admin_id,:category_id, :content, :title, :keywords, :coverimage
   mount_uploader :coverimage, LogoUploader
   #belongs_to :admin
+  belongs_to :category
+  #has_one :category
   has_many :comments
 end

@@ -38,7 +38,8 @@ class User < ActiveRecord::Base
          :confirmable, :lockable
 
   # setup accessible (or protected) attributes for your model
-  attr_accessible :name, :email, :password, :password_confirmation, :remember_me
+  attr_accessible :name, :email, :password, :password_confirmation, :current_password, :remember_me, :avatar
+  mount_uploader :avatar, AvatarUploader
   # attr_accessible :title, :body
   #has_one :company, dependent: :destroy
   validates_presence_of :name

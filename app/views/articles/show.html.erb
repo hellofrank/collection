@@ -3,7 +3,12 @@
 <div class="cus-breadcrumb">
 	<ul class="breadcrumb">
 		<li><%= link_to '首页', root_path, :target=>'_blank'%></li>
-		<li><%= link_to @article.category, categorys_path(@article.category), :target=>'_blank'%></li>
+		<li>
+			<% if @category != nil %>
+				<%= link_to @category.category, category_path(@category), :target=>'_blank'%>
+			<% else %>
+			<% end %>
+		</li>
 	</ul>
 </div>
 <div class="col-md-8">
@@ -12,7 +17,13 @@
 	</div>
 	<div class="show-article article-block">
 		<div class="article-category">
-			<span>分类:</span><span><%= link_to @article.category,categorys_path(@article.category), :target=>'_blank'%></span>
+			<span>分类:</span>
+			<span>
+				<% if @category != nil %>
+					<%= link_to @category.category,category_path(@category), :target=>'_blank'%>
+				<%else%>
+				<%end%>
+			</span>
 		</div>
 		<div class="article-author">
 			<span>作者:</span><span><a href="#">网络</a></span>
@@ -74,24 +85,7 @@
 	</div>
 </div>
 <div class="col-md-3 index-article-slider">
-	<div class="newst-article">
-		<div class="newst-article-header">最新文章</div>
-		<div class="newst-article-content">
-			<ol>
-				<% @newst_articles.each do |newst_article| %>
-					<li><%= link_to newst_article.title , article_path(newst_article)%></li>
-				<% end %>
-			</ol>
-		</div>
-	</div>
-	<div class="command-article">
-		<div class="command-article-header">推荐文章</div>
-		<div class="command-article-content">
-			<ol>
-				<% @command_articles.each do |command_article| %>
-					<li><%= link_to command_article.title , article_path(command_article) %></li>
-				<% end %>
-			</ol>
-		</div>
-	</div>
+	<%= render "newst_slider" %>
+	<%= render "category_slider" %>
+	<%= render "comment_slider" %>
 </div>

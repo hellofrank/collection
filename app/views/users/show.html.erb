@@ -1,25 +1,45 @@
 <div class="row">
-	<div class="span3"></div>
-	<div class="span6">
-		<div>会员信息</div>
-		<ol>
-			<li>Name:<%=@user.name%></li>
-			<li>Email:<%=@user.email%></li>
-		</ol>
-		<div>发布的文章</div>
-		<ol>
-		<% @logs.each do |log| %>
-			<li><%= link_to log.title ,log_path(log) %></li>
-		<% end %>
-		</ol>
-		<div>参与的评论</div>
-		<ol>
-		<% @comments.each do |comment| %>
-			<li><%= link_to comment.article.title, article_path(comment.article) %></li>
-			<span><%= comment.content %></span>
-		<% end %>
-		</ol>
+	<div class="col-md-6">
+		<div id="user-info">
+			<legend>会员信息</legend>
+			<% if @user.avatar.presence %>
+				<div id="user-img">
+					<%= image_tag @user.avatar, :width=>150, :height=>150 %>
+				</div>
+			<% else %>
+				<div id="user-img">
+					<img alt="defautl image", src="/user_default.png", width="150px", height="150px"/>
+				</div>
+			<% end %>
+			<div id="user-detial-info">
+				<div>昵称:<span><%=@user.name%></span></div>
+				<div>邮箱:<span><%=@user.email%></span></div>
+			</div>
+			<div id="user-info-clean">
+			</div>
+		</div>
+		<div id="user-pub-articles">
+			<legend>发布的文章</legend>
+			<div id="pub-articles-detial">
+				<ol>
+					<% @logs.each do |log| %>
+						<li><%= link_to log.title ,log_path(log) %></li>
+					<% end %>
+				</ol>
+			</div>
+		</div>
+		<div id="user-comment">
+			<legend>参与的评论</legend>
+			<div id="user-comment-detial">
+				<ol>
+					<% @comments.each do |comment| %>
+						<li><%= link_to comment.article.title, article_path(comment.article) %></li>
+						<span><%= comment.content %></span>
+					<% end %>
+				</ol>
+			</div>
+		</div>
 	</div>
 </div>
 
-	
+

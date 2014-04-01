@@ -1,0 +1,11 @@
+<div class="newst-article">
+	<div class="newst-article-header">文章分类</div>
+	<div class="newst-article-content">
+		<ul>
+			<% @categories.each do |category| %>
+				<li><%= link_to category.category, category_path(category)%><%= category.articles.count%></li>
+			<% end %>
+		</ul>
+	</div>
+</div>
+

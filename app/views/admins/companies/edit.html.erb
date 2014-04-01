@@ -1,24 +1,27 @@
 <% provide(:title, '更新公司信息') %>
 <div class="row admin-row">
+	<%= render "admins/admin_slider" %>
 	<div class="col-md-6">
 		<%= form_for(@company, :url => admins_company_path(@company),:html => {:multipart => true} ) do |f| %>
 
-      <%= f.label :logo, 'Logo' %>
-      <%= f.file_field :logo %>
-      
-      <%= f.label :name, '公司名称' %>
-      <%= f.text_field :name %>
-      
-	  <%= f.label :category, '公司类别'%>
-	  <%= f.text_field :category %>
-	
-      <%= f.label :about, '公司简介' %>
-      <%= f.text_field :about %>
+			<%= f.label :logo, 'Logo' %>
+			<%= f.file_field :logo %>
 
-	  <%= f.label :service, '服务范围'%>
-	  <%= f.text_field :service %>
+			<%= f.label :name, '公司名称' %>
+			<%= f.text_field :name %>
 
-      <%= f.submit "创建", class: "btn btn-large btn-primary" %>
-    <% end %>
+			<%= f.label :category, '公司类别'%>
+			<%= f.text_field :category %>
+
+			<%= f.label :about, '公司简介' %>
+			<%= f.text_field :about %>
+
+			<%= f.label :service, '服务范围'%>
+			<%= f.text_field :service %>
+
+			<div class="col-submit">
+				<%= f.submit "创建", class: "btn btn-large btn-primary" %>
+			</div>
+		<% end %>
 	</div>
 </div>	
