@@ -23,6 +23,7 @@
 #  failed_attempts        :integer          default(0)
 #  unlock_token           :string(255)
 #  locked_at              :datetime
+#  avatar                 :string(255)
 #
 
 class User < ActiveRecord::Base

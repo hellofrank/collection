@@ -37,7 +37,13 @@
 	<%= will_paginate @articles, :previous_label=>'上一页', :next_label=>'下一页' %>
 </div>
 <div class="col-md-3 index-article-slider">
-	<%= render "newst_slider" %>
-	<%= render "category_slider" %>
-	<%= render "comment_slider" %>
+	<% if @newst_articles != nil %>
+		<%= render "newst_slider" %>
+	<% end %>
+	<% if @categories != nil %>
+		<%= render "category_slider" %>
+	<% end %>
+	<% if @command_articles != nil %>
+		<%= render "comment_slider" %>
+	<% end %>
 </div>

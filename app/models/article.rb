@@ -2,13 +2,15 @@
 #
 # Table name: articles
 #
-#  id         :integer          not null, primary key
-#  title      :string(255)
-#  content    :text
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  category   :string(255)
-#  keywords   :string(255)
+#  id          :integer          not null, primary key
+#  title       :string(255)
+#  content     :text
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  keywords    :string(255)
+#  coverimage  :string(255)
+#  category_id :integer
+#  recommend   :boolean          default(FALSE)
 #
 
 class Article < ActiveRecord::Base

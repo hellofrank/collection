@@ -31,6 +31,13 @@ class Admins::ArticlesController < ApplicationController
 		@categories = Category.all
 	end
 
+	def updateRecommend
+		@article = Article.find(params[:id])
+		@article.recommend = params[:recommend]
+		@article.save
+		respond_to :js
+	end
+
 	def update
 		@article = Article.find(params[:id])
 		if @article.update_attributes(params[:article])

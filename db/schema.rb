@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140325014458) do
+ActiveRecord::Schema.define(:version => 20140403123114) do
 
   create_table "addresses", :force => true do |t|
     t.string   "province"
@@ -44,11 +44,12 @@ ActiveRecord::Schema.define(:version => 20140325014458) do
   create_table "articles", :force => true do |t|
     t.string   "title"
     t.text     "content"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
     t.string   "keywords"
     t.string   "coverimage"
     t.integer  "category_id"
+    t.boolean  "recommend",   :default => false
   end
 
   create_table "categories", :force => true do |t|

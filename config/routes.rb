@@ -38,6 +38,7 @@ Collection::Application.routes.draw do
     	match "users" => "admins#users"
     	#match "companies" => "companies#index", :as => :companies, :via => :get
     	match "/company/updateshow", to:'companies#updateshow'
+		match "/article/updaterecommend", to:'articles#updateRecommend'
     	resources :companies do
     		resource :address, :except =>[:show]
     		resource :contact,  :except =>[:show]

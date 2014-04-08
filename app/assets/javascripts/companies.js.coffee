@@ -2,14 +2,16 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 $(document).ready ->
-	$('#companyshow').bind 'change', (event) =>
+	$('.companyshow').bind 'change', (event) =>
 			#选中,后台数据的值更改为true
-			company_id = $("#companyid").text()
+			input = event.currentTarget
+			
+			companyId = input.name
 			$.ajax
 				url : "/admins/company/updateshow"
 				type : "POST"
 				dataType: "json"
-				data : {id:company_id, show: if $('#companyshow').is(':checked') then 1 else 0}
+				data : {id:companyId, show: if $(input).is(':checked') then 1 else 0}
 
 	
 	#init = (i) ->

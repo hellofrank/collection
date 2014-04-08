@@ -18,11 +18,10 @@
 							<td> <%= company.name %></td>
 							<td> <%= company.category %></td>
 							<td> 
-								<span id="companyid"><%= company.id%></span>
 								<% if company.show %>
-									<input type="checkbox" checked="true" name="isshow" id="companyshow"/>
+									<input type="checkbox" checked="true" name="<%= company.id %>" class="companyshow"/>
 								<% else %>
-									<input type="checkbox" name="isshow" id="companyshow">
+									<input type="checkbox" name="<%= company.id %>" class="companyshow"/>
 								<% end %>
 							</td>
 							<td>
