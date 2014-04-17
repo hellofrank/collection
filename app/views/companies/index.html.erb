@@ -14,7 +14,7 @@
 					<span>公司名称:</span><%= link_to company.name, company, :target=>"_blank" %>
 				</div>
 				<div class="company-owner">
-					<span>法人代表:</span><%= company.owner.name %>
+					<span>法人代表:</span><%= company.owner.name if company.owner%>
 				</div>
 				<div class="company-address">
 					<span>地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址:</span>
@@ -28,7 +28,7 @@
 					<% end %>
 				</div>
 				<div class="company-intro">
-					<span>公司简介:</span><%= company.about%>
+					<span>公司简介:</span><%= company.about if company.about%>
 				</div>
 				<div class="company-more"><%= link_to '了解更多>>', company, :target=>"_blank"%></div>
 			</div>

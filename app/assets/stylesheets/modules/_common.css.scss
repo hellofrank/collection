@@ -45,6 +45,19 @@ color:#FFFFFF !important;
   background-color: #FCC;
   border: solid 1px #C66;
 }
-.col-submit{
-	width:70px;
+.login-wrap-input > label{
+	font-weight: normal;
 }
+.register-wrap-input > label{
+	font-weight: normal;
+}
+.col-submit{
+	width:60px;
+}
+.input-remember{
+	width:17px;
+}
+.input-remember-label{
+	margin-right:387px;
+}
+

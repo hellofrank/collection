@@ -1,20 +1,22 @@
 <div class="col-md-6 col-md-offset-3">
 	<legend>登录</legend>
-	<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+	<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), html:{class: "well form-horizontal"}) do |f| %>
+		<div class="login-wrap-input" >
+			<%= f.label :email, '邮箱' %>
+			<%= f.text_field :email %>
+		</div>
+		<div class="login-wrap-input">
+			<%= f.label :password, '密码' %>
+			<%= f.password_field :password %>
+		</div>
+		<div class="login-wrap-input">
+			<%= f.check_box :remember_me , class: "input-remember"%>
+			<%= f.label 'remember_me', '记住我', class: "input-remember-label" %>
+			<%= f.submit "登录", class: "btn btn-large btn-primary col-submit" %>
+		</div>
 
-		<%= f.label :email, '邮箱' %>
-		<%= f.text_field :email %>
-
-		<%= f.label :password, '密码' %>
-		<%= f.password_field :password %>
-
-		<%= f.check_box :remember_me%>
-		<%= f.label 'remember_me', '记住我' %>
-
-
-		<div class="col-submit"><%= f.submit "登录", class: "btn btn-large btn-primary" %></div>
 	<% end %>
 
-	<div class="devise-shared"><%= render "devise/shared/links" %></div>
+	<div class="col-shared"><%= render "account/shared/links" %></div>
 </div>
 

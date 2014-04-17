@@ -1,7 +1,6 @@
-<% provide(:title, '经典案例') %>
+<% provide(:title, "花括号|"+@demo.title) %>
 <div class="row">
-	<div class="span2"></div>
-	<div class="span10">
+	<div class="col-md-8">
 		<div>
 			<ol class="breadcrumb">
 				<li><%= link_to '首页', root_path, :target=>'_blank'%></li>
@@ -10,8 +9,8 @@
 			</ol>
 		</div>
 		<div class="demo-title">
-			<%= @demo.title %>
+			<h4><%= @demo.title %></h4>
 		</div>
-		<div><%= sanitize @demo.introduction %></div>
+		<div class="demo-content"><%= sanitize @demo.introduction %></div>
 	</div>
 </div>

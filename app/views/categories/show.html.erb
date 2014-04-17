@@ -4,7 +4,7 @@
 		<ul class="breadcrumb">
 			<li><%= link_to '首页', root_path, :target=>'_blank'%></li>
 			<li><%= link_to '全部知识', articles_path, :target=>'_blank'%></li>
-			<li class="active"><%= @category.category %></li>
+			<li class="active"><%= @category.category if @actegory %></li>
 		</ul>
 	</div>
 	<div class="col-md-8">

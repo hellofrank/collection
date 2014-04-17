@@ -2,8 +2,8 @@
 	<div class="command-article-header">推荐文章</div>
 	<div class="command-article-content">
 		<ul>
-			<% @command_articles.each do |command_article| %>
-				<li><%= link_to command_article.title , article_path(command_article) %></li>
+			<% @recommend_articles.each do |recommend_article| %>
+				<li><%= link_to recommend_article.title , article_path(recommend_article) %></li>
 			<% end %>
 		</ul>
 	</div>

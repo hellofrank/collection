@@ -3,7 +3,11 @@
 	<div class="newst-article-content">
 		<ul>
 			<% @categories.each do |category| %>
-				<li><%= link_to category.category, category_path(category)%><%= category.articles.count%></li>
+				<li>
+					<%= link_to category_path(category), class:"slider-category" do%>
+						<%= category.category %><span><%= category.articles.count %></span>
+					<% end %>
+				</li>
 			<% end %>
 		</ul>
 	</div>
