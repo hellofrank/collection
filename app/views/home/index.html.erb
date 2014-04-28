@@ -1,93 +1,16 @@
 <div class="cus-home">
-<div id="carousel-braces-generic" class="carousel slide" data-ride="carousel">
-	<!-- Indicators -->
-	<ol class="carousel-indicators">
-		<% if @indexImages %>
-			<% @indexImages.each_with_index do |indexImage,index| %>
-				<% if index == 0 %>
-					<li data-target="#carousel-braces-generic" data-slide-to="0" class="active"></li>
-				<% else %>
-					<li data-target="#carousel-braces-generic" data-slide-to="<%=index%>"></li>
-				<% end %>
-			<% end %>
-		<% end %>
-	</ol>
-
-	<!-- Wrapper for slides -->
-	<div class="carousel-inner">
-		<% if @indexImages %>
-			<% @indexImages.each_with_index do |indexImage,index| %>
-				<% if index == 0 %>
-					<div class="item active">
-						<%= image_tag indexImage.image, class:"img-responsive", alt:"banner"%>
-						<div class="carousel-caption">
-							<%= indexImage.describe%>	
-						</div>
-					</div>
-				<% else %>
-					<div class="item">
-						<%= image_tag indexImage.image, class:"img-responsive", alt:"banner" %>
-						<div class="carousel-caption">
-							<%= indexImage.describe%>
-						</div>
-					</div>
-				<% end %>
-			<% end %>
-		<% end %>
-	</div>
-
-	<!-- Controls -->
-	<a class="left carousel-control" href="#carousel-braces-generic" data-slide="prev">
-		<span class="glyphicon glyphicon-chevron-left"></span>
-	</a>
-	<a class="right carousel-control" href="#carousel-braces-generic" data-slide="next">
-		<span class="glyphicon glyphicon-chevron-right"></span>
-	</a>
-</div>
-
-<div class="span6 recommend-company">
-	<div>推荐公司</div>
-	<div>
-		<% @all_companies.each do |company| %>
-			<p>
-			<%= link_to company.name, company_path(company.id), :target=>"_blank" %>
-			<%= company.created_at.year %>-<%= company.created_at.month %>-<%= company.created_at.day %>| <%= company.category%>|
-			<% if company.address != nil %>
-				<%= ChinaCity.get(company.address.province)%>
-				<% if !(company.address.city.eql?"110100") && !(company.address.city.eql?"110200") %>
-					<%=ChinaCity.get(company.address.city)%>
-				<% end %>
-				<%=ChinaCity.get(company.address.district)%>
-			<% end %>
-			</p>
-		<% end %>
-	</div>
-</div>
-
-<div class="span5">
-	<span>最近加入</span>
-	<% @recently_companies.each do |company| %>
-		<p>
-		<%= link_to company.name, company_path(company.id) %>|
-		<% if company.address != nil %>
-			<%= ChinaCity.get(company.address.province)%>
-			<% if !(company.address.city.eql?"110100") && !(company.address.city.eql?"110200") %>
-				<%=ChinaCity.get(company.address.city)%>
-			<% end %>
-			<%=ChinaCity.get(company.address.district)%>
-		<% end %>
-		</p>
+	<% if @indexImages != nil %>
+		<%= render "index_images" %>
 	<% end %>
-</div>
-
-<div class="span12 index-articles">
-	<span class="knowledge-title">装修知识</span>
-	<div class="inner-articles">
-		<% @recently_articles.each do |article| %>
-			<p class="index-title">
-			<%= link_to article.title, article_path(article) %> | <%= article.created_at.year %>-<%= article.created_at.month %>-<%= article.created_at.day %>
-			</p>
+	<div class="row cus-home-below">
+		<% if @recently_articles != nil %>
+			<%= render "knowledge" %>
 		<% end %>
+		<div id="index-about-braces" class="col-md-3">
+			<div class="index-about-braces-header">关于花括号</div>
+			<div class="index-about-braces-content">
+				这是一个全新的，一站式体验的装修类网站
+			</div>
+		</div>
 	</div>
-</div>
 </div>

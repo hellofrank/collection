@@ -17,3 +17,6 @@
 
 # Ignore all .secret
 /*.secret
+
+# Ignore Gemfile.lock
+/Gemfile.lock

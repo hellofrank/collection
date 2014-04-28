@@ -12,8 +12,6 @@ class ArticlesController < ApplicationController
 		@recommend_articles = Article.where('recommend' => true).limit(5)
 		@keywords = @article.keywords
 		@categories = Category.all
-		#@command_artilces = Article.limit(5)
-		#@newst_articles = Article.limit(5)
 		@category = @article.category
 		@all_comments = @article.comments
 	end

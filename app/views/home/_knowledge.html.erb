@@ -1,0 +1,33 @@
+<div class="index-articles col-md-8">
+	<div class="knowledge-title">今日最装修</div>
+	<div class="inner-articles">
+		<% @recently_articles.each do |article| %>
+			<div class="home-article-item">
+				<div class="home-article-image">
+					<% if article.coverimage.presence %>
+						<%= image_tag article.coverimage, :width=>310, :height=>190 %>
+					<% else %>
+						<img alt="default image" height="190" src="/other_default.png" width="310">
+					<% end %>
+				</div>
+				<div>
+					<div class="home-article-title"><%= link_to article.title, article, :target=>"_blank" %></div>
+					<div class="home-article-tag">
+						<span><%= article.created_at.year %>/<%= article.created_at.month %>/<%= article.created_at.day %> | </span>
+						<span>
+							<% if article.category != nil %>
+								<%= article.category.category%>
+							<% end %>
+							| </span>
+						<span><%= article.comments.count %> 条评论</span>
+					</div>
+					<div class="home-article-thubmil">
+						<%= truncate(strip_tags(article.content),length:150)%>
+						<div class="home-article-read-more"><%= link_to '阅读全文 >>', article, :target=>"_blank" %></div>
+					</div>
+				</div>				
+			</div>
+		<% end %>
+	</div>
+</div>
+
