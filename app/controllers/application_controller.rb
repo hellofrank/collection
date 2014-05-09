@@ -10,4 +10,5 @@ class ApplicationController < ActionController::Base
 		#new_user_session_path
 		root_path
 	end
+
 end

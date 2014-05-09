@@ -15,14 +15,14 @@
 		<% @indexImages.each_with_index do |indexImage,index| %>
 			<% if index == 0 %>
 				<div class="item active">
-					<%= image_tag indexImage.image, class:"img-responsive", alt:"banner"%>
+					<%= image_tag indexImage.image, class:"img-responsive", alt:"banner", width:"1173", height:"500"%>
 					<div class="carousel-caption">
 						<%= indexImage.describe%>	
 					</div>
 				</div>
 			<% else %>
 				<div class="item">
-					<%= image_tag indexImage.image, class:"img-responsive", alt:"banner" %>
+					<%= image_tag indexImage.image, class:"img-responsive", alt:"banner", width:"1173", height:"500" %>
 					<div class="carousel-caption">
 						<%= indexImage.describe%>
 					</div>

@@ -14,7 +14,8 @@
 			<%= f.label :category, '类别' %>
 			<%= collection_select :article, :category_id, @categories, :id, :category %>
 
-			<%= f.label :keywords, '关键字' %>
+      <%= f.label :keywords, '关键字' %>
+      <span>以"|"分割</span>
 			<%= f.text_field :keywords %>
 
 			<%= f.label :content, '内容' %>
