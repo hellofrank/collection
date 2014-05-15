@@ -12,6 +12,7 @@
 #
 
 class Demo < ActiveRecord::Base
+  default_scopte order: 'created_at desc'
   attr_accessible :company_id, :image, :introduction, :title
   mount_uploader :image, LogoUploader
   belongs_to :company

@@ -11,6 +11,7 @@
 #
 
 class DoingResult < ActiveRecord::Base
+  default_scope order: 'created_at desc'
   attr_accessible :describe, :doing_result_set_id, :image
   belongs_to :doing_result_set
   mount_uploader :image, ResultImageUploader

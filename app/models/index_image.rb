@@ -11,6 +11,7 @@
 #
 
 class IndexImage < ActiveRecord::Base
+  default_scope order: 'created_at desc'
   attr_accessible :describe, :image, :url
   mount_uploader :image, IndexImageUploader
 end

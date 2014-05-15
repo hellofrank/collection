@@ -14,6 +14,9 @@
 #
 
 class Article < ActiveRecord::Base
+
+  default_scope order: 'created_at desc'
+
   attr_accessible :admin_id,:category_id, :content, :title, :keywords, :coverimage
   mount_uploader :coverimage, LogoUploader
   #belongs_to :admin

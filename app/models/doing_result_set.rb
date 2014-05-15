@@ -11,6 +11,7 @@
 #
 
 class DoingResultSet < ActiveRecord::Base
+  default_scope order: 'created_at desc'
   attr_accessible :company_id, :describe, :title
   belongs_to :company
   has_many :doing_results,dependent: :destroy

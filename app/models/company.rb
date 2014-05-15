@@ -15,6 +15,7 @@
 #
 
 class Company < ActiveRecord::Base
+  default_scope order: 'created_at desc'
   attr_accessible :logo,:about, :name, :category, :service
   belongs_to :user
   belongs_to :admin
