@@ -11,10 +11,10 @@
 /db/*.sqlite3
 
 # Ignore all logfiles and tempfiles.
-/log/*.log
+log/*.log
 /tmp
 /public/uploads
-
+/public/uploads/
 # Ignore all .secret
 /*.secret
 

@@ -1,6 +1,8 @@
 #source 'http://rubygems.org'
 source 'http://ruby.taobao.org/'
 gem 'rails', '3.2.12'
+gem 'rack', '~>1.4.5'
+gem 'unicorn-rails', '2.0.0'
 gem 'jquery-rails','3.1.0'
 gem 'bootstrap-sass','3.1.1'
 # Bundle edge Rails instead:
@@ -32,14 +34,14 @@ gem 'simple_form','2.1.0'
 # in production environments by default.
 
 group :development, :test do
-  gem 'rspec-rails', '2.11.0'
-  gem 'annotate',	'2.6.0'
+ # gem 'rspec-rails', '2.11.0'
+ # gem 'annotate',	'2.6.0'
 end
 
 group :test do
-  gem 'selenium-webdriver', '2.35.1'
-  gem 'capybara', '2.1.0'
-  gem 'factory_girl_rails', '4.1.0'
+#  gem 'selenium-webdriver', '2.35.1'
+#  gem 'capybara', '2.1.0'
+#  gem 'factory_girl_rails', '4.1.0'
 end
 
 
