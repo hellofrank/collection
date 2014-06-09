@@ -13,12 +13,18 @@
 # Ignore all logfiles and tempfiles.
 log/*.log
 /tmp
+
 /public/uploads
-/public/uploads/
+/public/assets
+
 /config/application.rb
+/config/unicorn.rb
 /config/initializers/devise.rb
+
+/pids
 # Ignore all .secret
 /*.secret
+
 
 # Ignore Gemfile.lock
 /Gemfile.lock
