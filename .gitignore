@@ -15,6 +15,8 @@ log/*.log
 /tmp
 /public/uploads
 /public/uploads/
+/config/application.rb
+/config/initializers/devise.rb
 # Ignore all .secret
 /*.secret
 
