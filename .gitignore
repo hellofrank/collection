@@ -16,7 +16,7 @@ log/*.log
 
 /public/uploads
 /public/assets
-
+/public/sitemap.xml.gz
 /config/application.rb
 /config/unicorn.rb
 /config/initializers/devise.rb

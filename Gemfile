@@ -8,6 +8,7 @@ gem 'bootstrap-sass','3.1.1'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 gem 'devise','3.2.2'
+gem 'sitemap_generator', '5.0.4'
 gem 'china_city','0.0.4'
 #gem 'district_cn_selector'
 #gem 'china_regions'

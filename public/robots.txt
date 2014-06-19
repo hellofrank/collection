@@ -3,3 +3,18 @@
 # To ban all spiders from the entire site uncomment the next two lines:
 # User-Agent: *
 # Disallow: /
+
+User-Agent: *
+Disallow: /admins/
+Disallow: /config/
+Disallow: /public/uploads/
+Disallow: /db/
+Disallow: /doc/
+Disallow: /spec/
+Disallow: /test/
+Disallow: /tmp/
+Disallow: /log/
+Disallow: /vendor/
+Disallow: /lib/
+Disallow: /script/
+Sitemap: http://www.hua-kuohao.com/sitemap.xml.gz
