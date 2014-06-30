@@ -126,9 +126,12 @@ input, textarea, select, .uneditable-input{
 	color: #333;
 	text-transform: none;
 	font-weight: bold;
-	font-size: 13px;
+	font-size: 16px;
 	text-decoration: none;
 }
+.home-article-title > a:hover{
+  color:chocolate;
+} 
 .home-article-thubmil{
 	margin-bottom:10px;
 	font-size:13px;
